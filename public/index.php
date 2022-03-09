@@ -47,13 +47,6 @@ require __DIR__ . '/../vendor/autoload.php';
 
 $app = require_once __DIR__ . '/../bootstrap/app.php';
 
-\Unsplash\HttpClient::init([
-    'applicationId'    => 'Q8TcSBFxBOUuhMQC1-zOscFhlQQmmxfVaARh-bbxgu8',
-    'secret'    => 'LvHLyRlquuuetH_xt0N7NpFtwHewMqqZkDjufe-qkZU',
-    'callbackUrl'    => 'https://aircraft.bidule.fun/oauth/callback',
-    'utmSource' => 'visdon'
-]);
-
 $kernel = $app->make(Kernel::class);
 
 $response = $kernel->handle(

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use DOMDocument;
 
 
 class Incident extends Model
@@ -30,6 +31,10 @@ class Incident extends Model
         "gps_crash",
         "gps_start",
         "gps_end",
+    ];
+
+    protected $with = [
+        "images",
     ];
 
     protected function gpsCrash(): Attribute
@@ -58,6 +63,11 @@ class Incident extends Model
                 "lon" => $this->end_gps_lon,
             ],
         );
+    }
+
+    public function images()
+    {
+        return $this->hasMany(Image::class, 'crash_id', 'id');
     }
 
 
@@ -153,5 +163,70 @@ class Incident extends Model
     private function formatGPSURL($place)
     {
         return (str_replace("{{}}", urlencode($place), $this->urlGPS));
+    }
+
+    public function setImage()
+    {
+
+        /* $nbrImageToKeep = 5;
+
+        $url = "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/ImageSearchAPI?q={{}}&pageNumber=1&pageSize=$nbrImageToKeep&autoCorrect=true";
+
+        $url = str_replace("{{}}", urlencode($this->Aircaft_Model . " plane aircraft"), $url);
+
+
+        //dd($url);
+
+        //dd($url);
+
+        $res = Http::withHeaders([
+            'x-rapidapi-host' => 'contextualwebsearch-websearch-v1.p.rapidapi.com',
+            'x-rapidapi-key' => '1e75c99c2fmsh4ab4e0c53ab1d16p1b9b70jsn09c6d64f72be'
+        ])->get($url); */
+
+
+
+
+
+
+        /* $search = $this->Aircaft_Model . " " . $this->Aircaft_Registration . " " . $this->Aircaft_Operator;
+        //dd($search);
+        $page = 3;
+        $per_page = 10;
+        $orientation = 'landscape';
+
+        $res = \Unsplash\Search::photos($search, $page, $per_page, $orientation);
+
+        $datas = $res->getResults(); */
+
+
+
+        $search = $this->Aircaft_Model . " " . $this->Aircaft_Registration . " " . $this->Aircaft_Operator;
+        $url = "https://www.google.com/search?tbm=isch&q=" . urlencode($search);
+
+        $doc = new DOMDocument();
+
+        libxml_use_internal_errors(true);
+        $doc->loadHTMLFile($url);
+        libxml_use_internal_errors(false);
+
+        $tagsImg = $doc->getElementsByTagName("img");
+
+        $images = [];
+
+        for ($i = 0; $i < 10; $i++) {
+            $img = $tagsImg->item($i);
+            if ($img) {
+                $src = $img->getAttribute('src');
+
+                if (str_starts_with($src, "http")) {
+                    $im = new Image();
+                    $im->url = $src;
+                    $images[] = $im;
+                }
+            }
+        }
+
+        $this->images()->saveMany($images);
     }
 }

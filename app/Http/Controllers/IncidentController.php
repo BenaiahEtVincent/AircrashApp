@@ -29,4 +29,11 @@ class IncidentController extends Controller
 
         return response()->json($incidents);
     }
+
+    public function setImage($id)
+    {
+        $incident = Incident::findOrFail($id);
+
+        $incident->setImage();
+    }
 }

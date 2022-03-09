@@ -21,3 +21,6 @@ Route::get('/', function () {
 Route::get("/incidents/{year?}/{month?}/{day?}", [IncidentController::class, "index"])
     ->where('year', "19[0-9][0-9]|20[0-2][0-9]")
     ->name("incidents-list");
+
+
+Route::get("/incident/{id}/image", [IncidentController::class, "setImage"])->name("incident-set-image");

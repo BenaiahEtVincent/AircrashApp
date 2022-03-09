@@ -18,4 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get("/incidents", [IncidentController::class, "index"])->name("incidents-list");
+Route::get("/incidents/{year?}/{month?}/{day?}", [IncidentController::class, "index"])
+    ->where('year', "19[0-9][0-9]|20[01][0-9]|202[0-2]")
+    ->name("incidents-list");

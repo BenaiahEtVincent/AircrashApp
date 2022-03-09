@@ -5,12 +5,48 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Database\Eloquent\Casts\Attribute;
+
 
 class Incident extends Model
 {
     use HasFactory;
 
     protected $table = "Aircraft_Incident_Dataset";
+
+    protected $appends = [
+        "gps_crash",
+        "gps_start",
+        "gps_end",
+    ];
+
+    protected function gpsCrash(): Attribute
+    {
+        return new Attribute(
+            get: fn () => [
+                "lat" => $this->incident_gps_lat,
+                "lon" => $this->incident_gps_lon,
+            ],
+        );
+    }
+    protected function gpsStart(): Attribute
+    {
+        return new Attribute(
+            get: fn () => [
+                "lat" => $this->depart_gps_lat,
+                "lon" => $this->depart_gps_lon,
+            ],
+        );
+    }
+    protected function gpsEnd(): Attribute
+    {
+        return new Attribute(
+            get: fn () => [
+                "lat" => $this->end_gps_lat,
+                "lon" => $this->end_gps_lon,
+            ],
+        );
+    }
 
 
     public function cleanDate()

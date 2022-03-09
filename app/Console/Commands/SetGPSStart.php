@@ -39,8 +39,10 @@ class SetGPSStart extends Command
      */
     public function handle()
     {
-        $incidents = Incident::all();
+        $incidents = Incident::where("id", ">=", 5000)->get();
         $bar = $this->output->createProgressBar(count($incidents));
+        $bar->setFormat('very_verbose');
+
         $bar->start();
 
         foreach ($incidents as $i) {

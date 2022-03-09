@@ -80,7 +80,17 @@ class Incident extends Model
     }
     public function setGPSCrash()
     {
-        $url = ($this->formatGPSURL($this->Incident_Location));
+        $name = strtolower($this->Incident_Location);
+
+        $name = str_replace("ai...", "airport", $name);
+        $name = str_replace("air...", "airport", $name);
+        $name = str_replace("airp...", "airport", $name);
+        $name = str_replace("airpo...", "airport", $name);
+        $name = str_replace("airpor...", "airport", $name);
+        $name = str_replace("airport...", "airport", $name);
+        $this->Incident_Location = $name;
+
+        $url = ($this->formatGPSURL($name));
         //dd($url);
         $res = Http::get($url);
         $json = json_decode($res->body())[0];

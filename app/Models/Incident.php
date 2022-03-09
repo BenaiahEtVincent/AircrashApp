@@ -14,6 +14,18 @@ class Incident extends Model
 
     protected $table = "Aircraft_Incident_Dataset";
 
+    protected $hidden = [
+        "incident_gps_lat",
+        "incident_gps_lon",
+        "depart_gps_lat",
+        "depart_gps_lon",
+        "end_gps_lat",
+        "end_gps_lon",
+        "created_at",
+        "updated_at",
+        "Incident_Date",
+    ];
+
     protected $appends = [
         "gps_crash",
         "gps_start",

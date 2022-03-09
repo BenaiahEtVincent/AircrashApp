@@ -2,7 +2,6 @@
 
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Request;
-use \Unsplash;
 
 define('LARAVEL_START', microtime(true));
 

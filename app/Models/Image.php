@@ -15,6 +15,7 @@ class Image extends Model
 
     protected $hidden = [
         "url",
+        "local_url",
         "created_at",
         "updated_at",
 

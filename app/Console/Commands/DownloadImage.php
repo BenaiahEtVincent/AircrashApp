@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Models\Incident;
+use Exception;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Storage;
 
@@ -51,12 +52,16 @@ class DownloadImage extends Command
         foreach ($incidents as $incident) {
             foreach ($incident->images as $img) {
                 if (!$img->local_url) {
-                    $url = $img->url;
-                    $data = file_get_contents($url);
-                    $path = "/planes/" . $incident->id . "/" . $img->id . ".jpg";
-                    Storage::put("public" . $path, $data);
-                    $img->local_url = "/storage" . $path;
-                    $img->update();
+                    try {
+                        $url = $img->url;
+
+                        $data = file_get_contents($url);
+                        $path = "/planes/" . $incident->id . "/" . $img->id . ".jpg";
+                        Storage::put("public" . $path, $data);
+                        $img->local_url = "/storage" . $path;
+                        $img->update();
+                    } catch (Exception $e) {
+                    }
                 }
             }
             $bar->advance();

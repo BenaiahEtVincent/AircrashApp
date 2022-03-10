@@ -31,8 +31,11 @@ class IncidentController extends Controller
 
         $imgIndex = 0;
 
-        $url = $incident->images[$imgIndex]->url;
-        $data = file_get_contents($url);
-        Storage::put("public/planes/" . $incident->id . "/" . $incident->images[$imgIndex]->id . ".jpg", $data);
+        $url = $incident->images[$imgIndex]->local_url;
+
+        echo "<img src='$url'>";
+
+
+        dd($url);
     }
 }

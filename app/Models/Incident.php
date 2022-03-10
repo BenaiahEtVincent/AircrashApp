@@ -70,6 +70,13 @@ class Incident extends Model
         return $this->hasMany(Image::class, 'crash_id', 'id');
     }
 
+    public function scopeWorkable($query)
+    {
+        return $query->where('incident_gps_lat', "!=", null)
+            ->where('depart_gps_lat', "!=", null)
+            ->where('end_gps_lat', "!=", null);
+    }
+
 
     public function cleanDate()
     {

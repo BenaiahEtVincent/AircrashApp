@@ -39,7 +39,8 @@ class SetImage extends Command
     public function handle()
     {
 
-        $incidents = Incident::all();
+        ini_set('memory_limit', '-1');
+        $incidents = Incident::where('id', '>=', 1263)->get();
         $bar = $this->output->createProgressBar(count($incidents));
         $bar->setFormat('very_verbose');
 

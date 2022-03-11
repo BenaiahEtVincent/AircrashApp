@@ -13,15 +13,15 @@ class Incident extends Model
 {
     use HasFactory;
 
-    protected $table = "Aircraft_Incident_Dataset";
+    protected $table = "crashs";
 
     protected $hidden = [
         "incident_gps_lat",
         "incident_gps_lon",
         "depart_gps_lat",
         "depart_gps_lon",
-        "end_gps_lat",
-        "end_gps_lon",
+        "destination_gps_lat",
+        "destination_gps_lon",
         "created_at",
         "updated_at",
         "Incident_Date",
@@ -29,40 +29,64 @@ class Incident extends Model
 
     protected $appends = [
         "gps_crash",
-        "gps_start",
-        "gps_end",
+        "gps_depart",
+        "gps_destination",
+        "deaths",
+        "occupations"
     ];
 
     protected $with = [
         "images",
     ];
 
-    protected function gpsCrash(): Attribute
+    protected function getGpsCrashAttribute()
     {
-        return new Attribute(
-            get: fn () => [
-                "lat" => $this->incident_gps_lat,
-                "lon" => $this->incident_gps_lon,
-            ],
-        );
+        return  [
+            "lat" => $this->incident_gps_lat,
+            "lon" => $this->incident_gps_lon,
+        ];
     }
-    protected function gpsStart(): Attribute
+    protected function getGpsDepartAttribute()
     {
-        return new Attribute(
-            get: fn () => [
-                "lat" => $this->depart_gps_lat,
-                "lon" => $this->depart_gps_lon,
-            ],
-        );
+        return [
+            "lat" => $this->depart_gps_lat,
+            "lon" => $this->depart_gps_lon,
+        ];
     }
-    protected function gpsEnd(): Attribute
+    protected function getGpsDestinationAttribute()
     {
-        return new Attribute(
-            get: fn () => [
-                "lat" => $this->end_gps_lat,
-                "lon" => $this->end_gps_lon,
+        return [
+            "lat" => $this->destination_gps_lat,
+            "lon" => $this->destination_gps_lon,
+        ];
+    }
+
+    protected function getDeathsAttribute()
+    {
+        $onBoardCrew = (int)explode("/", explode("Fatalities:", $this->onboard_crew)[1])[0];
+        $onBoardPassengers = (int)explode("/", explode("Fatalities:", $this->onboard_passengers)[1])[0];
+
+
+        return [
+            "on_board" => [
+                "crew" => $onBoardCrew,
+                "passengers" => $onBoardPassengers,
+                "total" => $onBoardPassengers + $onBoardCrew
             ],
-        );
+            "total" => $this->fatalities
+        ];
+    }
+
+    protected function getOccupationsAttribute()
+    {
+        $onBoardCrew = (int) explode("Occupants:", $this->onboard_crew)[1];
+        $onBoardPassengers = (int) explode("Occupants:", $this->onboard_passengers)[1];
+
+        return [
+            "crew" => $onBoardCrew,
+            "passengers" => $onBoardPassengers,
+            "total" => $onBoardPassengers + $onBoardCrew
+        ];
     }
 
     public function images()
@@ -74,10 +98,10 @@ class Incident extends Model
     {
         return $query->where('incident_gps_lat', "!=", null)
             ->where('depart_gps_lat', "!=", null)
-            ->where('end_gps_lat', "!=", null);
+            ->where('destination_gps_lat', "!=", null);
     }
 
-
+    /* 
     public function cleanDate()
     {
         $dateSplit = explode("-", $this->Incident_Date);
@@ -92,7 +116,7 @@ class Incident extends Model
         $datetime = new \DateTime();
         $datetime->setDate($year, $month, $day);
         $datetime->setTime($hour, $minute);
-        $this->incident_date_updated = $datetime;
+        $this->date = $datetime;
         $this->update();
     }
 
@@ -123,8 +147,8 @@ class Incident extends Model
         $json = json_decode($res->body())[0];
         $lat  = ($json->lat);
         $lon  = ($json->lon);
-        $this->end_gps_lat = $lat;
-        $this->end_gps_lon = $lon;
+        $this->destination_gps_lat = $lat;
+        $this->destination_gps_lon = $lon;
 
         $this->update();
     }
@@ -196,7 +220,7 @@ class Incident extends Model
 
 
 
-        /* $search = $this->Aircaft_Model . " " . $this->Aircaft_Registration . " " . $this->Aircaft_Operator;
+    /* $search = $this->Aircaft_Model . " " . $this->Aircaft_Registration . " " . $this->Aircaft_Operator;
         //dd($search);
         $page = 3;
         $per_page = 10;
@@ -204,7 +228,7 @@ class Incident extends Model
 
         $res = \Unsplash\Search::photos($search, $page, $per_page, $orientation);
 
-        $datas = $res->getResults(); */
+        $datas = $res->getResults(); 
 
 
 
@@ -235,5 +259,5 @@ class Incident extends Model
         }
 
         $this->images()->saveMany($images);
-    }
+    } */
 }

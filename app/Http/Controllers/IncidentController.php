@@ -10,15 +10,14 @@ use Illuminate\Support\Facades\Storage;
 
 class IncidentController extends Controller
 {
-    public function index($year = null, $month = null, $day = null)
+    public function index($year, $month = null, $day = null)
     {
         $incidents = Incident::workable()
-            ->when($year != null, function ($q) use ($year) {
-                return $q->whereYear('incident_date_updated', $year);
-            })->when($month != null, function ($q) use ($month) {
-                return $q->whereMonth('incident_date_updated', $month);
+            ->whereYear('crash_date', $year)
+            ->when($month != null, function ($q) use ($month) {
+                return $q->whereMonth('crash_date', $month);
             })->when($day != null, function ($q) use ($day) {
-                return $q->whereDay('incident_date_updated', $day);
+                return $q->whereDay('crash_date', $day);
             })->get();
 
 

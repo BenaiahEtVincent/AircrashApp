@@ -5,7 +5,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     <title>Interactive Map</title>
-    <script src="{{ asset('js/app.js') }}"></script>
     <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Yanone+Kaffeesatz:200" rel="stylesheet">
     <style>
         body {
@@ -94,5 +93,8 @@
         <button class="unfocus">Unfocus</button>
     </div>
 </body>
+
+<script src="{{ asset('js/app.js') }}"></script>
+
 
 </html>

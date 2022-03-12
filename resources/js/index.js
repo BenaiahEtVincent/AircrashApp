@@ -3,6 +3,7 @@
  import * as d3 from "d3";
  import * as $ from "jquery";
 
+ console.log("test");
 
  // DEFINE VARIABLES
  // Define size of map group
@@ -168,6 +169,7 @@
  function initCrash() {
      const url = 'https://aircraft.bidule.fun/api/incidents/' + year;
      d3.json(url, function(json) {
+         console.log(json)
 
          crashs.selectAll("image").remove();
 
@@ -215,6 +217,8 @@
  }
 
  let inputYear = d3.select('#rangeYear input');
+
+ console.log("inputYear", inputYear);
  inputYear.attr("min", 1900);
  inputYear.attr("max", 2022);
  inputYear.attr("value", 2022);
@@ -234,12 +238,14 @@
  d3.json(
      "https://aircraft.bidule.fun/api/maps",
      function(json) {
+
          //Bind data and create one path per GeoJSON feature
 
 
          countriesGroup = svg.append("g").attr("id", "map");
          crashs = svg.append("g").attr("id", "crashs");
          airportsStart = svg.append("g").attr("id", "airportStart");
+
 
          // add a background rectangle
          countriesGroup
@@ -248,6 +254,7 @@
              .attr("y", 0)
              .attr("width", w)
              .attr("height", h);
+
 
          // draw a path for each feature/country
          countries = countriesGroup
@@ -331,9 +338,10 @@
              });
 
 
-         initCrash();
 
          initiateZoom();
+         initCrash();
+
 
      }
  );

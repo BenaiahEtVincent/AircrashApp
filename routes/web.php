@@ -24,3 +24,5 @@ Route::get("/incidents/{year?}/{month?}/{day?}", [IncidentController::class, "in
 
 
 Route::get("/incident/{id}/image", [IncidentController::class, "setImage"])->name("incident-set-image");
+
+Route::get("/maps", [IncidentController::class, "maps"])->name("maps");

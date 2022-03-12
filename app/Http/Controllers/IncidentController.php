@@ -37,4 +37,9 @@ class IncidentController extends Controller
 
         dd($url);
     }
+
+    public function maps()
+    {
+        return Storage::get("map.json");
+    }
 }

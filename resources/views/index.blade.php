@@ -5,12 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     <title>Interactive Map</title>
-    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Yanone+Kaffeesatz:200" rel="stylesheet">
     <style>
         body {
             margin: 0;
             background-color: #2A2C39;
-            font-family: 'Yanone Kaffeesatz', sans-serif;
+            font-family: 'Helvetica', sans-serif;
             font-weight: 200;
             font-size: 17px;
             width: 100%;

@@ -2212,7 +2212,7 @@ __webpack_require__.r(__webpack_exports__);
 //import * as jquery from "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js";
 
 
-console.log("test"); // DEFINE VARIABLES
+var baseurl = window.location + "api"; // DEFINE VARIABLES
 // Define size of map group
 // Full world map is 2:1 ratio
 // Using 12:5 because we will crop top and bottom of map
@@ -2331,7 +2331,7 @@ var svg = d3__WEBPACK_IMPORTED_MODULE_0__.select("#map-holder").append("svg") //
 var year = 2022;
 
 function initCrash() {
-  var url = 'https://aircraft.bidule.fun/api/incidents/' + year;
+  var url = baseurl + '/incidents/' + year;
   d3__WEBPACK_IMPORTED_MODULE_0__.json(url, function (json) {
     console.log(json);
     crashs.selectAll("image").remove();
@@ -2366,7 +2366,7 @@ inputYear.on("change", function () {
   initCrash();
 }); // get map data
 
-d3__WEBPACK_IMPORTED_MODULE_0__.json("https://aircraft.bidule.fun/api/maps", function (json) {
+d3__WEBPACK_IMPORTED_MODULE_0__.json(baseurl + "/maps", function (json) {
   //Bind data and create one path per GeoJSON feature
   countriesGroup = svg.append("g").attr("id", "map");
   crashs = svg.append("g").attr("id", "crashs");

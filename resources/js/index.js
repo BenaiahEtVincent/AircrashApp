@@ -3,7 +3,7 @@
  import * as d3 from "d3";
  import * as $ from "jquery";
 
- console.log("test");
+ const baseurl = window.location + "api";
 
  // DEFINE VARIABLES
  // Define size of map group
@@ -167,7 +167,7 @@
  let year = 2022;
 
  function initCrash() {
-     const url = 'https://aircraft.bidule.fun/api/incidents/' + year;
+     const url = baseurl + '/incidents/' + year;
      d3.json(url, function(json) {
          console.log(json)
 
@@ -236,7 +236,7 @@
 
  // get map data
  d3.json(
-     "https://aircraft.bidule.fun/api/maps",
+     baseurl + "/maps",
      function(json) {
 
          //Bind data and create one path per GeoJSON feature

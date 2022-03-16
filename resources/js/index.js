@@ -386,6 +386,7 @@
 
 
 
+
  function focusAndDisplayAirport(crash) { // pour moi
      console.log(crash.gps_crash, crash.gps_depart);
 

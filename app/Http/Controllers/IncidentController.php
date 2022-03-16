@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Incident;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Storage;
 
 
@@ -36,6 +37,23 @@ class IncidentController extends Controller
 
 
         dd($url);
+    }
+
+    public function search($input)
+    {
+        $query = Incident::query();
+        $columns = Schema::getColumnListing('crashs');
+
+        if ($time = strtotime($input)) {
+            $input = date("Y-m-d", $time);
+        }
+
+        foreach ($columns as $column) {
+            $query->orWhere($column, 'LIKE', '%' . $input . '%');
+        }
+        $incidents = $query->get();
+
+        return response()->json($incidents);
     }
 
     public function maps()

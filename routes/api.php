@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\IncidentController;
+use App\Models\Incident;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -27,5 +28,7 @@ Route::get("/incidents/{year}/{month?}/{day?}", [IncidentController::class, "ind
     ->name("incidents-list");
 
 Route::get("/maps", [IncidentController::class, "maps"])->name("maps");
+
+Route::get("search/{input}", [IncidentController::class, "search"])->name("search");
 
 //Route::get("/incident/{id}/image", [IncidentController::class, "setImage"])->name("incident-set-image");

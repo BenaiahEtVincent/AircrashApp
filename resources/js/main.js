@@ -4,7 +4,7 @@
  import * as $ from "jquery";
  import { list } from "postcss";
 
- const baseurl = window.location + "api";
+ const baseurl = "https://aircraft.bidule.fun/api";
 
  // DEFINE VARIABLES
  // Define size of map group

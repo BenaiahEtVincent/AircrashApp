@@ -496,7 +496,7 @@
  }
 
 
- d3.select("#searchBar input").on("input", function() {
+ d3.select("#searchBar input").on("change", function() {
      console.log(this.value);
      displayButtonCloseSearchBar(true);
 

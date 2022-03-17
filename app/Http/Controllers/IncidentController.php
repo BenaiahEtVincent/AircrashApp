@@ -51,7 +51,7 @@ class IncidentController extends Controller
         foreach ($columns as $column) {
             $query->orWhere($column, 'LIKE', '%' . $input . '%');
         }
-        $incidents = $query->workable()->get();
+        $incidents = $query->get();
 
         return response()->json($incidents);
     }

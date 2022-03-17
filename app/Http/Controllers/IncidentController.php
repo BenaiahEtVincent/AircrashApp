@@ -46,10 +46,11 @@ class IncidentController extends Controller
 
         if ($time = strtotime($input)) {
             $input = date("Y-m-d", $time);
-        }
-
-        foreach ($columns as $column) {
-            $query->orWhere($column, 'LIKE', '%' . $input . '%');
+            $query->where("crash_date", 'LIKE', '%' . $input . '%');
+        } else {
+            foreach ($columns as $column) {
+                $query->orWhere($column, 'LIKE', '%' . $input . '%');
+            }
         }
         $incidents = $query->workable()->get();
 

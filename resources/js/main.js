@@ -449,6 +449,8 @@
  d3.select(".unfocus").on("click", function() {
      toggleAllPoint(null, false);
      d3.select("#avionCrashCard").transition().duration(900).style("visibility", "hidden");
+     d3.select("#carrousel_images").text(""); //clean all images
+
      initiateZoom();
  });
 

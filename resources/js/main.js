@@ -497,22 +497,26 @@
 
 
  d3.select("#searchBar input").on("change", function() {
-     console.log(this.value);
-     displayButtonCloseSearchBar(true);
-
      if (!this.value) return initCrash();
-     d3.json(baseurl + "/search/" + this.value.replaceAll("/", "-"), function(json) {
+     searchAndDisplay(this.value);
+ });
 
+ d3.select("#searchBar button.search").on("click", function() {
+     const value = document.querySelector("#searchBar input").value;
+     searchAndDisplay(value);
+ });
+
+
+ function searchAndDisplay(value) {
+     displayButtonCloseSearchBar(true);
+     d3.json(baseurl + "/search/" + value.replaceAll("/", "-"), function(json) {
          if (!json) return;
          console.log(json);
-
          hideAll();
          displayCrashs(json);
-
          setTotalFound(Object.keys(json).length);
-
      })
- });
+ }
 
  function displayButtonCloseSearchBar(value) {
      d3.select(".emptySearch").transition().duration(900).style("display", function() {

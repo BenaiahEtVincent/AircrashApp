@@ -109,6 +109,7 @@
     <div id="searchBar">
         <input type="text">
         <span id="totalFound">1000</span>
+        <button class="search">search</button>
         <button class="emptySearch">close</button>
     </div>
     <div id="rangeYear">

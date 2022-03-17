@@ -2,9 +2,8 @@
  //import * as jquery from "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js";
  import * as d3 from "d3";
  import * as $ from "jquery";
- import { list } from "postcss";
 
- const baseurl = "https://aircraft.bidule.fun/api";
+ const baseurl = window.location + "api";
 
  // DEFINE VARIABLES
  // Define size of map group

@@ -44,7 +44,7 @@ class IncidentController extends Controller
         $query = Incident::query();
         $columns = Schema::getColumnListing('crashs');
 
-        if ($time = strtotime($input) && strlen($input) > 5) {
+        if ($time = strtotime($input)) {
             $input = date("Y-m-d", $time);
         }
 

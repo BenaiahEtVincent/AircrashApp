@@ -2236,7 +2236,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 //import * as jquery from "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js";
 
 
-var dataurl = "";
+var dataurl = "https://aircraft.bidule.fun/";
 var baseurl = (dataurl == "" ? window.location : dataurl) + "api";
 console.log(baseurl); // DEFINE VARIABLES
 // Define size of map group
@@ -2291,7 +2291,7 @@ function getTextBox(selection) {
   selection.each(function (d) {
     d.bbox = this.getBBox();
   });
-} // Function that calculates zoom/pan limits and sets zoom to default value 
+} // Function that calculates zoom/pan limits and sets zoom to default value
 
 
 function initiateZoom() {
@@ -2359,7 +2359,7 @@ d3__WEBPACK_IMPORTED_MODULE_0__.select("#avionCrashCard").style("visibility", "h
 var year = 2022;
 
 function initCrash() {
-  var url = baseurl + '/incidents/' + year;
+  var url = baseurl + "/incidents/" + year;
   d3__WEBPACK_IMPORTED_MODULE_0__.json(url, function (json) {
     console.log(json);
     crashs.selectAll("image").remove();
@@ -2368,7 +2368,7 @@ function initCrash() {
   });
 }
 
-var inputYear = d3__WEBPACK_IMPORTED_MODULE_0__.select('#rangeYear input');
+var inputYear = d3__WEBPACK_IMPORTED_MODULE_0__.select("#rangeYear input");
 console.log("inputYear", inputYear);
 inputYear.attr("min", 1900);
 inputYear.attr("max", 2022);
@@ -2437,7 +2437,7 @@ d3__WEBPACK_IMPORTED_MODULE_0__.json(baseurl + "/maps", function (json) {
 });
 
 function displayDetailCard(crash) {
-  // pour toi 
+  // pour toi
   console.log(crash);
   d3__WEBPACK_IMPORTED_MODULE_0__.select("#avionCrashCard").transition().duration(900).style("visibility", "visible");
   d3__WEBPACK_IMPORTED_MODULE_0__.select("#avionCrashCard");
@@ -2478,13 +2478,13 @@ function focusAndDisplayAirport(crash) {
   // pour moi
   console.log(crash);
   var d = {
-    "type": "Feature",
-    "properties": {},
-    "geometry": {
-      "type": "Polygon",
-      "coordinates": [[[crash.gps_crash.lat, crash.gps_crash.lon], [crash.gps_depart.lat, crash.gps_crash.lon], [crash.gps_depart.lat, crash.gps_depart.lon], [crash.gps_crash.lat, crash.gps_depart.lon]]]
+    type: "Feature",
+    properties: {},
+    geometry: {
+      type: "Polygon",
+      coordinates: [[[crash.gps_crash.lat, crash.gps_crash.lon], [crash.gps_depart.lat, crash.gps_crash.lon], [crash.gps_depart.lat, crash.gps_depart.lon], [crash.gps_crash.lat, crash.gps_depart.lon]]]
     },
-    "bbox": {}
+    bbox: {}
   };
   boxZoom(path.bounds(d), path.centroid(d), 100);
   toggleAllPoint(crash);
@@ -2496,7 +2496,7 @@ function toggleAllPoint(crash) {
     var isCrashSelected = false;
 
     if (focus) {
-      isCrashSelected = d3__WEBPACK_IMPORTED_MODULE_0__.select(this).attr('id') == "crash_" + crash.id;
+      isCrashSelected = d3__WEBPACK_IMPORTED_MODULE_0__.select(this).attr("id") == "crash_" + crash.id;
     }
 
     d3__WEBPACK_IMPORTED_MODULE_0__.select(this).transition().duration(900).style("visibility", function () {
@@ -2511,7 +2511,7 @@ function toggleAllPoint(crash) {
     var isCrashSelected = false;
 
     if (focus) {
-      isCrashSelected = d3__WEBPACK_IMPORTED_MODULE_0__.select(this).attr('id') == "airport_" + crash.id;
+      isCrashSelected = d3__WEBPACK_IMPORTED_MODULE_0__.select(this).attr("id") == "airport_" + crash.id;
     }
 
     d3__WEBPACK_IMPORTED_MODULE_0__.select(this).transition().duration(900).style("visibility", function () {
@@ -2542,11 +2542,11 @@ d3__WEBPACK_IMPORTED_MODULE_0__.select(".emptySearch").on("click", function () {
 
 function hideAll() {
   /*  d3.selectAll("#crashs image").each(function() {
-       d3.select(this).transition().duration(900).style("visibility", "hidden");
-   });
-    d3.selectAll("#airportStart circle").each(function() {
-       d3.select(this).transition().duration(900).style("visibility", "hidden");
-   }); */
+        d3.select(this).transition().duration(900).style("visibility", "hidden");
+    });
+     d3.selectAll("#airportStart circle").each(function() {
+        d3.select(this).transition().duration(900).style("visibility", "hidden");
+    }); */
   crashs.selectAll("image").remove();
   airportsStart.selectAll("circle").remove();
 }
@@ -2557,7 +2557,7 @@ function displayCrashs(listCrashs) {
   }).attr("id", function (d) {
     return "crash_" + d.id;
   }).on("click", function (crash) {
-    displayDetailCard(crash); // pour toi 
+    displayDetailCard(crash); // pour toi
 
     focusAndDisplayAirport(crash); // pour moi
   });

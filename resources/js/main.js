@@ -339,7 +339,11 @@
  }
 
 
+ function hideDetailCard() {
+     d3.select("#avionCrashCard").transition().duration(900).style("visibility", "hidden");
+     d3.select("#carrousel_images").text(""); //clean all images
 
+ }
 
 
 
@@ -445,13 +449,15 @@
      });
  }
 
+ function unfocus() {
+     toggleAllPoint(null, false);
+     hideDetailCard();
+     initiateZoom();
+ }
+
 
  d3.select(".unfocus").on("click", function() {
-     toggleAllPoint(null, false);
-     d3.select("#avionCrashCard").transition().duration(900).style("visibility", "hidden");
-     d3.select("#carrousel_images").text(""); //clean all images
-
-     initiateZoom();
+     unfocus();
  });
 
  d3.select(".emptySearch").on("click", function() {
@@ -528,6 +534,7 @@
 
 
  function searchAndDisplay(value) {
+     unfocus();
      displayButtonCloseSearchBar(true);
      d3.json(baseurl + "/search/" + value.replaceAll("/", "-"), function(json) {
          if (!json) return;

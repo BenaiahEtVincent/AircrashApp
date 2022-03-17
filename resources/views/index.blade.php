@@ -101,6 +101,23 @@
             display: none;
         }
 
+        #avionCrashCard {
+            background-color: rgba(182, 52, 52, 0.651);
+            z-index: 1000;
+            position: absolute;
+            top: 30px;
+            right: 50px;
+            width: 20%;
+        }
+
+        #maCarte {
+            padding: 20px 0 0 20px;
+        }
+
+        .titreAvion {
+            color: white;
+        }
+
     </style>
 </head>
 
@@ -116,6 +133,26 @@
         <input type="range">
         <output>2022</output>
         <button class="unfocus">Unfocus</button>
+    </div>
+    <div id="avionCrashCard">
+        <div id="maCarte" class="maClassCarte">
+            <p id="aircaft_operator">Compagnie aérienne</p>
+            <div id="carrousel_images">
+            </div>
+            <p id="aircaft_model">Modèle de l'avion</p>
+            <p id="crash_date">Date du crash</p>
+            <p id="aircaft_first_flight">Date Premier vol</p>
+            <p id="incident_location">Lieu</p>
+            <p id="departure_airport">Lieu Départ</p>
+            <p id="destination_airport">Lieu Arrivé</p>
+            <p id="titreAvion">GPS Crash :</p>
+            <ul>
+                <li id="incident_gps_lat">Lat :</li>
+                <li id="incident_gps_lon">Long :</li>
+            </ul>
+            <p id="deaths">Nombre Mort</p>
+            <p id="survivors">Nombre Survivant</p>
+        </div>
     </div>
 </body>
 

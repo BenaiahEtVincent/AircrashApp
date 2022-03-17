@@ -168,6 +168,7 @@
 
 
  displayButtonCloseSearchBar(false);
+ d3.select("#avionCrashCard").style("visibility", "hidden");
 
 
 
@@ -318,6 +319,23 @@
 
  function displayDetailCard(crash) { // pour toi 
      console.log(crash);
+     d3.select("#avionCrashCard").transition().duration(900).style("visibility", "visible");
+
+     d3.select("#avionCrashCard");
+
+     for (const [key, value] of Object.entries(crash)) {
+         d3.select("#" + key).text(value)
+     }
+
+     d3.select("deaths").text(crash.deaths.total);
+     d3.select("survivors").text(crash.occupations.total);
+
+     for (const img of crash.images) {
+         console.log(img);
+         d3.select("#carrousel_images").append("img").attr("src", img.link);
+     }
+
+
  }
 
 
@@ -430,7 +448,7 @@
 
  d3.select(".unfocus").on("click", function() {
      toggleAllPoint(null, false);
-
+     d3.select("#avionCrashCard").transition().duration(900).style("visibility", "hidden");
      initiateZoom();
  });
 
@@ -473,7 +491,7 @@
              return "crash_" + d.id;
          })
          .on("click", function(crash) {
-             //displayDetailCard(crash); // pour toi 
+             displayDetailCard(crash); // pour toi 
              focusAndDisplayAirport(crash); // pour moi
          });
 

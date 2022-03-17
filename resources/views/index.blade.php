@@ -91,7 +91,7 @@
         }
 
         #searchBar input {
-            width: 100%;
+            width: 80%;
             padding: 12px 20px;
             margin: 8px 0;
             box-sizing: border-box;
@@ -108,6 +108,7 @@
     <div id="map-holder"></div>
     <div id="searchBar">
         <input type="text">
+        <span id="totalFound">1000</span>
         <button class="emptySearch">close</button>
     </div>
     <div id="rangeYear">

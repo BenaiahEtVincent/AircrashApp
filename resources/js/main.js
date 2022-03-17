@@ -508,6 +508,9 @@
 
          hideAll();
          displayCrashs(json);
+
+         setTotalFound(Object.keys(json).length);
+
      })
  });
 
@@ -515,4 +518,13 @@
      d3.select(".emptySearch").transition().duration(900).style("display", function() {
          return value ? "block" : "none";
      });
+
+     if (!value) {
+         setTotalFound(0);
+     }
+ }
+
+ function setTotalFound(value) {
+
+     d3.select("#totalFound").text(value == 0 ? "" : value);
  }

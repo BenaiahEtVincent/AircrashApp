@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Interactive Map</title>
     <style>
         body {
@@ -118,6 +119,11 @@
             color: white;
         }
 
+        .material-icons.unfocus:hover {
+            color: white;
+            cursor: pointer;
+        }
+
     </style>
 </head>
 
@@ -132,10 +138,10 @@
     <div id="rangeYear">
         <input type="range">
         <output>2022</output>
-        <button class="unfocus">Unfocus</button>
     </div>
     <div id="avionCrashCard">
         <div id="maCarte" class="maClassCarte">
+            <span class="material-icons unfocus">close</span>
             <p id="aircaft_operator">Compagnie aérienne</p>
             <div id="carrousel_images">
             </div>

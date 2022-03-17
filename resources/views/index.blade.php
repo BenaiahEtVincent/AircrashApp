@@ -77,6 +77,26 @@
             margin: auto;
         }
 
+        #searchBar {
+            position: absolute;
+            top: 5vh;
+            left: 2vw;
+            width: 30vw;
+            display: flex;
+            flex-direction: column;
+            padding: 2rem;
+            border-radius: 15px;
+            background-color: rgba(255, 255, 255, 0.705);
+            backdrop-filter: blur(10px);
+        }
+
+        #searchBar input {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
         .hidden {
             display: none;
         }
@@ -86,6 +106,10 @@
 
 <body>
     <div id="map-holder"></div>
+    <div id="searchBar">
+        <input type="text">
+        <button class="emptySearch">close</button>
+    </div>
     <div id="rangeYear">
         <input type="range">
         <output>2022</output>

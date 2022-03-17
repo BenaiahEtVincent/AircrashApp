@@ -2,6 +2,7 @@
  //import * as jquery from "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js";
  import * as d3 from "d3";
  import * as $ from "jquery";
+ import { list } from "postcss";
 
  const baseurl = window.location + "api";
 
@@ -172,47 +173,8 @@
          console.log(json)
 
          crashs.selectAll("image").remove();
-
-         crashs.selectAll(".pin")
-             .data(json)
-             .enter()
-             .append("svg:image", ".pin")
-             .attr("xlink:href", "/assets/explosion.svg")
-             .attr("width", 20)
-             .attr("height", 20)
-             .attr("transform", function(d) {
-                 return "translate(" + projection([
-                     d.gps_crash.lon,
-                     d.gps_crash.lat
-                 ]) + ")";
-             })
-             .attr("id", function(d) {
-                 return "crash_" + d.id;
-             })
-             .on("click", function(crash) {
-                 //displayDetailCard(crash); // pour toi 
-                 focusAndDisplayAirport(crash); // pour moi
-             });
-
-
          airportsStart.selectAll("circle").remove();
-
-         airportsStart.selectAll("circle")
-             .data(json)
-             .enter()
-             .append("circle")
-             .attr("fill", "green")
-             .attr("r", 10)
-             .attr("id", function(d) {
-                 return "airport_" + d.id;
-             })
-             .attr("transform", function(d) {
-                 console.log(d);
-                 return "translate(" + projection([
-                     d.gps_depart.lon,
-                     d.gps_depart.lat
-                 ]) + ")";
-             });
+         displayCrashs(json);
      });
  }
 
@@ -341,6 +303,7 @@
 
          initiateZoom();
          initCrash();
+         displayButtonCloseSearchBar(false);
 
 
      }
@@ -464,3 +427,86 @@
 
      initiateZoom();
  });
+
+ d3.select(".emptySearch").on("click", function() {
+     document.querySelector("#searchBar input").value = "";
+     hideAll();
+     initCrash();
+     displayButtonCloseSearchBar(false);
+ });
+
+
+ function hideAll() {
+     /*  d3.selectAll("#crashs image").each(function() {
+          d3.select(this).transition().duration(900).style("visibility", "hidden");
+      });
+
+      d3.selectAll("#airportStart circle").each(function() {
+          d3.select(this).transition().duration(900).style("visibility", "hidden");
+      }); */
+
+     crashs.selectAll("image").remove();
+     airportsStart.selectAll("circle").remove();
+ }
+
+ function displayCrashs(listCrashs) {
+     crashs.selectAll(".pin")
+         .data(listCrashs)
+         .enter()
+         .append("svg:image", ".pin")
+         .attr("xlink:href", "/assets/explosion.svg")
+         .attr("width", 20)
+         .attr("height", 20)
+         .attr("transform", function(d) {
+             return "translate(" + projection([
+                 d.gps_crash.lon,
+                 d.gps_crash.lat
+             ]) + ")";
+         })
+         .attr("id", function(d) {
+             return "crash_" + d.id;
+         })
+         .on("click", function(crash) {
+             //displayDetailCard(crash); // pour toi 
+             focusAndDisplayAirport(crash); // pour moi
+         });
+
+     airportsStart.selectAll("circle")
+         .data(listCrashs)
+         .enter()
+         .append("circle")
+         .attr("fill", "green")
+         .attr("r", 10)
+         .attr("id", function(d) {
+             return "airport_" + d.id;
+         })
+         .attr("transform", function(d) {
+             console.log(d);
+             return "translate(" + projection([
+                 d.gps_depart.lon,
+                 d.gps_depart.lat
+             ]) + ")";
+         });
+ }
+
+
+ d3.select("#searchBar input").on("input", function() {
+     console.log(this.value);
+     displayButtonCloseSearchBar(true);
+
+     if (!this.value) return initCrash();
+     d3.json(baseurl + "/search/" + this.value.replaceAll("/", "-"), function(json) {
+
+         if (!json) return;
+         console.log(json);
+
+         hideAll();
+         displayCrashs(json);
+     })
+ });
+
+ function displayButtonCloseSearchBar(value) {
+     d3.select(".emptySearch").transition().duration(900).style("display", function() {
+         return value ? "block" : "none";
+     });
+ }

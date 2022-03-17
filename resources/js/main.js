@@ -165,6 +165,13 @@
      .call(zoom);
 
 
+
+
+ displayButtonCloseSearchBar(false);
+
+
+
+
  let year = 2022;
 
  function initCrash() {
@@ -303,7 +310,6 @@
 
          initiateZoom();
          initCrash();
-         displayButtonCloseSearchBar(false);
 
 
      }

@@ -3,8 +3,11 @@
  import * as d3 from "d3";
  import * as $ from "jquery";
 
- const baseurl = window.location + "api";
+ let dataurl = process.env.MIX_DATA_URL;
 
+ const baseurl = (dataurl == "" ? window.location : dataurl) + "api";
+
+ console.log(baseurl);
  // DEFINE VARIABLES
  // Define size of map group
  // Full world map is 2:1 ratio

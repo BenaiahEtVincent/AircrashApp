@@ -72,7 +72,7 @@ function zoomed() {
 var zoom = d3.zoom().on("zoom", zoomed);
 
 function getTextBox(selection) {
-    selection.each(function (d) {
+    selection.each(function(d) {
         d.bbox = this.getBBox();
     });
 }
@@ -143,7 +143,7 @@ function boxZoom(box, centroid, paddingPerc) {
 }
 
 // on window resize
-$(window).resize(function () {
+$(window).resize(function() {
     // Resize SVG
     svg.attr("width", $("#map-holder").width()).attr(
         "height",
@@ -169,7 +169,7 @@ let year = 2022;
 
 function initCrash() {
     const url = baseurl + "/incidents/" + year;
-    d3.json(url, function (json) {
+    d3.json(url, function(json) {
         console.log(json);
 
         crashs.selectAll("image").remove();
@@ -185,17 +185,17 @@ inputYear.attr("min", 1900);
 inputYear.attr("max", 2022);
 inputYear.attr("value", 2022);
 
-inputYear.on("input", function () {
+inputYear.on("input", function() {
     year = inputYear.property("value");
     d3.select("#rangeYear output").text(year);
 });
 
-inputYear.on("change", function () {
+inputYear.on("change", function() {
     initCrash();
 });
 
 // get map data
-d3.json(baseurl + "/maps", function (json) {
+d3.json(baseurl + "/maps", function(json) {
     //Bind data and create one path per GeoJSON feature
 
     countriesGroup = svg.append("g").attr("id", "map");
@@ -217,21 +217,21 @@ d3.json(baseurl + "/maps", function (json) {
         .enter()
         .append("path")
         .attr("d", path)
-        .attr("id", function (d, i) {
+        .attr("id", function(d, i) {
             return "country" + d.properties.iso_a3;
         })
         .attr("class", "country")
         //      .attr("stroke-width", 10)
         //      .attr("stroke", "#ff0000")
         // add a mouseover action to show name label for feature/country
-        .on("mouseover", function (d, i) {
+        .on("mouseover", function(d, i) {
             //d3.select("#countryLabel" + d.properties.iso_a3).style("display", "block");
         })
-        .on("mouseout", function (d, i) {
+        .on("mouseout", function(d, i) {
             //d3.select("#countryLabel" + d.properties.iso_a3).style("display", "none");
         })
         // add an onclick action to zoom into clicked country
-        .on("click", function (d, i) {
+        .on("click", function(d, i) {
             d3.selectAll(".country").classed("country-on", false);
             d3.select(this).classed("country-on", true);
             console.log(d);
@@ -245,10 +245,10 @@ d3.json(baseurl + "/maps", function (json) {
         .enter()
         .append("g")
         .attr("class", "countryLabel")
-        .attr("id", function (d) {
+        .attr("id", function(d) {
             return "countryLabel" + d.properties.iso_a3;
         })
-        .attr("transform", function (d) {
+        .attr("transform", function(d) {
             return (
                 "translate(" +
                 path.centroid(d)[0] +
@@ -258,14 +258,14 @@ d3.json(baseurl + "/maps", function (json) {
             );
         })
         // add mouseover functionality to the label
-        .on("mouseover", function (d, i) {
+        .on("mouseover", function(d, i) {
             d3.select(this).style("display", "block");
         })
-        .on("mouseout", function (d, i) {
+        .on("mouseout", function(d, i) {
             d3.select(this).style("display", "none");
         })
         // add an onlcick action to zoom into clicked country
-        .on("click", function (d, i) {
+        .on("click", function(d, i) {
             d3.selectAll(".country").classed("country-on", false);
             d3.select("#country" + d.properties.iso_a3).classed(
                 "country-on",
@@ -280,7 +280,7 @@ d3.json(baseurl + "/maps", function (json) {
         .style("text-anchor", "middle")
         .attr("dx", 0)
         .attr("dy", 0)
-        .text(function (d) {
+        .text(function(d) {
             return d.properties.name;
         })
         .call(getTextBox);
@@ -288,13 +288,13 @@ d3.json(baseurl + "/maps", function (json) {
     countryLabels
         .insert("rect", "text")
         .attr("class", "countryLabelBg")
-        .attr("transform", function (d) {
+        .attr("transform", function(d) {
             return "translate(" + (d.bbox.x - 2) + "," + d.bbox.y + ")";
         })
-        .attr("width", function (d) {
+        .attr("width", function(d) {
             return d.bbox.width + 4;
         })
-        .attr("height", function (d) {
+        .attr("height", function(d) {
             return d.bbox.height;
         });
 
@@ -319,6 +319,7 @@ function displayDetailCard(crash) {
     d3.select("deaths").text(crash.deaths.total);
     d3.select("survivors").text(crash.occupations.total);
 
+    d3.select("#carrousel_images").text("");
     for (const img of crash.images) {
         console.log(img);
         d3.select("#carrousel_images").append("img").attr("src", img.link);
@@ -357,13 +358,13 @@ function focusAndDisplayAirport(crash) {
         bbox: {},
     };
 
-    boxZoom(path.bounds(d), path.centroid(d), 100);
+    //boxZoom(path.bounds(d), path.centroid(d), 100);
 
     toggleAllPoint(crash);
 }
 
 function toggleAllPoint(crash, focus = true) {
-    d3.selectAll("#crashs image").each(function () {
+    d3.selectAll("#crashs image").each(function() {
         let isCrashSelected = false;
         if (focus) {
             isCrashSelected = d3.select(this).attr("id") == "crash_" + crash.id;
@@ -371,7 +372,7 @@ function toggleAllPoint(crash, focus = true) {
         d3.select(this)
             .transition()
             .duration(900)
-            .style("visibility", function () {
+            .style("visibility", function() {
                 if (!focus) {
                     return "visible";
                 }
@@ -379,7 +380,7 @@ function toggleAllPoint(crash, focus = true) {
             });
     });
 
-    d3.selectAll("#airportStart circle").each(function () {
+    d3.selectAll("#airportStart circle").each(function() {
         let isCrashSelected = false;
         if (focus) {
             isCrashSelected =
@@ -388,7 +389,7 @@ function toggleAllPoint(crash, focus = true) {
         d3.select(this)
             .transition()
             .duration(900)
-            .style("visibility", function () {
+            .style("visibility", function() {
                 if (!focus) {
                     return "visible";
                 }
@@ -403,13 +404,14 @@ function unfocus() {
     initiateZoom();
 }
 
-d3.select(".unfocus").on("click", function () {
+d3.select(".unfocus").on("click", function() {
     unfocus();
 });
 
-d3.select(".emptySearch").on("click", function () {
+d3.select(".emptySearch").on("click", function() {
     document.querySelector("#searchBar input").value = "";
     hideAll();
+    unfocus();
     initCrash();
     displayButtonCloseSearchBar(false);
 });
@@ -436,17 +438,17 @@ function displayCrashs(listCrashs) {
         .attr("xlink:href", "/assets/explosion.svg")
         .attr("width", 20)
         .attr("height", 20)
-        .attr("transform", function (d) {
+        .attr("transform", function(d) {
             return (
                 "translate(" +
                 projection([d.gps_crash.lon, d.gps_crash.lat]) +
                 ")"
             );
         })
-        .attr("id", function (d) {
+        .attr("id", function(d) {
             return "crash_" + d.id;
         })
-        .on("click", function (crash) {
+        .on("click", function(crash) {
             displayDetailCard(crash); // pour toi
             focusAndDisplayAirport(crash); // pour moi
         });
@@ -458,10 +460,10 @@ function displayCrashs(listCrashs) {
         .append("circle")
         .attr("fill", "green")
         .attr("r", 10)
-        .attr("id", function (d) {
+        .attr("id", function(d) {
             return "airport_" + d.id;
         })
-        .attr("transform", function (d) {
+        .attr("transform", function(d) {
             console.log(d);
             return (
                 "translate(" +
@@ -471,12 +473,12 @@ function displayCrashs(listCrashs) {
         });
 }
 
-d3.select("#searchBar input").on("change", function () {
+d3.select("#searchBar input").on("change", function() {
     if (!this.value) return initCrash();
     searchAndDisplay(this.value);
 });
 
-d3.select("#searchBar button.search").on("click", function () {
+d3.select("#searchBar button.search").on("click", function() {
     const value = document.querySelector("#searchBar input").value;
     searchAndDisplay(value);
 });
@@ -484,7 +486,7 @@ d3.select("#searchBar button.search").on("click", function () {
 function searchAndDisplay(value) {
     unfocus();
     displayButtonCloseSearchBar(true);
-    d3.json(baseurl + "/search/" + value.replaceAll("/", "-"), function (json) {
+    d3.json(baseurl + "/search/" + value.replaceAll("/", "-"), function(json) {
         if (!json) return;
         console.log(json);
         hideAll();
@@ -497,7 +499,7 @@ function displayButtonCloseSearchBar(value) {
     d3.select(".emptySearch")
         .transition()
         .duration(900)
-        .style("display", function () {
+        .style("display", function() {
             return value ? "block" : "none";
         });
 

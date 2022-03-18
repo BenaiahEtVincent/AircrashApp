@@ -42,6 +42,18 @@ let offsetY;
 let dleft;
 let dtop;
 
+
+d3.selection.prototype.first = function() {
+    return d3.select(
+        this.nodes()[0]
+    );
+};
+d3.selection.prototype.last = function() {
+    return d3.select(
+        this.nodes()[this.size() - 1]
+    );
+};
+
 // DEFINE FUNCTIONS/OBJECTS
 // Define map projection
 var projection = d3
@@ -319,11 +331,24 @@ function displayDetailCard(crash) {
     d3.select("deaths").text(crash.deaths.total);
     d3.select("survivors").text(crash.occupations.total);
 
-    d3.select("#carrousel_images").text("");
-    for (const img of crash.images) {
+    d3.selectAll("#carrousel_images .mySlides").remove();
+
+    crash.images.forEach((img, index) => {
         console.log(img);
-        d3.select("#carrousel_images").append("img").attr("src", img.link);
-    }
+        d3.select("#carrousel_images")
+            .append("div")
+            .attr("class", "mySlides")
+            .style("display", function(d) {
+                return index == 0 ? "block" : "none";
+            })
+            .append("img")
+            .attr("src", img.link)
+            .style("width", "100%");
+    });
+
+
+
+
 }
 
 function hideDetailCard() {
@@ -331,7 +356,7 @@ function hideDetailCard() {
         .transition()
         .duration(900)
         .style("visibility", "hidden");
-    d3.select("#carrousel_images").text(""); //clean all images
+    d3.selectAll("#carrousel_images .mySlides").remove(); //clean all images
 }
 
 function focusAndDisplayAirport(crash) {

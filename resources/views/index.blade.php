@@ -6,6 +6,7 @@
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Interactive Map</title>
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <style>
         body {
             margin: 0;
@@ -112,7 +113,7 @@
         }
 
         #maCarte {
-            padding: 20px 0 0 20px;
+            padding: 20px;
         }
 
         .titreAvion {
@@ -142,9 +143,31 @@
     <div id="avionCrashCard">
         <div id="maCarte" class="maClassCarte">
             <span class="material-icons unfocus">close</span>
-            <p id="aircaft_operator">Compagnie aérienne</p>
-            <div id="carrousel_images">
+            <div id="carrousel_images" class="slideshow-container">
+
+                <!-- Full-width images with number and caption text -->
+                <div class="mySlides fade">
+                    <img src="/storage/planes/8/273.jpg" style="width:100%">
+                </div>
+
+                <div class="mySlides fade">
+                    <img src="/storage/planes/8/274.jpg" style="width:100%">
+                </div>
+
+                <div class="mySlides fade">
+                    <img src="/storage/planes/8/275.jpg" style="width:100%">
+                </div>
+
+                <!-- Next and previous buttons -->
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
             </div>
+
+            <br>
+
+
+            <p id="aircaft_operator">Compagnie aérienne</p>
+
             <p id="aircaft_model">Modèle de l'avion</p>
             <p id="crash_date">Date du crash</p>
             <p id="aircaft_first_flight">Date Premier vol</p>

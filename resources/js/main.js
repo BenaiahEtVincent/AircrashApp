@@ -429,6 +429,23 @@ function toggleAllPoint(crash, focus = true) {
                 return isCrashSelected ? "visible" : "hidden";
             });
     });
+
+    d3.selectAll("#flights line").each(function() {
+        let isCrashSelected = false;
+        if (focus) {
+            isCrashSelected =
+                d3.select(this).attr("id") == "flight_" + crash.id;
+        }
+        d3.select(this)
+            .transition()
+            .duration(900)
+            .style("visibility", function() {
+                if (!focus) {
+                    return "visible";
+                }
+                return isCrashSelected ? "visible" : "hidden";
+            });
+    });
 }
 
 function unfocus() {
@@ -495,7 +512,7 @@ function displayCrashs(listCrashs) {
         .enter()
         .append("circle")
         .attr("fill", "green")
-        .attr("fill-opacity", "0.3")
+        .attr("fill-opacity", "0.5")
         .attr("r", 10)
         .attr("id", function(d) {
             return "airport_" + d.id;
@@ -507,6 +524,9 @@ function displayCrashs(listCrashs) {
                 projection([d.gps_depart.lon, d.gps_depart.lat]) +
                 ")"
             );
+        }).on("click", function(crash) {
+            displayDetailCard(crash); // pour toi
+            focusAndDisplayAirport(crash); // pour moi
         });
 
     flights
@@ -530,6 +550,9 @@ function displayCrashs(listCrashs) {
         })
         .attr("y2", function(d) {
             return projection([d.gps_crash.lon, d.gps_crash.lat])[1];
+        }).on("click", function(crash) {
+            displayDetailCard(crash); // pour toi
+            focusAndDisplayAirport(crash); // pour moi
         });
 
 

@@ -22,6 +22,8 @@ let countriesGroup;
 let countryLabels;
 let crashs;
 let airportsStart;
+let flights;
+
 
 let minXY;
 let maxXY;
@@ -75,6 +77,10 @@ function zoomed() {
     );
     crashs.attr("transform", "translate(" + [t.x, t.y] + ")scale(" + t.k + ")");
     airportsStart.attr(
+        "transform",
+        "translate(" + [t.x, t.y] + ")scale(" + t.k + ")"
+    );
+    flights.attr(
         "transform",
         "translate(" + [t.x, t.y] + ")scale(" + t.k + ")"
     );
@@ -186,6 +192,7 @@ function initCrash() {
 
         crashs.selectAll("image").remove();
         airportsStart.selectAll("circle").remove();
+        flights.selectAll("line").remove();
         displayCrashs(json);
     });
 }
@@ -213,6 +220,7 @@ d3.json(baseurl + "/maps", function(json) {
     countriesGroup = svg.append("g").attr("id", "map");
     crashs = svg.append("g").attr("id", "crashs");
     airportsStart = svg.append("g").attr("id", "airportStart");
+    flights = svg.append("g").attr("id", "flights");
 
     // add a background rectangle
     countriesGroup
@@ -452,6 +460,7 @@ function hideAll() {
 
     crashs.selectAll("image").remove();
     airportsStart.selectAll("circle").remove();
+    flights.selectAll("line").remove();
 }
 
 function displayCrashs(listCrashs) {
@@ -463,6 +472,8 @@ function displayCrashs(listCrashs) {
         .attr("xlink:href", "/assets/explosion.svg")
         .attr("width", 20)
         .attr("height", 20)
+        .attr('x', d => -10)
+        .attr('y', d => -10)
         .attr("transform", function(d) {
             return (
                 "translate(" +
@@ -484,6 +495,7 @@ function displayCrashs(listCrashs) {
         .enter()
         .append("circle")
         .attr("fill", "green")
+        .attr("fill-opacity", "0.3")
         .attr("r", 10)
         .attr("id", function(d) {
             return "airport_" + d.id;
@@ -496,6 +508,32 @@ function displayCrashs(listCrashs) {
                 ")"
             );
         });
+
+    flights
+        .selectAll("line")
+        .data(listCrashs)
+        .enter()
+        .append("line")
+        .style("stroke", "red")
+        .style("stroke-width", 1)
+        .attr("id", function(d) {
+            return "flight_" + d.id;
+        })
+        .attr("x1", function(d) {
+            return projection([d.gps_depart.lon, d.gps_depart.lat])[0];
+        })
+        .attr("y1", function(d) {
+            return projection([d.gps_depart.lon, d.gps_depart.lat])[1];
+        })
+        .attr("x2", function(d) {
+            return projection([d.gps_crash.lon, d.gps_crash.lat])[0];
+        })
+        .attr("y2", function(d) {
+            return projection([d.gps_crash.lon, d.gps_crash.lat])[1];
+        });
+
+
+
 }
 
 d3.select("#searchBar input").on("change", function() {

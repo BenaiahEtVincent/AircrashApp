@@ -360,7 +360,7 @@ function displayDetailCard(crash) {
 
 
     d3.select("#deaths").select("span").text(crash.deaths.total);
-    d3.select("#survivors").select("span").text(crash.occupations.total);
+    d3.select("#survivors").select("span").text(crash.deaths.total - crash.occupations.total);
 
     d3.select("#gps_crash_lat").select("span").text(crash.gps_crash.lat);
     d3.select("#gps_crash_lon").select("span").text(crash.gps_crash.lon);

@@ -330,19 +330,46 @@ function displayDetailCard(crash) {
         .duration(900)
         .style("visibility", "visible");
 
-    d3.select("#avionCrashCard");
 
     for (const [key, value] of Object.entries(crash)) {
-        d3.select("#" + key).text(value);
+        d3.select("#" + key).select("span").text(value);
     }
 
-    d3.select("deaths").text(crash.deaths.total);
-    d3.select("survivors").text(crash.occupations.total);
+
+
+    const crashDate = new Date(crash.crash_date);
+    const crashDateFormatted = crashDate.toLocaleString("fr-CH", {
+        day: "numeric",
+        month: "short",
+        year: "numeric",
+        hour: "numeric",
+        minute: "2-digit"
+    });
+
+    d3.select("#crash_date").select("span").text(crashDateFormatted);
+
+
+    const firstFlight = new Date(crash.aircaft_first_flight);
+    const firstFlightFormatted = firstFlight.toLocaleString("fr-CH", {
+        day: "numeric",
+        month: "short",
+        year: "numeric",
+    });
+
+    d3.select("#aircaft_first_flight").select("span").text(firstFlightFormatted);
+
+
+    d3.select("#deaths").select("span").text(crash.deaths.total);
+    d3.select("#survivors").select("span").text(crash.occupations.total);
+
+    d3.select("#gps_crash_lat").select("span").text(crash.gps_crash.lat);
+    d3.select("#gps_crash_lon").select("span").text(crash.gps_crash.lon);
+
+
 
     d3.selectAll("#carrousel_images .mySlides").remove();
 
     crash.images.forEach((img, index) => {
-        console.log(img);
         d3.select("#carrousel_images")
             .append("div")
             .attr("class", "mySlides")
@@ -351,7 +378,8 @@ function displayDetailCard(crash) {
             })
             .append("img")
             .attr("src", img.link)
-            .style("width", "100%");
+            .style("width", "100%")
+            .style("aspect-ratio", "3/2");
     });
 
 

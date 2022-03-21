@@ -104,7 +104,9 @@
         }
 
         #avionCrashCard {
-            background-color: rgba(182, 52, 52, 0.651);
+            background-color: rgba(255, 255, 255, 0.705);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
             z-index: 1000;
             position: absolute;
             top: 30px;
@@ -150,14 +152,6 @@
                     <img src="/storage/planes/8/273.jpg" style="width:100%">
                 </div>
 
-                <div class="mySlides fade">
-                    <img src="/storage/planes/8/274.jpg" style="width:100%">
-                </div>
-
-                <div class="mySlides fade">
-                    <img src="/storage/planes/8/275.jpg" style="width:100%">
-                </div>
-
                 <!-- Next and previous buttons -->
                 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                 <a class="next" onclick="plusSlides(1)">&#10095;</a>
@@ -166,21 +160,21 @@
             <br>
 
 
-            <p id="aircaft_operator">Compagnie aérienne</p>
+            <p id="aircaft_operator">Compagnie aérienne : <span></span></p>
 
-            <p id="aircaft_model">Modèle de l'avion</p>
-            <p id="crash_date">Date du crash</p>
-            <p id="aircaft_first_flight">Date Premier vol</p>
-            <p id="incident_location">Lieu</p>
-            <p id="departure_airport">Lieu Départ</p>
-            <p id="destination_airport">Lieu Arrivé</p>
-            <p id="titreAvion">GPS Crash :</p>
+            <p id="aircaft_model">Modèle de l'avion : <span></span></p>
+            <p id="crash_date">Date du crash : <span></span></p>
+            <p id="aircaft_first_flight">Date premier vol : <span></span></p>
+            <p id="incident_location">Lieu : <span></span></p>
+            <p id="departure_airport">Lieu départ : <span></span></p>
+            <p id="destination_airport">Lieu arrivé : <span></span></p>
+            {{-- <p id="titreAvion">GPS Crash :</p>
             <ul>
-                <li id="incident_gps_lat">Lat :</li>
-                <li id="incident_gps_lon">Long :</li>
-            </ul>
-            <p id="deaths">Nombre Mort</p>
-            <p id="survivors">Nombre Survivant</p>
+                <li id="gps_crash_lat">Lat : <span></span></li>
+                <li id="gps_crash_lon">Long : <span></span></li>
+            </ul> --}}
+            <p id="deaths">Nombre morts : <span></span></p>
+            <p id="survivors">Nombre survivants : <span></span></p>
         </div>
     </div>
 </body>

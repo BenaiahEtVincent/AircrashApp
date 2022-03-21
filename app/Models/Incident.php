@@ -81,11 +81,12 @@ class Incident extends Model
     {
         $onBoardCrew = (int) explode("Occupants:", $this->onboard_crew)[1];
         $onBoardPassengers = (int) explode("Occupants:", $this->onboard_passengers)[1];
+        $onBoardTotal = (int) explode("Occupants:", $this->onboard_total)[1];
 
         return [
             "crew" => $onBoardCrew,
             "passengers" => $onBoardPassengers,
-            "total" => $onBoardPassengers + $onBoardCrew
+            "total" => $onBoardTotal
         ];
     }
 

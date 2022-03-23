@@ -487,7 +487,9 @@ d3.select(".unfocus").on("click", function() {
 });
 
 d3.select(".emptySearch").on("click", function() {
-    document.querySelector("#searchBar input").value = "";
+    document.querySelector("#searchByText").value = "";
+    document.querySelector("#searchByDate").value = "";
+
     hideAll();
     unfocus();
     initCrash();
@@ -587,15 +589,33 @@ function displayCrashs(listCrashs) {
 
 }
 
-d3.select("#searchBar input").on("change", function() {
+d3.select("#searchByText").on("change", function() {
     if (!this.value) return initCrash();
     searchAndDisplay(this.value);
 });
 
 d3.select("#searchBar button.search").on("click", function() {
-    const value = document.querySelector("#searchBar input").value;
+    let value = document.querySelector("#searchByText").value;
+    if (!value) {
+        value = document.querySelector("#searchByDate").value;
+        searchByDateAndDisplay(value);
+        return;
+    }
     searchAndDisplay(value);
 });
+
+function searchByDateAndDisplay(value) {
+    unfocus();
+    displayButtonCloseSearchBar(true);
+    console.log(value.replaceAll("-", "/"));
+    d3.json(baseurl + "/incidents/" + value.replaceAll("-", "/"), function(json) {
+        if (!json) return;
+        console.log(json);
+        hideAll();
+        displayCrashs(json);
+        setTotalFound(Object.keys(json).length);
+    });
+}
 
 function searchAndDisplay(value) {
     unfocus();

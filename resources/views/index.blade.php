@@ -133,7 +133,8 @@
 <body>
     <div id="map-holder"></div>
     <div id="searchBar">
-        <input type="text">
+        <input type="text" id="searchByText" placeholder="Rechercher">
+        <input type="date" id="searchByDate">
         <span id="totalFound">1000</span>
         <button class="search">search</button>
         <button class="emptySearch">close</button>

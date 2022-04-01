@@ -57,6 +57,12 @@ class IncidentController extends Controller
         return response()->json($incidents);
     }
 
+    public function searchCountryCode($code) {
+        $incidents = Incident::workable()->where('incident_country_code', $code)->get();
+
+        return response()->json($incidents);
+    }
+
     public function maps()
     {
         return Storage::get("map.json");

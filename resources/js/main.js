@@ -252,10 +252,12 @@ d3.json(baseurl + "/maps", function(json) {
         })
         // add an onclick action to zoom into clicked country
         .on("click", function(d, i) {
+            searchCrashForCountry(d.properties.adm0_a3);
+
             d3.selectAll(".country").classed("country-on", false);
             d3.select(this).classed("country-on", true);
-            console.log(d);
-            boxZoom(path.bounds(d), path.centroid(d), 20);
+            console.log(d.properties.adm0_a3);
+            //boxZoom(path.bounds(d), path.centroid(d), 20);
         });
     // Add a label group to each feature/country. This will contain the country name and a background rectangle
     // Use CSS to have class "countryLabel" initially hidden
@@ -644,4 +646,14 @@ function displayButtonCloseSearchBar(value) {
 
 function setTotalFound(value) {
     d3.select("#totalFound").text(value == 0 ? "" : value);
+}
+
+function searchCrashForCountry(code) {
+    d3.json(baseurl + "/searchCountryCode/" + code, function(json) {
+        if (!json) return;
+        console.log(json);
+        hideAll();
+        displayCrashs(json);
+        setTotalFound(Object.keys(json).length);
+    });
 }

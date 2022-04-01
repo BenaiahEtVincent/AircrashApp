@@ -48,6 +48,8 @@ namespace App\Models{
  * @property string|null $incident_location
  * @property float|null $incident_gps_lat
  * @property float|null $incident_gps_lon
+ * @property string|null $incident_country
+ * @property string|null $incident_country_code
  * @property string|null $aircaft_damage_type
  * @property string|null $aircaft_engines
  * @property string|null $onboard_crew
@@ -89,6 +91,8 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Incident whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Incident whereIncidentCategory($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Incident whereIncidentCauses($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Incident whereIncidentCountry($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Incident whereIncidentCountryCode($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Incident whereIncidentGpsLat($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Incident whereIncidentGpsLon($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Incident whereIncidentLocation($value)

@@ -261,4 +261,19 @@ class Incident extends Model
 
         $this->images()->saveMany($images);
     } */
+
+
+    public function setCrashCountry()
+    {
+        $result = Http::get("http://api.positionstack.com/v1/reverse?access_key=d4a5ca7d9a3a90fc168894a55bf718f8&query=" . $this->incident_gps_lat . ", " . $this->incident_gps_lon . "&output=json");
+
+        $data = json_decode($result);
+        $data1 = $data->data[0];
+
+
+        $this->incident_country = $data1->country;
+        $this->incident_country_code = $data1->country_code;
+
+        $this->update();
+    }
 }

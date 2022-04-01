@@ -121,6 +121,26 @@ svg rect {
     cursor: pointer;
 }
 
+#infoButton.material-icons {
+    z-index: 1000;
+    position: absolute;
+    top: 50vh;
+    left: 50px;
+    width: 2rem;
+    height: 2rem;
+    color: white;
+    font-size: 48px;
+    cursor: pointer;
+}
+
+#info-section {
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2000;
+    background-color: white;
+}
+
 
 /* Slideshow container */
 

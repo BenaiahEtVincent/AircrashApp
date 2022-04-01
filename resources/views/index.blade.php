@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    <section id="map-section">
     <div id="map-holder"></div>
     <div id="searchBar">
         <input type="text" id="searchByText" placeholder="Rechercher">
@@ -23,6 +24,9 @@
         <input type="range">
         <output>2022</output>
     </div>
+
+    <i id="infoButton" class="material-icons">info</i>
+    
     <div id="avionCrashCard">
         <div id="maCarte" class="maClassCarte">
             <span class="material-icons unfocus">close</span>
@@ -58,6 +62,12 @@
             <p id="survivors">Nombre survivants : <span></span></p>
         </div>
     </div>
+    </section>
+    <section id="info-section">
+        <i id="close-info-section" class="material-icons">close</i>
+
+        COUCOU
+    </section>
 </body>
 
 <script src="{{ asset('js/app.js') }}"></script>

@@ -186,10 +186,14 @@ d3.select("#avionCrashCard").style("visibility", "hidden");
 let year = 2022;
 
 function initCrash() {
+
+    let v = ((((year - 1900) / (2022 - 1900))) * 100).toFixed(0);
+    console.log("YEAR", year, v);
+
+    d3.select("#map").attr("class", "sepia-" + v);
+
     const url = baseurl + "/incidents/" + year;
     d3.json(url, function(json) {
-        console.log(json);
-
         crashs.selectAll("image").remove();
         airportsStart.selectAll("circle").remove();
         flights.selectAll("line").remove();
@@ -256,7 +260,6 @@ d3.json(baseurl + "/maps", function(json) {
 
             d3.selectAll(".country").classed("country-on", false);
             d3.select(this).classed("country-on", true);
-            console.log(d.properties.adm0_a3);
             //boxZoom(path.bounds(d), path.centroid(d), 20);
         });
     // Add a label group to each feature/country. This will contain the country name and a background rectangle
@@ -320,13 +323,13 @@ d3.json(baseurl + "/maps", function(json) {
             return d.bbox.height;
         });
 
+
     initiateZoom();
     initCrash();
 });
 
 function displayDetailCard(crash) {
     // pour toi
-    console.log(crash);
     d3.select("#avionCrashCard")
         .transition()
         .duration(900)
@@ -399,7 +402,6 @@ function hideDetailCard() {
 
 function focusAndDisplayAirport(crash) {
     // pour moi
-    console.log(crash);
 
     let d = {
         type: "Feature",
@@ -550,7 +552,6 @@ function displayCrashs(listCrashs) {
             return "airport_" + d.id;
         })
         .attr("transform", function(d) {
-            console.log(d);
             return (
                 "translate(" +
                 projection([d.gps_depart.lon, d.gps_depart.lat]) +
@@ -609,10 +610,8 @@ d3.select("#searchBar button.search").on("click", function() {
 function searchByDateAndDisplay(value) {
     unfocus();
     displayButtonCloseSearchBar(true);
-    console.log(value.replaceAll("-", "/"));
     d3.json(baseurl + "/incidents/" + value.replaceAll("-", "/"), function(json) {
         if (!json) return;
-        console.log(json);
         hideAll();
         displayCrashs(json);
         setTotalFound(Object.keys(json).length);
@@ -624,7 +623,6 @@ function searchAndDisplay(value) {
     displayButtonCloseSearchBar(true);
     d3.json(baseurl + "/search/" + value.replaceAll("/", "-"), function(json) {
         if (!json) return;
-        console.log(json);
         hideAll();
         displayCrashs(json);
         setTotalFound(Object.keys(json).length);
@@ -651,7 +649,6 @@ function setTotalFound(value) {
 function searchCrashForCountry(code) {
     d3.json(baseurl + "/searchCountryCode/" + code, function(json) {
         if (!json) return;
-        console.log(json);
         hideAll();
         displayCrashs(json);
         setTotalFound(Object.keys(json).length);

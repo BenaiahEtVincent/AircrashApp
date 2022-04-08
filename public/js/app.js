@@ -2372,9 +2372,11 @@ d3__WEBPACK_IMPORTED_MODULE_0__.select("#avionCrashCard").style("visibility", "h
 var year = 2022;
 
 function initCrash() {
+  var v = ((year - 1900) / (2022 - 1900) * 100).toFixed(0);
+  console.log("YEAR", year, v);
+  d3__WEBPACK_IMPORTED_MODULE_0__.select("#map").attr("class", "sepia-" + v);
   var url = baseurl + "/incidents/" + year;
   d3__WEBPACK_IMPORTED_MODULE_0__.json(url, function (json) {
-    console.log(json);
     crashs.selectAll("image").remove();
     airportsStart.selectAll("circle").remove();
     flights.selectAll("line").remove();
@@ -2415,8 +2417,7 @@ d3__WEBPACK_IMPORTED_MODULE_0__.json(baseurl + "/maps", function (json) {
   .on("click", function (d, i) {
     searchCrashForCountry(d.properties.adm0_a3);
     d3__WEBPACK_IMPORTED_MODULE_0__.selectAll(".country").classed("country-on", false);
-    d3__WEBPACK_IMPORTED_MODULE_0__.select(this).classed("country-on", true);
-    console.log(d.properties.adm0_a3); //boxZoom(path.bounds(d), path.centroid(d), 20);
+    d3__WEBPACK_IMPORTED_MODULE_0__.select(this).classed("country-on", true); //boxZoom(path.bounds(d), path.centroid(d), 20);
   }); // Add a label group to each feature/country. This will contain the country name and a background rectangle
   // Use CSS to have class "countryLabel" initially hidden
 
@@ -2453,7 +2454,6 @@ d3__WEBPACK_IMPORTED_MODULE_0__.json(baseurl + "/maps", function (json) {
 
 function displayDetailCard(crash) {
   // pour toi
-  console.log(crash);
   d3__WEBPACK_IMPORTED_MODULE_0__.select("#avionCrashCard").transition().duration(900).style("visibility", "visible");
 
   for (var _i = 0, _Object$entries = Object.entries(crash); _i < _Object$entries.length; _i++) {
@@ -2499,7 +2499,6 @@ function hideDetailCard() {
 
 function focusAndDisplayAirport(crash) {
   // pour moi
-  console.log(crash);
   var d = {
     type: "Feature",
     properties: {},
@@ -2609,7 +2608,6 @@ function displayCrashs(listCrashs) {
   airportsStart.selectAll("circle").data(listCrashs).enter().append("circle").attr("fill", "green").attr("fill-opacity", "0.5").attr("r", 10).attr("id", function (d) {
     return "airport_" + d.id;
   }).attr("transform", function (d) {
-    console.log(d);
     return "translate(" + projection([d.gps_depart.lon, d.gps_depart.lat]) + ")";
   }).on("click", function (crash) {
     displayDetailCard(crash); // pour toi
@@ -2652,10 +2650,8 @@ d3__WEBPACK_IMPORTED_MODULE_0__.select("#searchBar button.search").on("click", f
 function searchByDateAndDisplay(value) {
   unfocus();
   displayButtonCloseSearchBar(true);
-  console.log(value.replaceAll("-", "/"));
   d3__WEBPACK_IMPORTED_MODULE_0__.json(baseurl + "/incidents/" + value.replaceAll("-", "/"), function (json) {
     if (!json) return;
-    console.log(json);
     hideAll();
     displayCrashs(json);
     setTotalFound(Object.keys(json).length);
@@ -2667,7 +2663,6 @@ function searchAndDisplay(value) {
   displayButtonCloseSearchBar(true);
   d3__WEBPACK_IMPORTED_MODULE_0__.json(baseurl + "/search/" + value.replaceAll("/", "-"), function (json) {
     if (!json) return;
-    console.log(json);
     hideAll();
     displayCrashs(json);
     setTotalFound(Object.keys(json).length);
@@ -2691,7 +2686,6 @@ function setTotalFound(value) {
 function searchCrashForCountry(code) {
   d3__WEBPACK_IMPORTED_MODULE_0__.json(baseurl + "/searchCountryCode/" + code, function (json) {
     if (!json) return;
-    console.log(json);
     hideAll();
     displayCrashs(json);
     setTotalFound(Object.keys(json).length);

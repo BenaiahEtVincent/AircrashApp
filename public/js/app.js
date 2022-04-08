@@ -2238,7 +2238,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 //import * as jquery from "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js";
 
 
-var dataurl = "https://aircraft.bidule.fun/";
+var dataurl = "";
 var baseurl = (dataurl == "" ? window.location : dataurl) + "api";
 console.log(baseurl); // DEFINE VARIABLES
 // Define size of map group

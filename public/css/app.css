@@ -1,1 +1,292 @@
-*{box-sizing:border-box}body{background-color:#2a2c39;font-family:Helvetica,sans-serif;font-size:17px;font-weight:200;margin:0}body,section#map-section{display:flex;justify-content:center;width:100%}section#map-section{align-items:center;height:100%}#map-holder{height:100vh;width:100vw}svg rect{fill:#2a2c39}.country{fill:#d0d0d0;stroke:#2a2c39;stroke-width:1}.country-on{fill:#4b5358}.countryLabel{display:none}.countryName{fill:#fffaff}.countryLabelBg{fill:#30bced}#rangeYear{-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);background-color:hsla(0,0%,100%,.705);border-radius:15px;bottom:5vh;display:flex;flex-direction:column;margin:auto;padding:2rem;position:absolute;width:90vw}#rangeYear input{width:100%}#rangeYear output{margin:auto}#searchBar{-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);background-color:hsla(0,0%,100%,.705);border-radius:15px;display:flex;flex-direction:column;left:2vw;padding:2rem;position:absolute;top:5vh;width:30vw}#searchBar input{box-sizing:border-box;margin:8px 0;padding:12px 20px;width:100%}.hidden{display:none}#avionCrashCard{-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);background-color:hsla(0,0%,100%,.705);border-radius:15px;position:absolute;right:50px;top:30px;width:20%;z-index:1000}#maCarte{padding:20px}.titreAvion{color:#fff}.material-icons.unfocus:hover{color:#fff;cursor:pointer}#infoButton.material-icons{color:#fff;cursor:pointer;font-size:48px;height:2rem;left:50px;position:absolute;top:50vh;width:2rem;z-index:1000}#info-section{background-color:#fff;display:none;height:100vh;width:100vw;z-index:2000}.slideshow-container{margin:auto;max-width:1000px;position:relative}.mySlides{display:none}.next,.prev{border-radius:0 3px 3px 0;color:#fff;cursor:pointer;font-size:18px;font-weight:700;margin-top:-22px;padding:16px;position:absolute;top:50%;transition:.6s ease;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;width:auto}.next{border-radius:3px 0 0 3px;right:0}.next:hover,.prev:hover{background-color:rgba(0,0,0,.8)}.text{bottom:8px;font-size:15px;text-align:center;width:100%}.numbertext,.text{color:#f2f2f2;padding:8px 12px;position:absolute}.numbertext{font-size:12px;top:0}.dot{background-color:#bbb;border-radius:50%;cursor:pointer;display:inline-block;height:15px;margin:0 2px;transition:background-color .6s ease;width:15px}.active,.dot:hover{background-color:#717171}.fade{-webkit-animation-duration:1.5s;animation-duration:1.5s;-webkit-animation-name:fade;animation-name:fade}@-webkit-keyframes fade{0%{opacity:.4}to{opacity:1}}@keyframes fade{0%{opacity:.4}to{opacity:1}}@media screen and (max-width:767px){#searchBar{left:0;padding:1rem;top:0;width:100vw}#avionCrashCard{right:0;top:0;width:100%}}
+* {
+    box-sizing: border-box
+}
+
+body {
+    margin: 0;
+    background-color: #2A2C39;
+    font-family: 'Helvetica', sans-serif;
+    font-weight: 200;
+    font-size: 17px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+section#map-section {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#map-holder {
+    width: 100vw;
+    height: 100vh;
+}
+
+svg rect {
+    fill: #2A2C39;
+    /* map background colour */
+}
+
+.country {
+    fill: #d0d0d0;
+    /* country colour */
+    stroke: #2A2C39;
+    /* country border colour */
+    stroke-width: 1;
+    /* country border width */
+}
+
+.country-on {
+    fill: #4B5358;
+    /* highlight colour for selected country */
+}
+
+.countryLabel {
+    display: none;
+    /* hide all country labels by default */
+}
+
+.countryName {
+    fill: #FFFAFF;
+    /* country label text colour */
+}
+
+.countryLabelBg {
+    fill: #30BCED;
+    /* country label background colour */
+}
+
+#rangeYear {
+    position: absolute;
+    bottom: 5vh;
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    margin: auto;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.705);
+    -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+}
+
+#rangeYear input {
+    width: 100%;
+}
+
+#rangeYear output {
+    margin: auto;
+}
+
+#searchBar {
+    position: absolute;
+    top: 5vh;
+    left: 2vw;
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.705);
+    -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+}
+
+#searchBar input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+.hidden {
+    display: none;
+}
+
+#avionCrashCard {
+    background-color: rgba(255, 255, 255, 0.705);
+    -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+    border-radius: 15px;
+    z-index: 1000;
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    width: 20%;
+}
+
+#maCarte {
+    padding: 20px;
+}
+
+.titreAvion {
+    color: white;
+}
+
+.material-icons.unfocus:hover {
+    color: white;
+    cursor: pointer;
+}
+
+#infoButton.material-icons {
+    z-index: 1000;
+    position: absolute;
+    top: 50vh;
+    left: 50px;
+    width: 2rem;
+    height: 2rem;
+    color: white;
+    font-size: 48px;
+    cursor: pointer;
+}
+
+#info-section {
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2000;
+    background-color: white;
+}
+
+
+/* Slideshow container */
+
+.slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+}
+
+
+/* Hide the images by default */
+
+.mySlides {
+    display: none;
+}
+
+
+/* Next & previous buttons */
+
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+
+
+/* Position the "next button" to the right */
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+
+/* On hover, add a black background color with a little bit see-through */
+
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+/* Caption text */
+
+.text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+}
+
+
+/* Number text (1/3 etc) */
+
+.numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+
+
+/* The dots/bullets/indicators */
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active,
+.dot:hover {
+    background-color: #717171;
+}
+
+
+/* Fading animation */
+
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+    from {
+        opacity: .4
+    }
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+    to {
+        opacity: 1
+    }
+}
+
+@media screen and (max-width: 767px) {
+    #searchBar {
+        top: 0;
+        left: 0;
+        width: 100vw;
+        padding: 1rem;
+    }
+    #avionCrashCard {
+        top: 0;
+        right: 0;
+        width: 100%;
+    }
+}

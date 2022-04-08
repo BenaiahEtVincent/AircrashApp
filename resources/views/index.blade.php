@@ -34,7 +34,7 @@
 
                 <!-- Full-width images with number and caption text -->
                 <div class="mySlides fade">
-                    <img src="/storage/planes/8/273.jpg" style="width:100%">
+                    <img src="" style="width:100%">
                 </div>
 
                 <!-- Next and previous buttons -->

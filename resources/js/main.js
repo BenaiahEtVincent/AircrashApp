@@ -23,7 +23,7 @@ let countryLabels;
 let crashs;
 let airportsStart;
 let flights;
-
+let plane;
 
 let minXY;
 let maxXY;
@@ -84,6 +84,12 @@ function zoomed() {
         "transform",
         "translate(" + [t.x, t.y] + ")scale(" + t.k + ")"
     );
+
+    plane.attr(
+        "transform",
+        "translate(" + [t.x, t.y] + ")scale(" + t.k + ")"
+    );
+
 }
 
 // Define map zoom behaviour
@@ -197,6 +203,7 @@ function initCrash() {
         crashs.selectAll("image").remove();
         airportsStart.selectAll("circle").remove();
         flights.selectAll("line").remove();
+        plane.selectAll("image").remove();
         displayCrashs(json);
     });
 }
@@ -225,6 +232,7 @@ d3.json(baseurl + "/maps", function(json) {
     crashs = svg.append("g").attr("id", "crashs");
     airportsStart = svg.append("g").attr("id", "airportStart");
     flights = svg.append("g").attr("id", "flights");
+    plane = svg.append("g").attr("id", "plane");
 
     // add a background rectangle
     countriesGroup
@@ -387,6 +395,39 @@ function displayDetailCard(crash) {
             .style("aspect-ratio", "3/2");
     });
 
+    let dx = crash.gps_crash.lat - crash.gps_depart.lat
+    let dy = crash.gps_crash.lon - crash.gps_depart.lon
+    let ang = Math.atan2(dy, dx) * 180 / Math.PI;
+
+    let distance = calculateDistanceTwoPointsGPS(crash.gps_crash.lat, crash.gps_crash.lon, crash.gps_depart.lat, crash.gps_depart.lon);
+    console.log(distance / 1000);
+    plane.append("svg:image", ".plane")
+        .attr("xlink:href", "/assets/avion.svg")
+        .attr("width", 40)
+        .attr("height", 40)
+        .attr('x', d => -20)
+        .attr('y', d => -20)
+        .attr("id", "plane-picto")
+        .attr("transform", function(d) {
+            return (
+                "translate(" +
+                projection([crash.gps_depart.lon, crash.gps_depart.lat]) +
+                ") rotate(" + ang + ")"
+
+            );
+        })
+        .transition()
+        .duration(distance / 1000)
+        .ease(d3.easeLinear)
+        .attr("transform", function(d) {
+            return (
+                "translate(" +
+                projection([crash.gps_crash.lon, crash.gps_crash.lat]) +
+                ") rotate(" + ang + ")"
+            );
+        })
+        .remove();
+
 
 
 
@@ -398,6 +439,8 @@ function hideDetailCard() {
         .duration(900)
         .style("visibility", "hidden");
     d3.selectAll("#carrousel_images .mySlides").remove(); //clean all images
+    d3.select("#map-holder svg").selectAll("#plane-picto").remove(); //clean plane
+
 }
 
 function focusAndDisplayAirport(crash) {
@@ -478,6 +521,8 @@ function toggleAllPoint(crash, focus = true) {
                 return isCrashSelected ? "visible" : "hidden";
             });
     });
+
+
 }
 
 function unfocus() {
@@ -526,6 +571,8 @@ function displayCrashs(listCrashs) {
         .attr('x', d => -10)
         .attr('y', d => -10)
         .attr("transform", function(d) {
+            console.log(d.gps_crash);
+            console.log(projection([d.gps_crash.lon, d.gps_crash.lat]));
             return (
                 "translate(" +
                 projection([d.gps_crash.lon, d.gps_crash.lat]) +
@@ -653,4 +700,34 @@ function searchCrashForCountry(code) {
         displayCrashs(json);
         setTotalFound(Object.keys(json).length);
     });
+}
+
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+d3.select("#play-button").on("click", async function() {
+
+    for (let _year = 1900; _year <= 2022; _year++) {
+        await sleep(2000);
+        inputYear.attr("value", _year);
+        document.querySelector("#rangeYear input").dispatchEvent(new Event('input', { bubbles: true }));
+        initCrash();
+    }
+});
+
+
+function calculateDistanceTwoPointsGPS(depart_lat, depart_lon, dest_lat, dest_lon) {
+    const R = 6371e3; // metres
+    const φ1 = depart_lat * Math.PI / 180; // φ, λ in radians
+    const φ2 = dest_lat * Math.PI / 180;
+    const Δφ = (dest_lat - depart_lat) * Math.PI / 180;
+    const Δλ = (dest_lon - depart_lon) * Math.PI / 180;
+
+    const a = Math.sin(Δφ / 2) * Math.sin(Δφ / 2) +
+        Math.cos(φ1) * Math.cos(φ2) *
+        Math.sin(Δλ / 2) * Math.sin(Δλ / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+    const d = R * c; // in metres
+
+    return d;
 }

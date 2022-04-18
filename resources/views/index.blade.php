@@ -67,7 +67,31 @@
     <section id="info-section">
         <i id="close-info-section" class="material-icons">close</i>
 
-        COUCOU
+        <div id="logo">LOGO</div>
+        <div class="row">
+            <div class="col-6">
+                COL6
+            </div>
+            <div class="col-6">
+                COL6
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                COL6
+            </div>
+            <div class="col-6">
+                COL6
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                COL6
+            </div>
+            <div class="col-6">
+                COL6
+            </div>
+        </div>
     </section>
 </body>
 

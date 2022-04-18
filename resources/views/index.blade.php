@@ -80,10 +80,10 @@
             </div>
             <div class="row">
                 <div class="col-6">
-                    <div id="graph_timeline"></div>
+                    <div id="graph_vehicules"></div>
                 </div>
                 <div class="col-6">
-                    80% des crashs ont lieu pendant les 3 premières minutes et les 8 dernières.
+                    Avions comparé aux autres moyens de locomotion
                 </div>
             </div>
             <div class="row">

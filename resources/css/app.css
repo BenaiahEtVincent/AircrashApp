@@ -258,6 +258,24 @@ svg rect {
     animation-duration: 1.5s;
 }
 
+#close-info-section {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+#source a {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 10px;
+    color: rgb(117, 117, 117);
+    font-size: 0.8em;
+    text-decoration: none;
+}
+
 @-webkit-keyframes fade {
     from {
         opacity: .4

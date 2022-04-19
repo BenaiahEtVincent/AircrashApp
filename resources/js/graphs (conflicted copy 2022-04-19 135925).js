@@ -57,6 +57,7 @@ const svg = d3.select('#graph_vehicules')
 // Add X axis
 var x = d3.scaleBand()
     .domain(vehiculesDatas.map(d => d.name))
+    .paddingOuter(0.1)
     .range([0, 500]);
 
 svg.append("g")
@@ -65,7 +66,7 @@ svg.append("g")
 
 // Add Y axis
 var y = d3.scaleLinear()
-    .domain([0, d3.max(vehiculesDatas, d => d.death)])
+    .domain([0, 1000])
     .range([100, 0]);
 
 svg.append("g")

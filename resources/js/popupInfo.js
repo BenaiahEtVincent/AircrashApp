@@ -8,7 +8,7 @@ d3.select("#infoButton").on("click", function() {
 });
 
 d3.select("#close-info-section").on("click", function() {
-    d3.select("#map-section").style("display", "block");
+    d3.select("#map-section").style("display", "flex");
     d3.select("#info-section").style("display", "none");
     console.log("HERE");
 });

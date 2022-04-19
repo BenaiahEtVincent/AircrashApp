@@ -124,6 +124,8 @@ function initiateZoom() {
         zoom.transform,
         d3.zoomIdentity.translate(midX, midY).scale(minZoom)
     );
+
+
 }
 
 // zoom to show a bounding box, with optional additional padding as percentage of box size

@@ -573,8 +573,6 @@ function displayCrashs(listCrashs) {
         .attr('x', d => -10)
         .attr('y', d => -10)
         .attr("transform", function(d) {
-            console.log(d.gps_crash);
-            console.log(projection([d.gps_crash.lon, d.gps_crash.lat]));
             return (
                 "translate(" +
                 projection([d.gps_crash.lon, d.gps_crash.lat]) +
@@ -585,6 +583,7 @@ function displayCrashs(listCrashs) {
             return "crash_" + d.id;
         })
         .on("click", function(crash) {
+            console.log(crash);
             displayDetailCard(crash); // pour toi
             focusAndDisplayAirport(crash); // pour moi
         });

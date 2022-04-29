@@ -708,12 +708,25 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
 
 d3.select("#play-button").on("click", async function() {
 
-    for (let _year = 1900; _year <= 2022; _year++) {
+    /* for (let _year = 1918; _year <= 2022; _year++) {
         await sleep(2000);
         inputYear.attr("value", _year);
+        console.log(_year);
         document.querySelector("#rangeYear input").dispatchEvent(new Event('input', { bubbles: true }));
-        initCrash();
-    }
+        await initCrash();
+    } */
+
+    const url = baseurl + "/incidents";
+
+    await d3.json(url, async function(json) {
+        crashs.selectAll("image").remove();
+        airportsStart.selectAll("circle").remove();
+        flights.selectAll("line").remove();
+        plane.selectAll("image").remove();
+        await displayCrashsAnimate(json);
+    });
+
+
 });
 
 
@@ -732,4 +745,21 @@ function calculateDistanceTwoPointsGPS(depart_lat, depart_lon, dest_lat, dest_lo
     const d = R * c; // in metres
 
     return d;
+}
+
+async function displayCrashsAnimate(_crashs) {
+    for (let i = 1918; i <= 2022; i++) {
+        if (_crashs[i]) {
+            await sleep(50);
+            inputYear.attr("value", i);
+            document.querySelector("#rangeYear input").dispatchEvent(new Event('input', { bubbles: true }));
+
+            crashs.selectAll("image").remove();
+            airportsStart.selectAll("circle").remove();
+            flights.selectAll("line").remove();
+            plane.selectAll("image").remove();
+            displayCrashs(_crashs[i]);
+        }
+
+    }
 }

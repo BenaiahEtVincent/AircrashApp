@@ -76,6 +76,15 @@ svg rect {
     backdrop-filter: blur(10px);
 }
 
+#rangeYearBar {
+    display: flex;
+}
+
+#play-button {
+    font-size: 24px;
+    cursor: pointer;
+}
+
 #rangeYear input {
     width: 100%;
 }

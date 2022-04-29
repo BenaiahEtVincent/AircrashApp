@@ -21,8 +21,11 @@
             <button class="emptySearch">close</button>
         </div>
         <div id="rangeYear">
-            <span id="play-button" class="material-icons">play_circle</span>
-            <input type="range">
+            <div id="rangeYearBar">
+                <span id="play-button" class="material-icons">play_circle</span>
+                <input type="range">
+            </div>
+
             <output>2022</output>
         </div>
 

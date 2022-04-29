@@ -49,7 +49,7 @@ class Image extends Model
     }
     protected function getFullLinkAttribute()
     {
-        return env('APP_URL') . "/" . $this->local_url;
+        return env('MIX_DATA_URL') . $this->local_url;
         //return env("APP_URL") . "/storage/planes/" . $this->crash_id . "/" . $this->id . ".jpg";
     }
 }

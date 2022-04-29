@@ -25,6 +25,17 @@ class IncidentController extends Controller
         return response()->json($incidents);
     }
 
+    public function all()
+    {
+        ini_set('memory_limit', '2048M');
+
+        $incidents = Incident::workable()->get()->groupBy(function ($val) {
+            return \Carbon\Carbon::parse($val->crash_date)->format('Y');
+        });
+
+        return response()->json($incidents);
+    }
+
     public function setImage($id)
     {
         $incident = Incident::findOrFail($id);
@@ -57,7 +68,8 @@ class IncidentController extends Controller
         return response()->json($incidents);
     }
 
-    public function searchCountryCode($code) {
+    public function searchCountryCode($code)
+    {
         $incidents = Incident::workable()->where('incident_country_code', $code)->get();
 
         return response()->json($incidents);

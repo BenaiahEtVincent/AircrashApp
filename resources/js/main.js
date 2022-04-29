@@ -5,9 +5,7 @@ import * as $ from "jquery";
 
 let dataurl = process.env.MIX_DATA_URL;
 
-console.log(dataurl);
-
-const baseurl = process.env.MIX_DATA_URL; //(dataurl == "" ? window.location : dataurl) + "api";
+const baseurl = (dataurl == "" ? window.location : dataurl) + "api";
 
 console.log(baseurl);
 // DEFINE VARIABLES

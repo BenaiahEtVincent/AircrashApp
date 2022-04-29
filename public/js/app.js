@@ -2353,9 +2353,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var dataurl = "http://localhost:8000/";
-console.log(dataurl);
-var baseurl = "http://localhost:8000/"; //(dataurl == "" ? window.location : dataurl) + "api";
-
+var baseurl = (dataurl == "" ? window.location : dataurl) + "api";
 console.log(baseurl); // DEFINE VARIABLES
 // Define size of map group
 // Full world map is 2:1 ratio

@@ -16,8 +16,6 @@
         <div id="searchBar">
             <input type="text" id="searchByText" placeholder="Rechercher">
             <input type="date" id="searchByDate">
-            @php echo env('APP_URL') @endphp
-
             <span id="totalFound">1000</span>
             <button class="search">search</button>
             <button class="emptySearch">close</button>

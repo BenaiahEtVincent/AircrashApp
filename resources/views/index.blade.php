@@ -33,7 +33,10 @@
 
         <div id="avionCrashCard">
             <div id="maCarte" class="maClassCarte">
-                <span class="material-icons unfocus">close</span>
+                <div class="buttonGroup">
+                    <a href="" id="editCrash"><span class="material-icons">edit</span></a>
+                    <span class="material-icons unfocus">close</span>
+                </div>
                 <div id="carrousel_images" class="slideshow-container">
 
                     <!-- Full-width images with number and caption text -->

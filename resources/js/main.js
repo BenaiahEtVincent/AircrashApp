@@ -361,6 +361,8 @@ function displayDetailCard(crash) {
         minute: "2-digit"
     });
 
+    d3.select("#editCrash").attr("href", "/incidents/" + crash.id + "/edit");
+
     d3.select("#crash_date").select("span").text(crashDateFormatted);
 
 

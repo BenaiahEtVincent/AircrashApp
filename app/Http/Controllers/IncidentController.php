@@ -79,4 +79,15 @@ class IncidentController extends Controller
     {
         return Storage::get("map.json");
     }
+
+    public function edit(Incident $incident) {
+        return view('incidents.edit', compact('incident'));
+    }
+
+    public function update(Request $request, Incident $incident) {
+
+        $incident->update($request->all());
+
+        return redirect()->route('home');
+    }
 }

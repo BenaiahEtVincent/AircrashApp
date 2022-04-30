@@ -15,6 +15,15 @@ class Incident extends Model
 
     protected $table = "crashs";
 
+    protected $fillable = [
+        "incident_gps_lat",
+        "incident_gps_lon",
+        "depart_gps_lat",
+        "depart_gps_lon",
+        "destination_gps_lat",
+        "destination_gps_lon",
+    ];
+
     protected $hidden = [
         "incident_gps_lat",
         "incident_gps_lon",

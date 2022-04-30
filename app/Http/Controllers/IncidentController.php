@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateIncidentRequest;
 use App\Models\Incident;
 use Exception;
 use Illuminate\Http\Request;
@@ -84,7 +85,7 @@ class IncidentController extends Controller
         return view('incidents.edit', compact('incident'));
     }
 
-    public function update(Request $request, Incident $incident) {
+    public function update(UpdateIncidentRequest $request, Incident $incident) {
 
         $incident->update($request->all());
 

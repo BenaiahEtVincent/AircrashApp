@@ -2923,7 +2923,7 @@ function _displayCrashsAnimate() {
             }
 
             _context3.next = 5;
-            return sleep(50);
+            return sleep(100);
 
           case 5:
             inputYear.attr("value", i);

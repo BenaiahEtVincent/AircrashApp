@@ -751,7 +751,7 @@ function calculateDistanceTwoPointsGPS(depart_lat, depart_lon, dest_lat, dest_lo
 async function displayCrashsAnimate(_crashs) {
     for (let i = 1918; i <= 2022; i++) {
         if (_crashs[i]) {
-            await sleep(50);
+            await sleep(100);
             inputYear.attr("value", i);
             document.querySelector("#rangeYear input").dispatchEvent(new Event('input', { bubbles: true }));
 

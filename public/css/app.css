@@ -1,4 +1,761 @@
 @import url(https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,700;1,300;1,400&display=swap);
-#map-holder .sepia-0{filter:sepia(1)}#map-holder .sepia-1{filter:sepia(.99)}#map-holder .sepia-2{filter:sepia(.98)}#map-holder .sepia-3{filter:sepia(.97)}#map-holder .sepia-4{filter:sepia(.96)}#map-holder .sepia-5{filter:sepia(.95)}#map-holder .sepia-6{filter:sepia(.94)}#map-holder .sepia-7{filter:sepia(.93)}#map-holder .sepia-8{filter:sepia(.92)}#map-holder .sepia-9{filter:sepia(.91)}#map-holder .sepia-10{filter:sepia(.9)}#map-holder .sepia-11{filter:sepia(.89)}#map-holder .sepia-12{filter:sepia(.88)}#map-holder .sepia-13{filter:sepia(.87)}#map-holder .sepia-14{filter:sepia(.86)}#map-holder .sepia-15{filter:sepia(.85)}#map-holder .sepia-16{filter:sepia(.84)}#map-holder .sepia-17{filter:sepia(.83)}#map-holder .sepia-18{filter:sepia(.82)}#map-holder .sepia-19{filter:sepia(.81)}#map-holder .sepia-20{filter:sepia(.8)}#map-holder .sepia-21{filter:sepia(.79)}#map-holder .sepia-22{filter:sepia(.78)}#map-holder .sepia-23{filter:sepia(.77)}#map-holder .sepia-24{filter:sepia(.76)}#map-holder .sepia-25{filter:sepia(.75)}#map-holder .sepia-26{filter:sepia(.74)}#map-holder .sepia-27{filter:sepia(.73)}#map-holder .sepia-28{filter:sepia(.72)}#map-holder .sepia-29{filter:sepia(.71)}#map-holder .sepia-30{filter:sepia(.7)}#map-holder .sepia-31{filter:sepia(.69)}#map-holder .sepia-32{filter:sepia(.68)}#map-holder .sepia-33{filter:sepia(.67)}#map-holder .sepia-34{filter:sepia(.66)}#map-holder .sepia-35{filter:sepia(.65)}#map-holder .sepia-36{filter:sepia(.64)}#map-holder .sepia-37{filter:sepia(.63)}#map-holder .sepia-38{filter:sepia(.62)}#map-holder .sepia-39{filter:sepia(.61)}#map-holder .sepia-40{filter:sepia(.6)}#map-holder .sepia-41{filter:sepia(.59)}#map-holder .sepia-42{filter:sepia(.58)}#map-holder .sepia-43{filter:sepia(.57)}#map-holder .sepia-44{filter:sepia(.56)}#map-holder .sepia-45{filter:sepia(.55)}#map-holder .sepia-46{filter:sepia(.54)}#map-holder .sepia-47{filter:sepia(.53)}#map-holder .sepia-48{filter:sepia(.52)}#map-holder .sepia-49{filter:sepia(.51)}#map-holder .sepia-50{filter:sepia(.5)}#map-holder .sepia-51{filter:sepia(.49)}#map-holder .sepia-52{filter:sepia(.48)}#map-holder .sepia-53{filter:sepia(.47)}#map-holder .sepia-54{filter:sepia(.46)}#map-holder .sepia-55{filter:sepia(.45)}#map-holder .sepia-56{filter:sepia(.44)}#map-holder .sepia-57{filter:sepia(.43)}#map-holder .sepia-58{filter:sepia(.42)}#map-holder .sepia-59{filter:sepia(.41)}#map-holder .sepia-60{filter:sepia(.4)}#map-holder .sepia-61{filter:sepia(.39)}#map-holder .sepia-62{filter:sepia(.38)}#map-holder .sepia-63{filter:sepia(.37)}#map-holder .sepia-64{filter:sepia(.36)}#map-holder .sepia-65{filter:sepia(.35)}#map-holder .sepia-66{filter:sepia(.34)}#map-holder .sepia-67{filter:sepia(.33)}#map-holder .sepia-68{filter:sepia(.32)}#map-holder .sepia-69{filter:sepia(.31)}#map-holder .sepia-70{filter:sepia(.3)}#map-holder .sepia-71{filter:sepia(.29)}#map-holder .sepia-72{filter:sepia(.28)}#map-holder .sepia-73{filter:sepia(.27)}#map-holder .sepia-74{filter:sepia(.26)}#map-holder .sepia-75{filter:sepia(.25)}#map-holder .sepia-76{filter:sepia(.24)}#map-holder .sepia-77{filter:sepia(.23)}#map-holder .sepia-78{filter:sepia(.22)}#map-holder .sepia-79{filter:sepia(.21)}#map-holder .sepia-80{filter:sepia(.2)}#map-holder .sepia-81{filter:sepia(.19)}#map-holder .sepia-82{filter:sepia(.18)}#map-holder .sepia-83{filter:sepia(.17)}#map-holder .sepia-84{filter:sepia(.16)}#map-holder .sepia-85{filter:sepia(.15)}#map-holder .sepia-86{filter:sepia(.14)}#map-holder .sepia-87{filter:sepia(.13)}#map-holder .sepia-88{filter:sepia(.12)}#map-holder .sepia-89{filter:sepia(.11)}#map-holder .sepia-90{filter:sepia(.1)}#map-holder .sepia-91{filter:sepia(.09)}#map-holder .sepia-92{filter:sepia(.08)}#map-holder .sepia-93{filter:sepia(.07)}#map-holder .sepia-94{filter:sepia(.06)}#map-holder .sepia-95{filter:sepia(.05)}#map-holder .sepia-96{filter:sepia(.04)}#map-holder .sepia-97{filter:sepia(.03)}#map-holder .sepia-98{filter:sepia(.02)}#map-holder .sepia-99{filter:sepia(.01)}#map-holder .sepia-100{filter:sepia(0)}
-#container_graphs{height:85vh;overflow:hidden;padding-left:5%;padding-right:5%;position:relative;width:100vw}#logo{height:100px;margin:0 auto;width:200px}.row{display:flex;margin-bottom:10px;margin-top:10px;width:100%}.col-6{flex:0 0 50%}
-*{box-sizing:border-box}body{background-color:#2a2c39;font-family:Montserrat,sans-serif;font-size:17px;font-weight:200;margin:0}body,section#map-section{display:flex;justify-content:center;width:100%}section#map-section{align-items:center;height:100%}#map-holder{height:100vh;width:100vw}svg rect{fill:#2a2c39}.country{fill:#d0d0d0;stroke:#2a2c39;stroke-width:1}.country-on{fill:#4b5358}.countryLabel{display:none}.countryName{fill:#fffaff}.countryLabelBg{fill:#30bced}#rangeYear{-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);background-color:hsla(0,0%,100%,.705);border-radius:15px;bottom:5vh;flex-direction:column;margin:auto;padding:2rem;position:absolute;width:90vw}#rangeYear,#rangeYearBar{display:flex}#play-button{cursor:pointer;font-size:24px}#rangeYear input{width:100%}#rangeYear output{font-size:2em;font-weight:500;margin:auto}#searchBar{-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);background-color:hsla(0,0%,100%,.705);border-radius:15px;display:flex;flex-direction:column;left:2vw;padding:2rem;position:absolute;top:5vh;width:30vw}#searchBar input{box-sizing:border-box;margin:8px 0;padding:12px 20px;width:100%}.hidden{display:none}#avionCrashCard{-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);background-color:hsla(0,0%,100%,.705);border-radius:15px;position:absolute;right:50px;top:30px;width:20%;z-index:1000}#maCarte{padding:20px}.titreAvion{color:#fff}#maCarte div.buttonGroup{display:flex;justify-content:space-between}#maCarte a{color:#000;text-decoration:none}#maCarte a:hover,.material-icons.unfocus:hover{color:#fff;cursor:pointer}#infoButton.material-icons{color:#fff;cursor:pointer;font-size:48px;height:2rem;left:50px;position:absolute;top:50vh;width:2rem;z-index:1000}#info-section{background-color:#fff;display:none;height:100vh;width:100vw;z-index:2000}.slideshow-container{margin:auto;max-width:1000px;position:relative}.mySlides{display:none}.next,.prev{border-radius:0 3px 3px 0;color:#fff;cursor:pointer;font-size:18px;font-weight:700;margin-top:-22px;padding:16px;position:absolute;top:50%;transition:.6s ease;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;width:auto}.next{border-radius:3px 0 0 3px;right:0}.next:hover,.prev:hover{background-color:rgba(0,0,0,.8)}.text{bottom:8px;font-size:15px;text-align:center;width:100%}.numbertext,.text{color:#f2f2f2;padding:8px 12px;position:absolute}.numbertext{font-size:12px;top:0}.dot{background-color:#bbb;border-radius:50%;cursor:pointer;display:inline-block;height:15px;margin:0 2px;transition:background-color .6s ease;width:15px}.active,.dot:hover{background-color:#717171}.fade{-webkit-animation-duration:1.5s;animation-duration:1.5s;-webkit-animation-name:fade;animation-name:fade}#close-info-section{cursor:pointer;font-size:2rem;position:absolute;right:5px;top:5px}#source a{bottom:0;color:#757575;font-size:.8em;padding:10px;position:absolute;right:0;text-decoration:none}@-webkit-keyframes fade{0%{opacity:.4}to{opacity:1}}@keyframes fade{0%{opacity:.4}to{opacity:1}}@media screen and (max-width:767px){#searchBar{left:0;padding:1rem;top:0;width:100vw}#avionCrashCard{right:0;top:0;width:100%}}
+#map-holder .sepia-0 {
+    filter: sepia(1);
+}
+
+#map-holder .sepia-1 {
+    filter: sepia(0.99);
+}
+
+#map-holder .sepia-2 {
+    filter: sepia(0.98);
+}
+
+#map-holder .sepia-3 {
+    filter: sepia(0.97);
+}
+
+#map-holder .sepia-4 {
+    filter: sepia(0.96);
+}
+
+#map-holder .sepia-5 {
+    filter: sepia(0.95);
+}
+
+#map-holder .sepia-6 {
+    filter: sepia(0.94);
+}
+
+#map-holder .sepia-7 {
+    filter: sepia(0.93);
+}
+
+#map-holder .sepia-8 {
+    filter: sepia(0.92);
+}
+
+#map-holder .sepia-9 {
+    filter: sepia(0.91);
+}
+
+#map-holder .sepia-10 {
+    filter: sepia(0.9);
+}
+
+#map-holder .sepia-11 {
+    filter: sepia(0.89);
+}
+
+#map-holder .sepia-12 {
+    filter: sepia(0.88);
+}
+
+#map-holder .sepia-13 {
+    filter: sepia(0.87);
+}
+
+#map-holder .sepia-14 {
+    filter: sepia(0.86);
+}
+
+#map-holder .sepia-15 {
+    filter: sepia(0.85);
+}
+
+#map-holder .sepia-16 {
+    filter: sepia(0.84);
+}
+
+#map-holder .sepia-17 {
+    filter: sepia(0.83);
+}
+
+#map-holder .sepia-18 {
+    filter: sepia(0.82);
+}
+
+#map-holder .sepia-19 {
+    filter: sepia(0.81);
+}
+
+#map-holder .sepia-20 {
+    filter: sepia(0.8);
+}
+
+#map-holder .sepia-21 {
+    filter: sepia(0.79);
+}
+
+#map-holder .sepia-22 {
+    filter: sepia(0.78);
+}
+
+#map-holder .sepia-23 {
+    filter: sepia(0.77);
+}
+
+#map-holder .sepia-24 {
+    filter: sepia(0.76);
+}
+
+#map-holder .sepia-25 {
+    filter: sepia(0.75);
+}
+
+#map-holder .sepia-26 {
+    filter: sepia(0.74);
+}
+
+#map-holder .sepia-27 {
+    filter: sepia(0.73);
+}
+
+#map-holder .sepia-28 {
+    filter: sepia(0.72);
+}
+
+#map-holder .sepia-29 {
+    filter: sepia(0.71);
+}
+
+#map-holder .sepia-30 {
+    filter: sepia(0.7);
+}
+
+#map-holder .sepia-31 {
+    filter: sepia(0.69);
+}
+
+#map-holder .sepia-32 {
+    filter: sepia(0.68);
+}
+
+#map-holder .sepia-33 {
+    filter: sepia(0.67);
+}
+
+#map-holder .sepia-34 {
+    filter: sepia(0.66);
+}
+
+#map-holder .sepia-35 {
+    filter: sepia(0.65);
+}
+
+#map-holder .sepia-36 {
+    filter: sepia(0.64);
+}
+
+#map-holder .sepia-37 {
+    filter: sepia(0.63);
+}
+
+#map-holder .sepia-38 {
+    filter: sepia(0.62);
+}
+
+#map-holder .sepia-39 {
+    filter: sepia(0.61);
+}
+
+#map-holder .sepia-40 {
+    filter: sepia(0.6);
+}
+
+#map-holder .sepia-41 {
+    filter: sepia(0.59);
+}
+
+#map-holder .sepia-42 {
+    filter: sepia(0.58);
+}
+
+#map-holder .sepia-43 {
+    filter: sepia(0.57);
+}
+
+#map-holder .sepia-44 {
+    filter: sepia(0.56);
+}
+
+#map-holder .sepia-45 {
+    filter: sepia(0.55);
+}
+
+#map-holder .sepia-46 {
+    filter: sepia(0.54);
+}
+
+#map-holder .sepia-47 {
+    filter: sepia(0.53);
+}
+
+#map-holder .sepia-48 {
+    filter: sepia(0.52);
+}
+
+#map-holder .sepia-49 {
+    filter: sepia(0.51);
+}
+
+#map-holder .sepia-50 {
+    filter: sepia(0.5);
+}
+
+#map-holder .sepia-51 {
+    filter: sepia(0.49);
+}
+
+#map-holder .sepia-52 {
+    filter: sepia(0.48);
+}
+
+#map-holder .sepia-53 {
+    filter: sepia(0.47);
+}
+
+#map-holder .sepia-54 {
+    filter: sepia(0.46);
+}
+
+#map-holder .sepia-55 {
+    filter: sepia(0.45);
+}
+
+#map-holder .sepia-56 {
+    filter: sepia(0.44);
+}
+
+#map-holder .sepia-57 {
+    filter: sepia(0.43);
+}
+
+#map-holder .sepia-58 {
+    filter: sepia(0.42);
+}
+
+#map-holder .sepia-59 {
+    filter: sepia(0.41);
+}
+
+#map-holder .sepia-60 {
+    filter: sepia(0.4);
+}
+
+#map-holder .sepia-61 {
+    filter: sepia(0.39);
+}
+
+#map-holder .sepia-62 {
+    filter: sepia(0.38);
+}
+
+#map-holder .sepia-63 {
+    filter: sepia(0.37);
+}
+
+#map-holder .sepia-64 {
+    filter: sepia(0.36);
+}
+
+#map-holder .sepia-65 {
+    filter: sepia(0.35);
+}
+
+#map-holder .sepia-66 {
+    filter: sepia(0.34);
+}
+
+#map-holder .sepia-67 {
+    filter: sepia(0.33);
+}
+
+#map-holder .sepia-68 {
+    filter: sepia(0.32);
+}
+
+#map-holder .sepia-69 {
+    filter: sepia(0.31);
+}
+
+#map-holder .sepia-70 {
+    filter: sepia(0.3);
+}
+
+#map-holder .sepia-71 {
+    filter: sepia(0.29);
+}
+
+#map-holder .sepia-72 {
+    filter: sepia(0.28);
+}
+
+#map-holder .sepia-73 {
+    filter: sepia(0.27);
+}
+
+#map-holder .sepia-74 {
+    filter: sepia(0.26);
+}
+
+#map-holder .sepia-75 {
+    filter: sepia(0.25);
+}
+
+#map-holder .sepia-76 {
+    filter: sepia(0.24);
+}
+
+#map-holder .sepia-77 {
+    filter: sepia(0.23);
+}
+
+#map-holder .sepia-78 {
+    filter: sepia(0.22);
+}
+
+#map-holder .sepia-79 {
+    filter: sepia(0.21);
+}
+
+#map-holder .sepia-80 {
+    filter: sepia(0.2);
+}
+
+#map-holder .sepia-81 {
+    filter: sepia(0.19);
+}
+
+#map-holder .sepia-82 {
+    filter: sepia(0.18);
+}
+
+#map-holder .sepia-83 {
+    filter: sepia(0.17);
+}
+
+#map-holder .sepia-84 {
+    filter: sepia(0.16);
+}
+
+#map-holder .sepia-85 {
+    filter: sepia(0.15);
+}
+
+#map-holder .sepia-86 {
+    filter: sepia(0.14);
+}
+
+#map-holder .sepia-87 {
+    filter: sepia(0.13);
+}
+
+#map-holder .sepia-88 {
+    filter: sepia(0.12);
+}
+
+#map-holder .sepia-89 {
+    filter: sepia(0.11);
+}
+
+#map-holder .sepia-90 {
+    filter: sepia(0.1);
+}
+
+#map-holder .sepia-91 {
+    filter: sepia(0.09);
+}
+
+#map-holder .sepia-92 {
+    filter: sepia(0.08);
+}
+
+#map-holder .sepia-93 {
+    filter: sepia(0.07);
+}
+
+#map-holder .sepia-94 {
+    filter: sepia(0.06);
+}
+
+#map-holder .sepia-95 {
+    filter: sepia(0.05);
+}
+
+#map-holder .sepia-96 {
+    filter: sepia(0.04);
+}
+
+#map-holder .sepia-97 {
+    filter: sepia(0.03);
+}
+
+#map-holder .sepia-98 {
+    filter: sepia(0.02);
+}
+
+#map-holder .sepia-99 {
+    filter: sepia(0.01);
+}
+
+#map-holder .sepia-100 {
+    filter: sepia(0);
+}
+#container_graphs {
+    width: 100vw;
+    height: 85vh;
+    position: relative;
+    overflow: hidden;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+#logo {
+    width: 200px;
+    height: 100px;
+    margin: 0 auto;
+}
+
+.row {
+    display: flex;
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.col-6 {
+    flex: 0 0 50%;
+}
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #2A2C39;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+    font-size: 17px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+section#map-section {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#map-holder {
+    width: 100vw;
+    height: 100vh;
+}
+
+svg rect {
+    fill: #2A2C39;
+    /* map background colour */
+}
+
+.country {
+    fill: #d0d0d0;
+    /* country colour */
+    stroke: #2A2C39;
+    /* country border colour */
+    stroke-width: 1;
+    /* country border width */
+}
+
+.country-on {
+    fill: #4B5358;
+    /* highlight colour for selected country */
+}
+
+.countryLabel {
+    display: none;
+    /* hide all country labels by default */
+}
+
+.countryName {
+    fill: #FFFAFF;
+    /* country label text colour */
+}
+
+.countryLabelBg {
+    fill: #30BCED;
+    /* country label background colour */
+}
+
+#rangeYear {
+    position: absolute;
+    bottom: 5vh;
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    margin: auto;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.705);
+    -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+}
+
+#rangeYearBar {
+    display: flex;
+}
+
+#play-button {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+#rangeYear input {
+    width: 100%;
+}
+
+#rangeYear output {
+    margin: auto;
+    font-size: 2em;
+    font-weight: 500;
+}
+
+#searchBar {
+    position: absolute;
+    top: 5vh;
+    left: 2vw;
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.705);
+    -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+}
+
+#searchBar input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+.hidden {
+    display: none;
+}
+
+#avionCrashCard {
+    background-color: rgba(255, 255, 255, 0.705);
+    -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+    border-radius: 15px;
+    z-index: 1000;
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    width: 20%;
+}
+
+#maCarte {
+    padding: 20px;
+}
+
+.titreAvion {
+    color: white;
+}
+
+#maCarte div.buttonGroup {
+    display: flex;
+    justify-content: space-between;
+}
+
+#maCarte a {
+    color: black;
+    text-decoration: none;
+}
+
+.material-icons.unfocus:hover,
+#maCarte a:hover {
+    color: white;
+    cursor: pointer;
+}
+
+#infoButton.material-icons {
+    z-index: 1000;
+    position: absolute;
+    top: 50vh;
+    left: 50px;
+    width: 2rem;
+    height: 2rem;
+    color: white;
+    font-size: 48px;
+    cursor: pointer;
+}
+
+#info-section {
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2000;
+    background-color: white;
+}
+
+
+/* Slideshow container */
+
+.slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+}
+
+
+/* Hide the images by default */
+
+.mySlides {
+    display: none;
+}
+
+
+/* Next & previous buttons */
+
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+
+
+/* Position the "next button" to the right */
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+
+/* On hover, add a black background color with a little bit see-through */
+
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+/* Caption text */
+
+.text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+}
+
+
+/* Number text (1/3 etc) */
+
+.numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+
+
+/* The dots/bullets/indicators */
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active,
+.dot:hover {
+    background-color: #717171;
+}
+
+
+/* Fading animation */
+
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+#close-info-section {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+#source a {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 10px;
+    color: rgb(117, 117, 117);
+    font-size: 0.8em;
+    text-decoration: none;
+}
+
+@-webkit-keyframes fade {
+    from {
+        opacity: .4
+    }
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+    to {
+        opacity: 1
+    }
+}
+
+@media screen and (max-width: 767px) {
+    #searchBar {
+        top: 0;
+        left: 0;
+        width: 100vw;
+        padding: 1rem;
+    }
+    #avionCrashCard {
+        top: 0;
+        right: 0;
+        width: 100%;
+    }
+}

@@ -20,7 +20,8 @@
 
                         @foreach ($datas as $data)
                             <div class="form-group {!! $errors->has($data['name']) ? 'has-error' : '' !!} mb-2">
-                                <label for="{{ $data['name'] }}" class="col-md-4 control-label">{{ $data['title'] }}</label>
+                                <label for="{{ $data['name'] }}"
+                                    class="col-md-4 control-label">{{ $data['title'] }}</label>
                                 <input type="text" name="{{ $data['name'] }}"
                                     value="{{ old($data['name']) ?? $incident[$data['name']] }}"
                                     placeholder="{{ $data['title'] }}" class="form-control">
@@ -40,4 +41,8 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    
 @endsection

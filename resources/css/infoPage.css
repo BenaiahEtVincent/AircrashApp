@@ -57,13 +57,26 @@
     color: #fff;
 }
 
-.titleSection h2,
-p {
+.titleSection h2 {
     text-align: center;
 }
 
 .titleSection p {
+    text-align: center;
     margin: 0 25%;
+}
+
+.infoButton {
+    background-image: url("/img/button.svg");
+    background-repeat: no-repeat;
+    background-position: left center;
+    /* height: 20px;
+    width: 100px; */
+    display: block;
+}
+
+.txt_button {
+    padding-left: 00px;
 }
 
 .bg_NY {
@@ -71,6 +84,111 @@ p {
     background-image: url("/img/bg_NY.jpg");
     background-repeat: no-repeat;
     background-position: center center;
+}
+
+.bg_NY h3 {
+    padding-top: 140px;
+    text-align: center;
+    font-size: 4em;
+    color: #fff;
+    text-shadow: #303030 7px 7px 5px;
+    margin-top: 0;
+    text-transform: uppercase;
+}
+
+.img_multi_NY {
+    background-image: url("/img/bg_multi_NY.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    height: 500px;
+    width: 100%;
+}
+
+.bg_RP {
+    height: 560px;
+    background-image: url("/img/bg_RIOPARIS.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.bg_RP h3 {
+    padding-top: 140px;
+    text-align: center;
+    font-size: 4em;
+    color: #fff;
+    text-shadow: #303030 7px 7px 5px;
+    margin-top: 0;
+    text-transform: uppercase;
+}
+
+.img_multi_RP {
+    background-image: url("/img/bg_multi_img_RIOPARIS.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    height: 500px;
+    width: 100%;
+}
+
+.bg_MA {
+    height: 560px;
+    background-image: url("/img/bg_MALAYSIE.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.bg_MA h3 {
+    padding-top: 140px;
+    text-align: center;
+    font-size: 4em;
+    color: #fff;
+    text-shadow: #303030 7px 7px 5px;
+    margin-top: 0;
+    text-transform: uppercase;
+}
+
+.img_multi_MA {
+    background-image: url("/img/bg_multi_img_MALAYSIE.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    height: 500px;
+    width: 100%;
+}
+
+.sectionContenu {
+    display: flex;
+    justify-content: space-between;
+}
+
+.bg_MAP {
+    height: 560px;
+    background-image: url("/img/bg_MAP.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.bg_MAP h3 {
+    padding-top: 140px;
+    text-align: center;
+    font-size: 4em;
+    color: #fff;
+    text-shadow: #303030 7px 7px 5px;
+    margin-top: 0;
+    text-transform: uppercase;
+}
+
+.bg_ombre {
+    box-shadow: inset 0px 40px 7px -5px rgba(0, 0, 0, 0.494);
+}
+
+.footerButton {
+    text-align: center;
+    font-size: 2em;
+    color: #fff;
+    text-shadow: #303030 7px 7px 5px;
+    margin-top: 0;
 }
 
 footer {

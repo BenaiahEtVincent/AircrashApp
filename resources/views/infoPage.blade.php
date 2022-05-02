@@ -35,29 +35,49 @@
             <div class="bg_NY">
                 <h3>11<br>Septembre<br>2001</h3>
             </div>
-            <div id="containerInfoPage">
+            <div id="containerInfoPage" class="sectionContenu">
+                <div class="bloc_text">
+                    <h4>WORLD TRADE CENTER</h4>
+                <p>Le 11 septembre, 4 avions décollant de Boston, Washington et New York se font détourner par une équipe de terroristes. Chaque avion devait s’écraser sur une cible différente du capitalisme occidental. Le pentagone, les tours jumelles du world trade center et un dernier qui visait soit la maison blanche soit le capitole. il s’est cependant écrasé dans un champ de pennsylvanie. 
+Au total, près de 2900 personnes ont perdu la vie dans cet événement. Il s’agit de l'événement qui a fait bousculer le monde moderne dans la peur du terrorisme et de la sécurité omniprésente dans les aéroports. 
+</p>
+                </div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean iaculis finibus augue, auctor volutpat sem commodo eget. Sed tincidunt lacinia feugiat. Ut non lacus fringilla, mollis lacus id, pharetra elit. Aliquam non consectetur diam, quis ornare purus. In quis lorem id arcu aliquet semper. Nullam lacinia turpis scelerisque sem semper, in sollicitudin neque viverra. Duis elementum semper arcu ut vehicula. Fusce vel maximus quam. Morbi at dapibus eros. Nulla vel sem sed tortor volutpat bibendum. Vivamus dignissim posuere erat et blandit.</p>
             </div>
+            <div class="img_multi_NY"></div>
         </section>
         <section class="info_RP">
-            <div class="bg_RP">
+            <div class="bg_RP bg_ombre">
                 <h3>Vol<br>Air France<br>447</h3>
             </div>
-            <div id="containerInfoPage">
+            <div id="containerInfoPage" class="sectionContenu">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean iaculis finibus augue, auctor volutpat sem commodo eget. Sed tincidunt lacinia feugiat. Ut non lacus fringilla, mollis lacus id, pharetra elit. Aliquam non consectetur diam, quis ornare purus. In quis lorem id arcu aliquet semper. Nullam lacinia turpis scelerisque sem semper, in sollicitudin neque viverra. Duis elementum semper arcu ut vehicula. Fusce vel maximus quam. Morbi at dapibus eros. Nulla vel sem sed tortor volutpat bibendum. Vivamus dignissim posuere erat et blandit.</p>
+                <div class="bloc_text">
+                    <h4>Crash du Rio-Paris</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean iaculis finibus augue, auctor volutpat sem commodo eget. Sed tincidunt lacinia feugiat. Ut non lacus fringilla, mollis lacus id, pharetra elit. Aliquam non consectetur diam, quis ornare purus. In quis lorem id arcu aliquet semper. Nullam lacinia turpis scelerisque sem semper, in sollicitudin neque viverra. Duis elementum semper arcu ut vehicula. Fusce vel maximus quam. Morbi at dapibus eros. Nulla vel sem sed tortor volutpat bibendum. Vivamus dignissim posuere erat et blandit.</p>
+                </div>
             </div>
+            <div class="img_multi_RP"></div>
         </section>
          <section class="info_MA">
-            <div class="bg_MA">
+            <div class="bg_MA bg_ombre">
                 <h3>Vol Malaysia<br>Airlines 370</h3>
             </div>
-            <div id="containerInfoPage">
+            <div id="containerInfoPage" class="sectionContenu">
+                <div class="bloc_text">
+                    <h4>MH 370</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean iaculis finibus augue, auctor volutpat sem commodo eget. Sed tincidunt lacinia feugiat. Ut non lacus fringilla, mollis lacus id, pharetra elit. Aliquam non consectetur diam, quis ornare purus. In quis lorem id arcu aliquet semper. Nullam lacinia turpis scelerisque sem semper, in sollicitudin neque viverra. Duis elementum semper arcu ut vehicula. Fusce vel maximus quam. Morbi at dapibus eros. Nulla vel sem sed tortor volutpat bibendum. Vivamus dignissim posuere erat et blandit.</p>
+                </div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean iaculis finibus augue, auctor volutpat sem commodo eget. Sed tincidunt lacinia feugiat. Ut non lacus fringilla, mollis lacus id, pharetra elit. Aliquam non consectetur diam, quis ornare purus. In quis lorem id arcu aliquet semper. Nullam lacinia turpis scelerisque sem semper, in sollicitudin neque viverra. Duis elementum semper arcu ut vehicula. Fusce vel maximus quam. Morbi at dapibus eros. Nulla vel sem sed tortor volutpat bibendum. Vivamus dignissim posuere erat et blandit.</p>
             </div>
+            <div class="img_multi_MA"></div>
         </section>
          <section class="info_MAP">
-            <div class="bg_MAP">
+            <div class="bg_MAP bg_ombre">
                 <h3>Carte du monde<br>interactive</h3>
-                <div class="infoButton">En savoir +</div>
+                <div class="infoButton footerButton"><span class="txt_button">savoir +</span></div>
             </div>
-            <div id="containerInfoPage">
+            <div id="containerInfoPage" class="sectionContenu">
             </div>
         </section>
     </div>

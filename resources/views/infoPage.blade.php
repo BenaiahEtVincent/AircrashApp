@@ -21,7 +21,7 @@
             </div>  
             <section class="headerSection">
                 <h1>AIR CRASH PROJECT</h1>
-                <p>Ressensement des accidents d’avions à travers l’histoire. Depuis le début de l’invention des avions jusqu’à aujourd’hui. Le projet Air Crash a pour objectif de mettre à l’honneur les accidents d’avions ainsi que les personnes malheureusement décédé. Afin qu’ils puissent ne pas être oublié. Afin de nous souvenir que c’est grace à eux que nous volons de plus en plus en sécuritée.</p>
+                <p>Ressensement des accidents d’avions à travers l’histoire. Depuis le début de l’invention des avions jusqu’à aujourd’hui. Le projet Air Crash a pour objectif de mettre à l’honneur les accidents d’avions ainsi que les personnes malheureusement décédé. Afin qu’ils puissent ne pas être oublié. Afin de nous souvenir que c’est grace à eux que nous volons de plus en plus en sécurité.</p>
                 {{-- <div class="infoButton headerButton">En savoir +</div> --}}
                  <div class="close-info-section infoButton headerButton">
                     <div class="monSuperBouton"></div>
@@ -80,9 +80,9 @@ Au total, près de 2900 personnes ont perdu la vie dans cet événement. Il s’
             <div class="img_multi_MA"></div>
         </section>
          <section id="MAP" class="info_MAP">
-            <div class="bg_MAP bg_ombre">
+            <div class="bg_MAP bg_ombre close-info-section">
                 <h3>Carte du monde<br>interactive</h3>
-                <div class="close-info-section infoButton footerButton">
+                <div class="infoButton footerButton">
                     <div class="monSuperBouton"></div>
                     <div class="txt_button">En Savoir +</div>
                 </div>

@@ -2727,6 +2727,8 @@ function hideAll() {
 }
 
 function displayCrashs(listCrashs) {
+  var displayStart = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+  var displayRoute = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
   crashs.selectAll(".pin").data(listCrashs).enter().append("svg:image", ".pin").attr("xlink:href", "/assets/explosion.svg").attr("width", 20).attr("height", 20).attr('x', function (d) {
     return -10;
   }).attr('y', function (d) {
@@ -2741,30 +2743,36 @@ function displayCrashs(listCrashs) {
 
     focusAndDisplayAirport(crash); // pour moi
   });
-  airportsStart.selectAll("circle").data(listCrashs).enter().append("circle").attr("fill", "green").attr("fill-opacity", "0.5").attr("r", 10).attr("id", function (d) {
-    return "airport_" + d.id;
-  }).attr("transform", function (d) {
-    return "translate(" + projection([d.gps_depart.lon, d.gps_depart.lat]) + ")";
-  }).on("click", function (crash) {
-    displayDetailCard(crash); // pour toi
 
-    focusAndDisplayAirport(crash); // pour moi
-  });
-  flights.selectAll("line").data(listCrashs).enter().append("line").style("stroke", "red").style("stroke-width", 1).attr("id", function (d) {
-    return "flight_" + d.id;
-  }).attr("x1", function (d) {
-    return projection([d.gps_depart.lon, d.gps_depart.lat])[0];
-  }).attr("y1", function (d) {
-    return projection([d.gps_depart.lon, d.gps_depart.lat])[1];
-  }).attr("x2", function (d) {
-    return projection([d.gps_crash.lon, d.gps_crash.lat])[0];
-  }).attr("y2", function (d) {
-    return projection([d.gps_crash.lon, d.gps_crash.lat])[1];
-  }).on("click", function (crash) {
-    displayDetailCard(crash); // pour toi
+  if (displayStart) {
+    airportsStart.selectAll("circle").data(listCrashs).enter().append("circle").attr("fill", "green").attr("fill-opacity", "0.5").attr("r", 10).attr("id", function (d) {
+      return "airport_" + d.id;
+    }).attr("transform", function (d) {
+      return "translate(" + projection([d.gps_depart.lon, d.gps_depart.lat]) + ")";
+    }).on("click", function (crash) {
+      displayDetailCard(crash); // pour toi
 
-    focusAndDisplayAirport(crash); // pour moi
-  });
+      focusAndDisplayAirport(crash); // pour moi
+    });
+  }
+
+  if (displayRoute) {
+    flights.selectAll("line").data(listCrashs).enter().append("line").style("stroke", "red").style("stroke-width", 1).attr("id", function (d) {
+      return "flight_" + d.id;
+    }).attr("x1", function (d) {
+      return projection([d.gps_depart.lon, d.gps_depart.lat])[0];
+    }).attr("y1", function (d) {
+      return projection([d.gps_depart.lon, d.gps_depart.lat])[1];
+    }).attr("x2", function (d) {
+      return projection([d.gps_crash.lon, d.gps_crash.lat])[0];
+    }).attr("y2", function (d) {
+      return projection([d.gps_crash.lon, d.gps_crash.lat])[1];
+    }).on("click", function (crash) {
+      displayDetailCard(crash); // pour toi
+
+      focusAndDisplayAirport(crash); // pour moi
+    });
+  }
 }
 
 d3__WEBPACK_IMPORTED_MODULE_1__.select("#searchByText").on("change", function () {
@@ -2913,12 +2921,12 @@ function _displayCrashsAnimate() {
 
           case 1:
             if (!(i <= 2022)) {
-              _context3.next = 15;
+              _context3.next = 14;
               break;
             }
 
             if (!_crashs[i]) {
-              _context3.next = 12;
+              _context3.next = 11;
               break;
             }
 
@@ -2929,19 +2937,19 @@ function _displayCrashsAnimate() {
             inputYear.attr("value", i);
             document.querySelector("#rangeYear input").dispatchEvent(new Event('input', {
               bubbles: true
-            }));
-            crashs.selectAll("image").remove();
+            })); // crashs.selectAll("image").remove();
+
             airportsStart.selectAll("circle").remove();
             flights.selectAll("line").remove();
             plane.selectAll("image").remove();
-            displayCrashs(_crashs[i]);
+            displayCrashs(_crashs[i], false, false);
 
-          case 12:
+          case 11:
             i++;
             _context3.next = 1;
             break;
 
-          case 15:
+          case 14:
           case "end":
             return _context3.stop();
         }
@@ -2969,12 +2977,10 @@ __webpack_require__.r(__webpack_exports__);
 d3__WEBPACK_IMPORTED_MODULE_0__.select("#infoButton").on("click", function () {
   d3__WEBPACK_IMPORTED_MODULE_0__.select("#map-section").style("display", "none");
   d3__WEBPACK_IMPORTED_MODULE_0__.select("#info-section").style("display", "block");
-  console.log("HERE");
 });
 d3__WEBPACK_IMPORTED_MODULE_0__.select("#close-info-section").on("click", function () {
   d3__WEBPACK_IMPORTED_MODULE_0__.select("#map-section").style("display", "flex");
   d3__WEBPACK_IMPORTED_MODULE_0__.select("#info-section").style("display", "none");
-  console.log("HERE");
 });
 
 /***/ }),

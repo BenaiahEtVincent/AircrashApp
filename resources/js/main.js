@@ -563,7 +563,7 @@ function hideAll() {
     flights.selectAll("line").remove();
 }
 
-function displayCrashs(listCrashs) {
+function displayCrashs(listCrashs, displayStart = true, displayRoute = true) {
     crashs
         .selectAll(".pin")
         .data(listCrashs)
@@ -590,55 +590,57 @@ function displayCrashs(listCrashs) {
             focusAndDisplayAirport(crash); // pour moi
         });
 
-    airportsStart
-        .selectAll("circle")
-        .data(listCrashs)
-        .enter()
-        .append("circle")
-        .attr("fill", "green")
-        .attr("fill-opacity", "0.5")
-        .attr("r", 10)
-        .attr("id", function(d) {
-            return "airport_" + d.id;
-        })
-        .attr("transform", function(d) {
-            return (
-                "translate(" +
-                projection([d.gps_depart.lon, d.gps_depart.lat]) +
-                ")"
-            );
-        }).on("click", function(crash) {
-            displayDetailCard(crash); // pour toi
-            focusAndDisplayAirport(crash); // pour moi
-        });
+    if (displayStart) {
+        airportsStart
+            .selectAll("circle")
+            .data(listCrashs)
+            .enter()
+            .append("circle")
+            .attr("fill", "green")
+            .attr("fill-opacity", "0.5")
+            .attr("r", 10)
+            .attr("id", function(d) {
+                return "airport_" + d.id;
+            })
+            .attr("transform", function(d) {
+                return (
+                    "translate(" +
+                    projection([d.gps_depart.lon, d.gps_depart.lat]) +
+                    ")"
+                );
+            }).on("click", function(crash) {
+                displayDetailCard(crash); // pour toi
+                focusAndDisplayAirport(crash); // pour moi
+            });
+    }
+    if (displayRoute) {
+        flights
+            .selectAll("line")
+            .data(listCrashs)
+            .enter()
+            .append("line")
+            .style("stroke", "red")
+            .style("stroke-width", 1)
+            .attr("id", function(d) {
+                return "flight_" + d.id;
+            })
+            .attr("x1", function(d) {
+                return projection([d.gps_depart.lon, d.gps_depart.lat])[0];
+            })
+            .attr("y1", function(d) {
+                return projection([d.gps_depart.lon, d.gps_depart.lat])[1];
+            })
+            .attr("x2", function(d) {
+                return projection([d.gps_crash.lon, d.gps_crash.lat])[0];
+            })
+            .attr("y2", function(d) {
+                return projection([d.gps_crash.lon, d.gps_crash.lat])[1];
+            }).on("click", function(crash) {
+                displayDetailCard(crash); // pour toi
+                focusAndDisplayAirport(crash); // pour moi
+            });
 
-    flights
-        .selectAll("line")
-        .data(listCrashs)
-        .enter()
-        .append("line")
-        .style("stroke", "red")
-        .style("stroke-width", 1)
-        .attr("id", function(d) {
-            return "flight_" + d.id;
-        })
-        .attr("x1", function(d) {
-            return projection([d.gps_depart.lon, d.gps_depart.lat])[0];
-        })
-        .attr("y1", function(d) {
-            return projection([d.gps_depart.lon, d.gps_depart.lat])[1];
-        })
-        .attr("x2", function(d) {
-            return projection([d.gps_crash.lon, d.gps_crash.lat])[0];
-        })
-        .attr("y2", function(d) {
-            return projection([d.gps_crash.lon, d.gps_crash.lat])[1];
-        }).on("click", function(crash) {
-            displayDetailCard(crash); // pour toi
-            focusAndDisplayAirport(crash); // pour moi
-        });
-
-
+    }
 
 }
 
@@ -755,11 +757,11 @@ async function displayCrashsAnimate(_crashs) {
             inputYear.attr("value", i);
             document.querySelector("#rangeYear input").dispatchEvent(new Event('input', { bubbles: true }));
 
-            crashs.selectAll("image").remove();
+            // crashs.selectAll("image").remove();
             airportsStart.selectAll("circle").remove();
             flights.selectAll("line").remove();
             plane.selectAll("image").remove();
-            displayCrashs(_crashs[i]);
+            displayCrashs(_crashs[i], false, false);
         }
 
     }

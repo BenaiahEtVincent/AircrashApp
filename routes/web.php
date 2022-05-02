@@ -18,7 +18,7 @@ Route::get('/', function () {
     return view('index');
 })->name("home");
 
-Route::get("references", function () {
+Route::get("/references", function () {
     return view("references");
 });
 

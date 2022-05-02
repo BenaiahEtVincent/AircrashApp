@@ -1,0 +1,93 @@
+#bodyInfoPage {
+    background-color: #fff;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#headerInfoPage {
+    height: 100%;
+    width: 100%;
+    /* background: linear-gradient(70deg, #6c6666 50%, #212121); */
+    background-image: url("/img/bg_header.png");
+}
+
+.bg_pilote {
+    height: 1080px;
+    background-image: url("/img/pilote_avion.png");
+    background-repeat: no-repeat;
+    background-position: right bottom;
+}
+
+#containerInfoPage {
+    margin: 0 2%;
+}
+
+.headInfoPage {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+}
+
+.menu ul li {
+    margin: 0 1rem;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+.logoAirCrach {
+    width: 200px;
+    height: 200px;
+    background-image: url("/img/logo_aricrach.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.headerSection {
+    padding-top: 10%;
+    width: 30%;
+    color: #fff;
+}
+
+.titleSection h2,
+p {
+    text-align: center;
+}
+
+.titleSection p {
+    margin: 0 25%;
+}
+
+.bg_NY {
+    height: 560px;
+    background-image: url("/img/bg_NY.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+footer {
+    background-color: #303030;
+    color: #fff;
+}
+
+.logo_air_crash_footer {
+    width: 200px;
+    height: 200px;
+    background-image: url("/img/logo_aricrach_black.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.contenu_footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

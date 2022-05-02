@@ -71,9 +71,9 @@
         </div>
     </section>
     <section id="info-section">
-        <i id="close-info-section" class="material-icons">close</i>
+       
 
-        <div id="logo"><img src="{{ asset('assets/avion.svg') }}" width="100px"></div>
+        {{-- <div id="logo"><img src="{{ asset('assets/avion.svg') }}" width="100px"></div>
 
         <div id="container_graphs">
             <div class="row">
@@ -106,7 +106,10 @@
             <a href="https://www.globe-trotting.com/post/peur-en-avion">
                 https://www.globe-trotting.com/post/peur-en-avion
             </a>
-        </div>
+        </div> --}}
+
+        @include('infoPage')
+
     </section>
 </body>
 

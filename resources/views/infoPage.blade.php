@@ -19,7 +19,11 @@
             <section class="headerSection">
                 <h1>AIR CRASH PROJECT</h1>
                 <p>Ressensement des accidents d’avions à travers l’histoire. Depuis le début de l’invention des avions jusqu’à aujourd’hui. Le projet Air Crash a pour objectif de mettre à l’honneur les accidents d’avions ainsi que les personnes malheureusement décédé. Afin qu’ils puissent ne pas être oublié. Afin de nous souvenir que c’est grace à eux que nous volons de plus en plus en sécuritée.</p>
-                <div class="infoButton">En savoir +</div>
+                {{-- <div class="infoButton headerButton">En savoir +</div> --}}
+                 <div class="infoButton headerButton">
+                    <div class="monSuperBouton"></div>
+                    <div class="txt_button">En Savoir +</div>
+                </div>
             </section>
         </div>
     </div>
@@ -31,7 +35,7 @@
 <p>Ressensement des accidents d’avions à travers l’histoire. Depuis le début de l’invention des avions jusqu’à aujourd’hui. Le projet Air Crash a pour objectif de mettre à l’honneur les accidents d’avions ainsi que les personnes malheureusement décédé. Afin qu’ils puissent ne pas être oublié. Afin de nous souvenir que c’est grace à eux que nous volons de plus en plus en sécuritée.</p>
             </div>
         </section>
-        <section class="info_NY">
+        <section id="NY" class="info_NY">
             <div class="bg_NY">
                 <h3>11<br>Septembre<br>2001</h3>
             </div>
@@ -75,7 +79,10 @@ Au total, près de 2900 personnes ont perdu la vie dans cet événement. Il s’
          <section class="info_MAP">
             <div class="bg_MAP bg_ombre">
                 <h3>Carte du monde<br>interactive</h3>
-                <div class="infoButton footerButton"><span class="txt_button">savoir +</span></div>
+                <div class="infoButton footerButton">
+                    <div class="monSuperBouton"></div>
+                    <div class="txt_button">En Savoir +</div>
+                </div>
             </div>
             <div id="containerInfoPage" class="sectionContenu">
             </div>
@@ -88,7 +95,7 @@ Au total, près de 2900 personnes ont perdu la vie dans cet événement. Il s’
             <div class="logo_air_crash_footer"></div>
             <p>Benaiah Finkel</p>
             </div>
-            <a href="/references">References</a>
+            <a class="references" href="/references">References</a>
         </div>
      </footer>
 

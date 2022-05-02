@@ -18,7 +18,7 @@
 }
 
 #containerInfoPage {
-    margin: 0 2%;
+    margin: 0% 2%;
 }
 
 .headInfoPage {
@@ -66,17 +66,35 @@
     margin: 0 25%;
 }
 
-.infoButton {
-    background-image: url("/img/button.svg");
+.headerButton {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.footerButton {
+    /* background-image: url("/img/button.svg");
     background-repeat: no-repeat;
     background-position: left center;
     /* height: 20px;
-    width: 100px; */
-    display: block;
+    width: 100px; 
+    display: block; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.monSuperBouton {
+    background-image: url("/img/button.svg");
+    background-repeat: no-repeat;
+    background-position-y: 8px;
+    height: 80px;
+    width: 80px;
+    /* padding-left: 00px; */
 }
 
 .txt_button {
-    padding-left: 00px;
+    font-weight: 800;
 }
 
 .bg_NY {
@@ -103,6 +121,8 @@
     background-size: cover;
     height: 500px;
     width: 100%;
+    border-top: 0.5rem solid #000;
+    border-bottom: 0.5rem solid #000;
 }
 
 .bg_RP {
@@ -129,6 +149,8 @@
     background-size: cover;
     height: 500px;
     width: 100%;
+    border-top: 0.5rem solid #000;
+    border-bottom: 0.5rem solid #000;
 }
 
 .bg_MA {
@@ -155,6 +177,8 @@
     background-size: cover;
     height: 500px;
     width: 100%;
+    border-top: 0.5rem solid #000;
+    border-bottom: 0.5rem solid #000;
 }
 
 .sectionContenu {
@@ -179,9 +203,10 @@
     text-transform: uppercase;
 }
 
-.bg_ombre {
+
+/* .bg_ombre {
     box-shadow: inset 0px 40px 7px -5px rgba(0, 0, 0, 0.494);
-}
+} */
 
 .footerButton {
     text-align: center;
@@ -208,4 +233,9 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.references {
+    text-align: center;
+    text-decoration: none;
 }

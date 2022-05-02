@@ -88,6 +88,7 @@ Au total, près de 2900 personnes ont perdu la vie dans cet événement. Il s’
             <div class="logo_air_crash_footer"></div>
             <p>Benaiah Finkel</p>
             </div>
+            <a href="/references">References</a>
         </div>
      </footer>
 

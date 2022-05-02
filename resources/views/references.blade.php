@@ -49,4 +49,13 @@ $refs = [
         </tr>
     @endforeach
 
+    <tr>
+        <td>
+            Données des crashs
+        </td>
+        <td>
+            <a href="https://aviation-safety.net/">https://aviation-safety.net/</a>
+        </td>
+    </tr>
+
 </table>

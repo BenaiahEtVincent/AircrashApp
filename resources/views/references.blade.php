@@ -59,5 +59,3 @@ $refs = [
     </tr>
 
 </table>
-
-<div>test</div>

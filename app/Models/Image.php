@@ -23,6 +23,7 @@ class Image extends Model
 
     protected $appends = [
         "link",
+        "full_link",
         //"size",
     ];
 
@@ -43,7 +44,12 @@ class Image extends Model
 
     protected function getLinkAttribute()
     {
-        return env("APP_URL") . $this->local_url;
+        return $this->local_url;
+        //return env("APP_URL") . "/storage/planes/" . $this->crash_id . "/" . $this->id . ".jpg";
+    }
+    protected function getFullLinkAttribute()
+    {
+        return env('MIX_DATA_URL') . $this->local_url;
         //return env("APP_URL") . "/storage/planes/" . $this->crash_id . "/" . $this->id . ".jpg";
     }
 }

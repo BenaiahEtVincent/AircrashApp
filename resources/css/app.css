@@ -76,6 +76,15 @@ svg rect {
     backdrop-filter: blur(10px);
 }
 
+#rangeYearBar {
+    display: flex;
+}
+
+#play-button {
+    font-size: 24px;
+    cursor: pointer;
+}
+
 #rangeYear input {
     width: 100%;
 }
@@ -129,7 +138,18 @@ svg rect {
     color: white;
 }
 
-.material-icons.unfocus:hover {
+#maCarte div.buttonGroup {
+    display: flex;
+    justify-content: space-between;
+}
+
+#maCarte a {
+    color: black;
+    text-decoration: none;
+}
+
+.material-icons.unfocus:hover,
+#maCarte a:hover {
     color: white;
     cursor: pointer;
 }

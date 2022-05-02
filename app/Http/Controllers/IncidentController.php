@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateIncidentRequest;
 use App\Models\Incident;
 use Exception;
 use Illuminate\Http\Request;
@@ -21,6 +22,17 @@ class IncidentController extends Controller
                 return $q->whereDay('crash_date', $day);
             })->get();
 
+
+        return response()->json($incidents);
+    }
+
+    public function all()
+    {
+        ini_set('memory_limit', '2048M');
+
+        $incidents = Incident::workable()->get()->groupBy(function ($val) {
+            return \Carbon\Carbon::parse($val->crash_date)->format('Y');
+        });
 
         return response()->json($incidents);
     }
@@ -57,7 +69,8 @@ class IncidentController extends Controller
         return response()->json($incidents);
     }
 
-    public function searchCountryCode($code) {
+    public function searchCountryCode($code)
+    {
         $incidents = Incident::workable()->where('incident_country_code', $code)->get();
 
         return response()->json($incidents);
@@ -66,5 +79,16 @@ class IncidentController extends Controller
     public function maps()
     {
         return Storage::get("map.json");
+    }
+
+    public function edit(Incident $incident) {
+        return view('incidents.edit', compact('incident'));
+    }
+
+    public function update(UpdateIncidentRequest $request, Incident $incident) {
+
+        $incident->update($request->all());
+
+        return redirect()->route('home');
     }
 }

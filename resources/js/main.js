@@ -361,6 +361,8 @@ function displayDetailCard(crash) {
         minute: "2-digit"
     });
 
+    d3.select("#editCrash").attr("href", "/incidents/" + crash.id + "/edit");
+
     d3.select("#crash_date").select("span").text(crashDateFormatted);
 
 
@@ -561,7 +563,7 @@ function hideAll() {
     flights.selectAll("line").remove();
 }
 
-function displayCrashs(listCrashs) {
+function displayCrashs(listCrashs, displayStart = true, displayRoute = true) {
     crashs
         .selectAll(".pin")
         .data(listCrashs)
@@ -573,8 +575,6 @@ function displayCrashs(listCrashs) {
         .attr('x', d => -10)
         .attr('y', d => -10)
         .attr("transform", function(d) {
-            console.log(d.gps_crash);
-            console.log(projection([d.gps_crash.lon, d.gps_crash.lat]));
             return (
                 "translate(" +
                 projection([d.gps_crash.lon, d.gps_crash.lat]) +
@@ -585,59 +585,62 @@ function displayCrashs(listCrashs) {
             return "crash_" + d.id;
         })
         .on("click", function(crash) {
+            console.log(crash);
             displayDetailCard(crash); // pour toi
             focusAndDisplayAirport(crash); // pour moi
         });
 
-    airportsStart
-        .selectAll("circle")
-        .data(listCrashs)
-        .enter()
-        .append("circle")
-        .attr("fill", "green")
-        .attr("fill-opacity", "0.5")
-        .attr("r", 10)
-        .attr("id", function(d) {
-            return "airport_" + d.id;
-        })
-        .attr("transform", function(d) {
-            return (
-                "translate(" +
-                projection([d.gps_depart.lon, d.gps_depart.lat]) +
-                ")"
-            );
-        }).on("click", function(crash) {
-            displayDetailCard(crash); // pour toi
-            focusAndDisplayAirport(crash); // pour moi
-        });
+    if (displayStart) {
+        airportsStart
+            .selectAll("circle")
+            .data(listCrashs)
+            .enter()
+            .append("circle")
+            .attr("fill", "green")
+            .attr("fill-opacity", "0.5")
+            .attr("r", 10)
+            .attr("id", function(d) {
+                return "airport_" + d.id;
+            })
+            .attr("transform", function(d) {
+                return (
+                    "translate(" +
+                    projection([d.gps_depart.lon, d.gps_depart.lat]) +
+                    ")"
+                );
+            }).on("click", function(crash) {
+                displayDetailCard(crash); // pour toi
+                focusAndDisplayAirport(crash); // pour moi
+            });
+    }
+    if (displayRoute) {
+        flights
+            .selectAll("line")
+            .data(listCrashs)
+            .enter()
+            .append("line")
+            .style("stroke", "red")
+            .style("stroke-width", 1)
+            .attr("id", function(d) {
+                return "flight_" + d.id;
+            })
+            .attr("x1", function(d) {
+                return projection([d.gps_depart.lon, d.gps_depart.lat])[0];
+            })
+            .attr("y1", function(d) {
+                return projection([d.gps_depart.lon, d.gps_depart.lat])[1];
+            })
+            .attr("x2", function(d) {
+                return projection([d.gps_crash.lon, d.gps_crash.lat])[0];
+            })
+            .attr("y2", function(d) {
+                return projection([d.gps_crash.lon, d.gps_crash.lat])[1];
+            }).on("click", function(crash) {
+                displayDetailCard(crash); // pour toi
+                focusAndDisplayAirport(crash); // pour moi
+            });
 
-    flights
-        .selectAll("line")
-        .data(listCrashs)
-        .enter()
-        .append("line")
-        .style("stroke", "red")
-        .style("stroke-width", 1)
-        .attr("id", function(d) {
-            return "flight_" + d.id;
-        })
-        .attr("x1", function(d) {
-            return projection([d.gps_depart.lon, d.gps_depart.lat])[0];
-        })
-        .attr("y1", function(d) {
-            return projection([d.gps_depart.lon, d.gps_depart.lat])[1];
-        })
-        .attr("x2", function(d) {
-            return projection([d.gps_crash.lon, d.gps_crash.lat])[0];
-        })
-        .attr("y2", function(d) {
-            return projection([d.gps_crash.lon, d.gps_crash.lat])[1];
-        }).on("click", function(crash) {
-            displayDetailCard(crash); // pour toi
-            focusAndDisplayAirport(crash); // pour moi
-        });
-
-
+    }
 
 }
 
@@ -708,12 +711,25 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
 
 d3.select("#play-button").on("click", async function() {
 
-    for (let _year = 1900; _year <= 2022; _year++) {
+    /* for (let _year = 1918; _year <= 2022; _year++) {
         await sleep(2000);
         inputYear.attr("value", _year);
+        console.log(_year);
         document.querySelector("#rangeYear input").dispatchEvent(new Event('input', { bubbles: true }));
-        initCrash();
-    }
+        await initCrash();
+    } */
+
+    const url = baseurl + "/incidents";
+
+    await d3.json(url, async function(json) {
+        crashs.selectAll("image").remove();
+        airportsStart.selectAll("circle").remove();
+        flights.selectAll("line").remove();
+        plane.selectAll("image").remove();
+        await displayCrashsAnimate(json);
+    });
+
+
 });
 
 
@@ -732,4 +748,21 @@ function calculateDistanceTwoPointsGPS(depart_lat, depart_lon, dest_lat, dest_lo
     const d = R * c; // in metres
 
     return d;
+}
+
+async function displayCrashsAnimate(_crashs) {
+    for (let i = 1918; i <= 2022; i++) {
+        if (_crashs[i]) {
+            await sleep(100);
+            inputYear.attr("value", i);
+            document.querySelector("#rangeYear input").dispatchEvent(new Event('input', { bubbles: true }));
+
+            // crashs.selectAll("image").remove();
+            airportsStart.selectAll("circle").remove();
+            flights.selectAll("line").remove();
+            plane.selectAll("image").remove();
+            displayCrashs(_crashs[i], false, false);
+        }
+
+    }
 }

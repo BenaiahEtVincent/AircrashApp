@@ -21,8 +21,11 @@
             <button class="emptySearch">close</button>
         </div>
         <div id="rangeYear">
-            <span id="play-button" class="material-icons">play_circle</span>
-            <input type="range">
+            <div id="rangeYearBar">
+                <span id="play-button" class="material-icons">play_circle</span>
+                <input type="range">
+            </div>
+
             <output>2022</output>
         </div>
 
@@ -30,7 +33,10 @@
 
         <div id="avionCrashCard">
             <div id="maCarte" class="maClassCarte">
-                <span class="material-icons unfocus">close</span>
+                <div class="buttonGroup">
+                    <a href="" id="editCrash"><span class="material-icons">edit</span></a>
+                    <span class="material-icons unfocus">close</span>
+                </div>
                 <div id="carrousel_images" class="slideshow-container">
 
                     <!-- Full-width images with number and caption text -->

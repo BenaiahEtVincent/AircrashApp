@@ -1,9 +1,10 @@
 #bodyInfoPage {
     background-color: #fff;
     font-family: 'Montserrat', sans-serif;
+    /* scroll-behavior: smooth; */
 }
 
-#headerInfoPage {
+.headerInfoPage {
     height: 100%;
     width: 100%;
     /* background: linear-gradient(70deg, #6c6666 50%, #212121); */
@@ -20,6 +21,14 @@
 #containerInfoPage {
     margin: 0% 2%;
 }
+
+
+/* .fixedMenu {
+    z-index: 100;
+    position: fixed;
+    width: 100%;
+    background-color: rgb(82, 82, 82);
+} */
 
 .headInfoPage {
     display: flex;

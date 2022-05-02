@@ -280,11 +280,11 @@ svg rect {
     animation-duration: 1.5s;
 }
 
-#close-info-section {
-    position: absolute;
+.close-info-section {
+    /* position: absolute;
     top: 5px;
     right: 5px;
-    font-size: 2rem;
+    font-size: 2rem; */
     cursor: pointer;
 }
 

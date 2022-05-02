@@ -2,9 +2,10 @@
 
  {{-- <i id="close-info-section" class="material-icons">close</i> --}}
 
- <div id="headerInfoPage">
+ <div id="home" class="headerInfoPage">
     <div class="bg_pilote">
         <div id="containerInfoPage">
+            <div class="fixedMenu">
         <div class="headInfoPage">
                 <div class="logoAirCrach"></div>
                 <div class="menu">
@@ -13,14 +14,16 @@
                         <li><a href="#NY">New York</a></li>
                         <li><a href="#RP">Rio-Paris</a></li>
                         <li><a href="#MA">Malaysie</a></li>
+                        <li><a href="#MAP">Carte</a></li>
                     </ul>
                 </div>
+            </div>
             </div>  
             <section class="headerSection">
                 <h1>AIR CRASH PROJECT</h1>
                 <p>Ressensement des accidents d’avions à travers l’histoire. Depuis le début de l’invention des avions jusqu’à aujourd’hui. Le projet Air Crash a pour objectif de mettre à l’honneur les accidents d’avions ainsi que les personnes malheureusement décédé. Afin qu’ils puissent ne pas être oublié. Afin de nous souvenir que c’est grace à eux que nous volons de plus en plus en sécuritée.</p>
                 {{-- <div class="infoButton headerButton">En savoir +</div> --}}
-                 <div class="infoButton headerButton">
+                 <div class="close-info-section infoButton headerButton">
                     <div class="monSuperBouton"></div>
                     <div class="txt_button">En Savoir +</div>
                 </div>
@@ -50,7 +53,7 @@ Au total, près de 2900 personnes ont perdu la vie dans cet événement. Il s’
             </div>
             <div class="img_multi_NY"></div>
         </section>
-        <section class="info_RP">
+        <section id="RP" class="info_RP">
             <div class="bg_RP bg_ombre">
                 <h3>Vol<br>Air France<br>447</h3>
             </div>
@@ -63,7 +66,7 @@ Au total, près de 2900 personnes ont perdu la vie dans cet événement. Il s’
             </div>
             <div class="img_multi_RP"></div>
         </section>
-         <section class="info_MA">
+         <section id="MA" class="info_MA">
             <div class="bg_MA bg_ombre">
                 <h3>Vol Malaysia<br>Airlines 370</h3>
             </div>
@@ -76,10 +79,10 @@ Au total, près de 2900 personnes ont perdu la vie dans cet événement. Il s’
             </div>
             <div class="img_multi_MA"></div>
         </section>
-         <section class="info_MAP">
+         <section id="MAP" class="info_MAP">
             <div class="bg_MAP bg_ombre">
                 <h3>Carte du monde<br>interactive</h3>
-                <div class="infoButton footerButton">
+                <div class="close-info-section infoButton footerButton">
                     <div class="monSuperBouton"></div>
                     <div class="txt_button">En Savoir +</div>
                 </div>

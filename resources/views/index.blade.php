@@ -12,6 +12,9 @@
 
 <body>
     <section id="map-section">
+        {{-- <img src="{{ asset('assets/loading2.svg') }}" id="loading-img"> --}}
+        <img src="{{ asset('assets/infinityLoader.svg') }}" id="loading">
+
         <div id="map-holder"></div>
         <div id="searchBar">
             <input type="text" id="searchByText" placeholder="Rechercher">

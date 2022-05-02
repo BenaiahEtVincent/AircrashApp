@@ -709,8 +709,19 @@ function searchCrashForCountry(code) {
 
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
+function displayPlayButton() {
+    d3.select("#play-button").style("visibility", "visible");
+}
+
+function hidePlayButton() {
+    console.log("hide play button");
+    d3.select("#play-button").style("visibility", "hidden");
+}
+
 d3.select("#play-button").on("click", async function() {
 
+    hidePlayButton();
+    displayLoading();
     /* for (let _year = 1918; _year <= 2022; _year++) {
         await sleep(2000);
         inputYear.attr("value", _year);
@@ -722,14 +733,15 @@ d3.select("#play-button").on("click", async function() {
     const url = baseurl + "/incidents";
 
     await d3.json(url, async function(json) {
+        hideLoading();
+
         crashs.selectAll("image").remove();
         airportsStart.selectAll("circle").remove();
         flights.selectAll("line").remove();
         plane.selectAll("image").remove();
         await displayCrashsAnimate(json);
+        displayPlayButton();
     });
-
-
 });
 
 
@@ -765,4 +777,12 @@ async function displayCrashsAnimate(_crashs) {
         }
 
     }
+}
+
+function displayLoading() {
+    d3.select("#loading").style("display", "block");
+}
+
+function hideLoading() {
+    d3.select("#loading").style("display", "none");
 }

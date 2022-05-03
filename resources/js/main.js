@@ -715,7 +715,6 @@ function displayPlayButton() {
 }
 
 function hidePlayButton() {
-    console.log("hide play button");
     d3.select("#play-button").style("display", "none");
     d3.select("#stop-button").style("display", "block");
 }
@@ -741,9 +740,7 @@ d3.select("#play-button").on("click", async function() {
     } */
 
     const url = baseurl + "/incidents";
-    console.log("craashslength", _crashs.length);
     if (_crashs.length != 0) {
-        console.log("from cache");
         await animateAllCrashs(_crashs);
     } else {
         await d3.json(url, async function(json) {

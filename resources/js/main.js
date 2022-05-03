@@ -394,7 +394,7 @@ function displayDetailCard(crash) {
                 return index == 0 ? "block" : "none";
             })
             .append("img")
-            .attr("src", img.link)
+            .attr("src", img.full_link)
             .style("width", "100%")
             .style("aspect-ratio", "3/2");
     });

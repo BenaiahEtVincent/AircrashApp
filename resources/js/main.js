@@ -726,6 +726,8 @@ d3.select("#stop-button").on("click", function() {
     d3.select("#play-button").style("display", "block");
 })
 
+let _crashs = [];
+
 d3.select("#play-button").on("click", async function() {
 
     hidePlayButton();
@@ -739,18 +741,29 @@ d3.select("#play-button").on("click", async function() {
     } */
 
     const url = baseurl + "/incidents";
+    console.log("craashslength", _crashs.length);
+    if (_crashs.length != 0) {
+        console.log("from cache");
+        await animateAllCrashs(_crashs);
+    } else {
+        await d3.json(url, async function(json) {
+            _crashs = json;
+            await animateAllCrashs(json);
+        });
+    }
 
-    await d3.json(url, async function(json) {
-        hideLoading();
-
-        crashs.selectAll("image").remove();
-        airportsStart.selectAll("circle").remove();
-        flights.selectAll("line").remove();
-        plane.selectAll("image").remove();
-        await displayCrashsAnimate(json);
-        displayPlayButton();
-    });
 });
+
+async function animateAllCrashs(json) {
+    hideLoading();
+
+    crashs.selectAll("image").remove();
+    airportsStart.selectAll("circle").remove();
+    flights.selectAll("line").remove();
+    plane.selectAll("image").remove();
+    await displayCrashsAnimate(json);
+    displayPlayButton();
+}
 
 
 function calculateDistanceTwoPointsGPS(depart_lat, depart_lon, dest_lat, dest_lon) {

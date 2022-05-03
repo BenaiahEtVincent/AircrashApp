@@ -40,7 +40,8 @@ section#map-section {
 } */
 
 svg rect {
-    fill: #417fc2;
+    fill: #1e3c5d
+    /*  #417fc2; */
 }
 
 

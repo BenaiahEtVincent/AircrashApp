@@ -33,18 +33,30 @@ section#map-section {
     height: 100vh;
 }
 
-svg rect {
+
+/* svg rect {
     fill: #282931;
-    /* map background colour */
+    /* map background colour 
+} */
+
+svg rect {
+    fill: #417fc2;
 }
 
-.country {
+
+/* .country {
     fill: #d0d0d0;
-    /* country colour */
+    /* country colour 
     stroke: #2A2C39;
-    /* country border colour */
+    /* country border colour 
     stroke-width: 1;
-    /* country border width */
+    /* country border width 
+} */
+
+.country {
+    fill: #edf2ff;
+    stroke: #3e6fbb;
+    stroke-width: 1px;
 }
 
 .country-on {
@@ -67,7 +79,8 @@ svg rect {
     /* country label background colour */
 }
 
-#rangeYear {
+
+/* #rangeYear {
     position: absolute;
     bottom: 5vh;
     width: 90vw;
@@ -78,28 +91,52 @@ svg rect {
     border-radius: 15px;
     background-color: rgba(255, 255, 255, 0.705);
     backdrop-filter: blur(10px);
+} */
+
+#rangeYear {
+    position: absolute;
+    bottom: 5vh;
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    margin: auto;
+    border-radius: 5px;
+    background-color: rgb(255 255 255);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 2px -2px gray;
 }
 
 #rangeYearBar {
     display: flex;
 }
 
-#play-button {
+
+/* #play-button {
     font-size: 24px;
     cursor: pointer;
-}
+} */
 
 #rangeYear input {
     width: 100%;
 }
 
-#rangeYear output {
+
+/* #rangeYear output {
     margin: auto;
     font-size: 2em;
     font-weight: 500;
+} */
+
+#rangeYear output {
+    margin: auto;
+    font-size: 2em;
+    color: orange;
+    font-weight: 600;
 }
 
-#searchBar {
+
+/* #searchBar {
     position: absolute;
     top: 5vh;
     left: 2vw;
@@ -110,6 +147,24 @@ svg rect {
     border-radius: 15px;
     background-color: rgba(255, 255, 255, 0.705);
     backdrop-filter: blur(10px);
+} */
+
+#searchBar {
+    position: absolute;
+    top: 5vh;
+    left: 2vw;
+    width: 20vw;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    border-radius: 5px;
+    /* background-color: #282931; */
+    background-color: rgb(255, 255, 255);
+    /* border-style: solid;
+    border-width: 6px;
+    border-color: orange; */
+    /* backdrop-filter: blur(10px); */
+    box-shadow: 0 4px 2px -2px gray;
 }
 
 #searchBar input {
@@ -123,7 +178,8 @@ svg rect {
     display: none;
 }
 
-#avionCrashCard {
+
+/* #avionCrashCard {
     background-color: rgba(255, 255, 255, 0.705);
     backdrop-filter: blur(10px);
     border-radius: 15px;
@@ -132,6 +188,19 @@ svg rect {
     top: 30px;
     right: 50px;
     width: 20%;
+} */
+
+#avionCrashCard {
+    background-color: rgb(255 255 255);
+    -webkit-backdrop-filter: blur(10px);
+    /* backdrop-filter: blur(10px); */
+    border-radius: 5px;
+    z-index: 1000;
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    width: 20%;
+    box-shadow: 0 4px 2px -2px gray;
 }
 
 #maCarte {
@@ -340,4 +409,194 @@ svg rect {
         right: 0;
         width: 100%;
     }
+}
+
+button.search {
+    background-color: orange;
+    color: #fff;
+    font-family: 'Montserrat';
+    font-weight: 900;
+    text-transform: capitalize;
+    font-size: 1.5em;
+    padding: 4% 0;
+    border-radius: 5px;
+    border-style: none;
+}
+
+button.emptySearch {
+    background-color: #e75731;
+    color: #fff;
+    font-family: 'Montserrat';
+    font-weight: 900;
+    text-transform: capitalize;
+    font-size: 1.5em;
+    padding: 4% 0;
+    border-radius: 5px;
+    border-style: none;
+    margin-top: 14px;
+}
+
+#searchBar p {
+    font-family: 'Montserrat';
+    font-size: 1.5em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #333;
+}
+
+input#searchByText {
+    border-radius: 5px;
+    border-style: solid;
+    border-color: orange;
+}
+
+input#searchByDate {
+    border-radius: 5px;
+    border-style: solid;
+    border-color: orange;
+}
+
+
+/* TEST  */
+
+input[type=range] {
+    height: 33px;
+    -webkit-appearance: none;
+    margin: 10px 0;
+    width: 100%;
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 11px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 0px 0px 0px #FF0000;
+    background: #FFA947;
+    border-radius: 28px;
+    border: 0px solid #000101;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    box-shadow: 0px 0px 0px #283114;
+    border: 1px solid #1E0909;
+    height: 26px;
+    width: 26px;
+    border-radius: 15px;
+    background: #FFFFFF;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -8px;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #FFA947;
+}
+
+input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 11px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 0px 0px 0px #FF0000;
+    background: #FFA947;
+    border-radius: 28px;
+    border: 0px solid #000101;
+}
+
+input[type=range]::-moz-range-thumb {
+    box-shadow: 0px 0px 0px #283114;
+    border: 1px solid #1E0909;
+    height: 26px;
+    width: 26px;
+    border-radius: 15px;
+    background: #FFFFFF;
+    cursor: pointer;
+}
+
+input[type=range]::-ms-track {
+    width: 100%;
+    height: 11px;
+    cursor: pointer;
+    animate: 0.2s;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+}
+
+input[type=range]::-ms-fill-lower {
+    background: #FFA947;
+    border: 0px solid #000101;
+    border-radius: 56px;
+    box-shadow: 0px 0px 0px #FF0000;
+}
+
+input[type=range]::-ms-fill-upper {
+    background: #FFA947;
+    border: 0px solid #000101;
+    border-radius: 56px;
+    box-shadow: 0px 0px 0px #FF0000;
+}
+
+input[type=range]::-ms-thumb {
+    margin-top: 1px;
+    box-shadow: 0px 0px 0px #283114;
+    border: 1px solid #1E0909;
+    height: 26px;
+    width: 26px;
+    border-radius: 15px;
+    background: #FFFFFF;
+    cursor: pointer;
+}
+
+input[type=range]:focus::-ms-fill-lower {
+    background: #FFA947;
+}
+
+input[type=range]:focus::-ms-fill-upper {
+    background: #FFA947;
+}
+
+p.textCard {
+    font-weight: 600;
+    text-transform: uppercase;
+    color: orange;
+}
+
+p.textCard span {
+    font-weight: 400;
+    text-transform: capitalize;
+    color: #333;
+}
+
+span#totalFound {
+    display: none;
+}
+
+#infoButton {
+    z-index: 1000;
+    position: absolute;
+    top: 50vh;
+    left: 50px;
+    width: 27rem;
+    height: 14rem;
+    color: white;
+    font-size: 112px;
+    cursor: pointer;
+    background-image: url("/img/button_2.svg");
+    background-repeat: no-repeat;
+    background-size: 1em;
+}
+
+#play-button {
+    /* font-size: 24px; */
+    cursor: pointer;
+    /* height: 2em; */
+    /* width: 2em; */
+    font-size: 3em;
+    color: #ff6700;
 }

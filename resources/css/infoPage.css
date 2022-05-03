@@ -20,7 +20,7 @@ body {
 }
 
 .bg_pilote {
-    height: 1080px;
+    height: 1000px;
     background-image: url("/img/pilote_avion.png");
     background-repeat: no-repeat;
     background-position: right bottom;

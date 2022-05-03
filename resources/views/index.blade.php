@@ -17,6 +17,7 @@
 
         <div id="map-holder"></div>
         <div id="searchBar">
+            <p>Rechercher par pays et dates</p>
             <input type="text" id="searchByText" placeholder="Rechercher">
             <input type="date" id="searchByDate">
             <span id="totalFound">1000</span>
@@ -32,7 +33,8 @@
             <output>2022</output>
         </div>
 
-        <i id="infoButton" class="material-icons">info</i>
+        {{-- <i id="infoButton" class="material-icons">info</i> --}}
+        <i id="infoButton"></i>
 
         <div id="avionCrashCard">
             <div id="maCarte" class="maClassCarte">
@@ -55,26 +57,26 @@
                 <br>
 
 
-                <p id="aircaft_operator">Compagnie aérienne : <span></span></p>
+                <p id="aircaft_operator" class="textCard">Compagnie aérienne :<br> <span></span></p>
 
-                <p id="aircaft_model">Modèle de l'avion : <span></span></p>
-                <p id="crash_date">Date du crash : <span></span></p>
-                <p id="aircaft_first_flight">Date premier vol : <span></span></p>
-                <p id="incident_location">Lieu : <span></span></p>
-                <p id="departure_airport">Lieu départ : <span></span></p>
-                <p id="destination_airport">Lieu arrivé : <span></span></p>
+                <p id="aircaft_model" class="textCard">Modèle de l'avion :<br> <span></span></p>
+                <p id="crash_date" class="textCard">Date du crash :<br> <span></span></p>
+                <p id="aircaft_first_flight" class="textCard">Date premier vol :<br> <span></span></p>
+                <p id="incident_location" class="textCard">Lieu :<br> <span></span></p>
+                <p id="departure_airport" class="textCard">Lieu départ :<br> <span></span></p>
+                <p id="destination_airport" class="textCard">Lieu arrivé :<br> <span></span></p>
                 {{-- <p id="titreAvion">GPS Crash :</p>
             <ul>
                 <li id="gps_crash_lat">Lat : <span></span></li>
                 <li id="gps_crash_lon">Long : <span></span></li>
             </ul> --}}
-                <p id="deaths">Nombre morts : <span></span></p>
-                <p id="survivors">Nombre survivants : <span></span></p>
+                <p id="deaths" class="textCard">Nombre morts : <span></span></p>
+                <p id="survivors" class="textCard">Nombre survivants : <span></span></p>
             </div>
         </div>
     </section>
     <section id="info-section">
-       
+
 
         {{-- <div id="logo"><img src="{{ asset('assets/avion.svg') }}" width="100px"></div>
 

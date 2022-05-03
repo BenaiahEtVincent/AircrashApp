@@ -196,7 +196,6 @@ let year = 2022;
 function initCrash() {
 
     let v = ((((year - 1900) / (2022 - 1900))) * 100).toFixed(0);
-    console.log("YEAR", year, v);
 
     d3.select("#map").attr("class", "sepia-" + v);
 
@@ -212,7 +211,6 @@ function initCrash() {
 
 let inputYear = d3.select("#rangeYear input");
 
-console.log("inputYear", inputYear);
 inputYear.attr("min", 1900);
 inputYear.attr("max", 2022);
 inputYear.attr("value", 2022);
@@ -404,7 +402,6 @@ function displayDetailCard(crash) {
     let ang = Math.atan2(dy, dx) * 180 / Math.PI;
 
     let distance = calculateDistanceTwoPointsGPS(crash.gps_crash.lat, crash.gps_crash.lon, crash.gps_depart.lat, crash.gps_depart.lon);
-    console.log(distance / 1000);
     plane.append("svg:image", ".plane")
         .attr("xlink:href", "/assets/avion.svg")
         .attr("width", 40)
@@ -585,7 +582,6 @@ function displayCrashs(listCrashs, displayStart = true, displayRoute = true) {
             return "crash_" + d.id;
         })
         .on("click", function(crash) {
-            console.log(crash);
             displayDetailCard(crash); // pour toi
             focusAndDisplayAirport(crash); // pour moi
         });

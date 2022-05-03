@@ -13,7 +13,7 @@
 <body>
     <section id="map-section">
         {{-- <img src="{{ asset('assets/loading2.svg') }}" id="loading-img"> --}}
-        <img src="{{ asset('assets/infinityLoader.svg') }}" id="loading">
+        <img src="{{ asset('assets/loading.svg') }}" id="loading">
 
         <div id="map-holder"></div>
         <div id="searchBar">

@@ -1,7 +1,15 @@
+body {
+    background-color: #fff !important;
+}
+
 #bodyInfoPage {
     background-color: #fff;
     font-family: 'Montserrat', sans-serif;
     /* scroll-behavior: smooth; */
+}
+
+#bodyInfoPage p {
+    font-family: 'Futura', sans-serif;
 }
 
 .headerInfoPage {
@@ -66,19 +74,63 @@
     color: #fff;
 }
 
+.headerSection h1 {
+    font-size: 3.7rem;
+    font-weight: 400;
+    width: 700px;
+}
+
+.headerSection p {
+    color: #d1d1d1;
+    width: 700px;
+    line-height: 1.5;
+}
+
+section.titleSection {
+    padding: 100px 0 110px 0;
+}
+
 .titleSection h2 {
     text-align: center;
+    font-weight: 400;
+    font-size: 3rem;
+    color: #2d2d2d;
 }
 
 .titleSection p {
     text-align: center;
-    margin: 0 25%;
+    margin: 0 20%;
+    line-height: 1.5;
+    color: #2d2d2d;
+}
+
+.close-info-section.infoButton.headerButton {
+    margin-left: -28px;
+    width: 200px;
 }
 
 .headerButton {
     display: flex;
     justify-content: left;
     align-items: center;
+}
+
+.headerButton:hover {
+    transition: 0.3s ease-out;
+    color: #f7931d;
+}
+
+.bloc_text h4 {
+    font-family: 'Montserrat';
+    font-size: 2.5rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #2d2d2d;
+}
+
+.bloc_text p {
+    line-height: 1.5;
+    color: #2d2d2d;
 }
 
 .footerButton {
@@ -225,6 +277,11 @@
     margin-top: 0;
 }
 
+.footerButton:hover {
+    transition: 0.3s ease-out;
+    color: #f7931d;
+}
+
 footer {
     background-color: #303030;
     color: #fff;
@@ -238,13 +295,31 @@ footer {
     background-position: center center;
 }
 
+.logo_air_crash_footer:hover {
+    transition: 0.3s ease-out;
+    background-image: url("/img/logo_aricrach_orange.svg");
+}
+
 .contenu_footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+.contenu_footer a {
+    text-decoration: none;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5em;
+}
+
+.contenu_footer a:hover {
+    transition: 0.3s ease-out;
+    color: #f7931d;
+}
+
 .references {
+    font-family: 'Montserrat', sans-serif;
     text-align: center;
     text-decoration: none;
 }

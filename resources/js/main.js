@@ -775,10 +775,13 @@ let runAnimation = true;
 async function displayCrashsAnimate(_crashs) {
     runAnimation = true;
 
+    let startYear = inputYear.attr("value") == 2022 ? 1918 : inputYear.attr("value");
 
-    for (let i = 1918; i <= 2022; i++) {
+    for (let i = 1915; i <= 2022; i++) {
         if (_crashs[i] && runAnimation) {
-            await sleep(100);
+            if (startYear <= i) {
+                await sleep(100);
+            }
             inputYear.attr("value", i);
             document.querySelector("#rangeYear input").dispatchEvent(new Event('input', { bubbles: true }));
 

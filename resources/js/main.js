@@ -710,13 +710,21 @@ function searchCrashForCountry(code) {
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
 function displayPlayButton() {
-    d3.select("#play-button").style("visibility", "visible");
+    d3.select("#stop-button").style("display", "none");
+    d3.select("#play-button").style("display", "block");
 }
 
 function hidePlayButton() {
     console.log("hide play button");
-    d3.select("#play-button").style("visibility", "hidden");
+    d3.select("#play-button").style("display", "none");
+    d3.select("#stop-button").style("display", "block");
 }
+
+d3.select("#stop-button").on("click", function() {
+    runAnimation = false;
+    hidePlayButton();
+    d3.select("#play-button").style("display", "block");
+})
 
 d3.select("#play-button").on("click", async function() {
 
@@ -762,9 +770,16 @@ function calculateDistanceTwoPointsGPS(depart_lat, depart_lon, dest_lat, dest_lo
     return d;
 }
 
+let runAnimation = true;
+
 async function displayCrashsAnimate(_crashs) {
+    runAnimation = true;
+    setTimeout(() => {
+        runAnimation = false;
+    }, 5000);
+
     for (let i = 1918; i <= 2022; i++) {
-        if (_crashs[i]) {
+        if (_crashs[i] && runAnimation) {
             await sleep(100);
             inputYear.attr("value", i);
             document.querySelector("#rangeYear input").dispatchEvent(new Event('input', { bubbles: true }));

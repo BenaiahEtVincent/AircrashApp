@@ -27,6 +27,7 @@
         <div id="rangeYear">
             <div id="rangeYearBar">
                 <span id="play-button" class="material-icons">play_circle</span>
+                <span id="stop-button" class="material-icons" style="display:none">stop_circle</span>
                 <input type="range">
             </div>
 

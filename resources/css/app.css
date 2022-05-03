@@ -593,7 +593,8 @@ span#totalFound {
     background-size: 1em;
 }
 
-#play-button {
+#play-button,
+#stop-button {
     /* font-size: 24px; */
     cursor: pointer;
     /* height: 2em; */

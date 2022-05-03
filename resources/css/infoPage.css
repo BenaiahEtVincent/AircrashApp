@@ -31,7 +31,7 @@ body {
 }
 
 .fixedMenu {
-    margin: 0 0 0 -33px !important;
+    margin: 0 0 0 -45px !important;
     width: 101%;
     height: 150px;
     position: fixed;
@@ -47,6 +47,7 @@ body {
 
 .menu {
     padding-right: 2%;
+    font-weight: 400;
 }
 
 .menu ul {
@@ -93,7 +94,7 @@ body {
 }
 
 .headerSection {
-    padding-top: 30%;
+    padding-top: 20%;
     width: 30%;
     color: #fff;
 }
@@ -153,9 +154,10 @@ section.titleSection {
 }
 
 .bloc_text p {
+    text-align: justify;
     line-height: 1.5;
     color: #2d2d2d;
-    width: 50%;
+    width: 42%;
 }
 
 .footerButton {
@@ -184,7 +186,7 @@ section.titleSection {
 }
 
 .history {
-    margin: 10% 2% 15% 2%!important;
+    padding: 10% 2% 15% 2%!important;
 }
 
 .bg_NY {
@@ -213,6 +215,32 @@ section.titleSection {
     width: 100%;
     border-top: 0.5rem solid #000;
     border-bottom: 0.5rem solid #000;
+}
+
+.sectionNY {
+    background-image: url(/img/bg_WTC.png);
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    background-size: 35%;
+}
+
+.sectionRioParis {
+    background-image: url(/img/bg_aile.png);
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    background-size: 35%;
+}
+
+
+/* .sectionRioParis .bloc_text {
+    text-align: right;
+} */
+
+.sectionMALAY {
+    background-image: url(/img/bg_lost.png);
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    background-size: 35%;
 }
 
 .bg_RP {
@@ -350,7 +378,7 @@ footer {
 
 .references {
     text-decoration: none;
-    color: #fff;
+    color: rgba(255, 255, 255, 0.561);
     font-family: 'Montserrat', sans-serif;
     font-size: 1.5em;
     text-align: center;

@@ -774,9 +774,7 @@ let runAnimation = true;
 
 async function displayCrashsAnimate(_crashs) {
     runAnimation = true;
-    setTimeout(() => {
-        runAnimation = false;
-    }, 5000);
+
 
     for (let i = 1918; i <= 2022; i++) {
         if (_crashs[i] && runAnimation) {

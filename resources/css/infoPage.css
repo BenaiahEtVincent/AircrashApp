@@ -30,18 +30,23 @@ body {
     margin: 0% 2%;
 }
 
-
-/* .fixedMenu {
-    z-index: 100;
+.fixedMenu {
+    margin: 0 0 0 -33px !important;
+    width: 101%;
+    height: 150px;
     position: fixed;
-    width: 100%;
-    background-color: rgb(82, 82, 82);
-} */
+    background-color: #fff;
+    box-shadow: 0 4px 2px -2px gray;
+}
 
 .headInfoPage {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.menu {
+    padding-right: 2%;
 }
 
 .menu ul {
@@ -56,20 +61,39 @@ body {
 
 .menu ul li a {
     text-decoration: none;
-    color: #fff;
+    /* color: #fff; */
+    color: #2d2d2d;
     font-size: 1.5rem;
+}
+
+.activeMenu {
+    background-image: url("/img/lienActive_v2.png");
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 60px;
+    padding-bottom: 50px;
+}
+
+.menu ul li a:hover {
+    background-image: url("/img/lienActive_v2.png");
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 60px;
+    padding-bottom: 50px;
 }
 
 .logoAirCrach {
     width: 200px;
-    height: 200px;
-    background-image: url("/img/logo_aricrach.svg");
+    /* height: 200px; */
+    height: 150px;
+    background-image: url("/img/logo_aricrach_menu_black_v2.svg");
     background-repeat: no-repeat;
     background-position: center center;
+    margin-left: 2%;
 }
 
 .headerSection {
-    padding-top: 10%;
+    padding-top: 30%;
     width: 30%;
     color: #fff;
 }
@@ -87,7 +111,7 @@ body {
 }
 
 section.titleSection {
-    padding: 100px 0 110px 0;
+    padding: 110px 0 130px 0;
 }
 
 .titleSection h2 {
@@ -131,6 +155,7 @@ section.titleSection {
 .bloc_text p {
     line-height: 1.5;
     color: #2d2d2d;
+    width: 50%;
 }
 
 .footerButton {
@@ -156,6 +181,10 @@ section.titleSection {
 
 .txt_button {
     font-weight: 800;
+}
+
+.history {
+    margin: 10% 2% 15% 2%!important;
 }
 
 .bg_NY {
@@ -285,6 +314,7 @@ section.titleSection {
 footer {
     background-color: #303030;
     color: #fff;
+    padding-bottom: 20px;
 }
 
 .logo_air_crash_footer {
@@ -319,7 +349,14 @@ footer {
 }
 
 .references {
-    font-family: 'Montserrat', sans-serif;
-    text-align: center;
     text-decoration: none;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.references:hover {
+    transition: 0.3s ease-out;
+    color: #f7931d;
 }

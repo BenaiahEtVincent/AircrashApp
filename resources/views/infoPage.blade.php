@@ -10,11 +10,11 @@
                         <div class="logoAirCrach"></div>
                         <div class="menu">
                             <ul>
-                                <li><a href="#home" class="activeMenu">Accueil</a></li>
-                                <li><a href="#NY">New York</a></li>
-                                <li><a href="#RP">Rio-Paris</a></li>
-                                <li><a href="#MA">Malaysie</a></li>
-                                <li><a href="#MAP">Carte</a></li>
+                                <li><a href="#home" class="activeMenu menuhover">Accueil</a></li>
+                                <li><a href="#NY" class="menuhover">New York</a></li>
+                                <li><a href="#RP" class="menuhover">Rio-Paris</a></li>
+                                <li><a href="#MA" class="menuhover">Malaysie</a></li>
+                                <li><a href="#MAP" class="menuhover">Carte</a></li>
                             </ul>
                         </div>
                     </div>
@@ -49,7 +49,7 @@
             <div class="bg_NY">
                 <h3>11<br>Septembre<br>2001</h3>
             </div>
-            <div id="containerInfoPage" class="sectionContenu">
+            <div id="containerInfoPage" class="sectionContenu history">
                 <div class="bloc_text">
                     <h4>WORLD TRADE CENTER</h4>
                     <p>Le 11 septembre, 4 avions décollant de Boston, Washington et New York se font détourner par une
@@ -61,12 +61,13 @@
                         dans les aéroports.
                     </p>
                 </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean iaculis finibus augue, auctor
+                {{-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean iaculis finibus augue, auctor
                     volutpat sem commodo eget. Sed tincidunt lacinia feugiat. Ut non lacus fringilla, mollis lacus id,
                     pharetra elit. Aliquam non consectetur diam, quis ornare purus. In quis lorem id arcu aliquet
                     semper. Nullam lacinia turpis scelerisque sem semper, in sollicitudin neque viverra. Duis elementum
                     semper arcu ut vehicula. Fusce vel maximus quam. Morbi at dapibus eros. Nulla vel sem sed tortor
-                    volutpat bibendum. Vivamus dignissim posuere erat et blandit.</p>
+                    volutpat bibendum. Vivamus dignissim posuere erat et blandit.
+                </p> --}}
             </div>
             <div class="img_multi_NY"></div>
         </section>
@@ -74,13 +75,17 @@
             <div class="bg_RP bg_ombre">
                 <h3>Vol<br>Air France<br>447</h3>
             </div>
-            <div id="containerInfoPage" class="sectionContenu">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean iaculis finibus augue, auctor
-                    volutpat sem commodo eget. Sed tincidunt lacinia feugiat. Ut non lacus fringilla, mollis lacus id,
+            <div id="containerInfoPage" class="sectionContenu history">
+
+                {{-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean iaculis finibus augue, auctor
+                    volutpat sem commodo eget. Sed tincidunt lacinia feugiat. Ut non lacus fringilla, mollis lacus
+                    id,
                     pharetra elit. Aliquam non consectetur diam, quis ornare purus. In quis lorem id arcu aliquet
-                    semper. Nullam lacinia turpis scelerisque sem semper, in sollicitudin neque viverra. Duis elementum
+                    semper. Nullam lacinia turpis scelerisque sem semper, in sollicitudin neque viverra. Duis
+                    elementum
                     semper arcu ut vehicula. Fusce vel maximus quam. Morbi at dapibus eros. Nulla vel sem sed tortor
-                    volutpat bibendum. Vivamus dignissim posuere erat et blandit.</p>
+                    volutpat bibendum. Vivamus dignissim posuere erat et blandit.
+                </p> --}}
                 <div class="bloc_text">
                     <h4>Crash du Rio-Paris</h4>
                     <p>La nuit du 31 mai, le vol Air France 447 décolle de Rio de Janeiro en direction de Paris. Après
@@ -97,7 +102,8 @@
                     </p>
                     <p>Il a fallu 2 ans aux secouristes pour retrouver les boîtes noires. 228 personnes ont perdu la
                         vie. Les équipages suivent désormais des entraînements pour réagir aux décrochages en haute
-                        altitude.</p>
+                        altitude.
+                    </p>
                 </div>
             </div>
             <div class="img_multi_RP"></div>
@@ -106,7 +112,7 @@
             <div class="bg_MA bg_ombre">
                 <h3>Vol Malaysia<br>Airlines 370</h3>
             </div>
-            <div id="containerInfoPage" class="sectionContenu">
+            <div id="containerInfoPage" class="sectionContenu history">
                 <div class="bloc_text">
                     <h4>MH 370</h4>
                     <p>L’avion le plus mystérieux de notre ère disparaît des radars le 8 mars 2014 avec 239 personnes à
@@ -122,12 +128,16 @@
                         jusqu'à la découverte des boîtes noires.
                     </p>
                 </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean iaculis finibus augue, auctor
-                    volutpat sem commodo eget. Sed tincidunt lacinia feugiat. Ut non lacus fringilla, mollis lacus id,
+                {{-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean iaculis finibus augue, auctor
+                    volutpat sem commodo eget. Sed tincidunt lacinia feugiat. Ut non lacus fringilla, mollis lacus
+                    id,
                     pharetra elit. Aliquam non consectetur diam, quis ornare purus. In quis lorem id arcu aliquet
-                    semper. Nullam lacinia turpis scelerisque sem semper, in sollicitudin neque viverra. Duis elementum
+                    semper. Nullam lacinia turpis scelerisque sem semper, in sollicitudin neque viverra. Duis
+                    elementum
                     semper arcu ut vehicula. Fusce vel maximus quam. Morbi at dapibus eros. Nulla vel sem sed tortor
-                    volutpat bibendum. Vivamus dignissim posuere erat et blandit.</p>
+                    volutpat bibendum. Vivamus dignissim posuere erat et blandit.
+                </p> --}}
+
             </div>
             <div class="img_multi_MA"></div>
         </section>
@@ -156,7 +166,9 @@
                     <p>Benaiah Finkel</p>
                 </a>
             </div>
-            <a class="references" href="/references">References</a>
+            <a class="references" href="/references">
+                <p>Références</p>
+            </a>
         </div>
     </footer>
 

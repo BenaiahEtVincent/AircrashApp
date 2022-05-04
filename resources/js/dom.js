@@ -1,6 +1,6 @@
 window.onscroll = function(e) {
 
-    for (const obj of[{ "selector": '#containerInfoPage h1', "menu": "#home" }, { "selector": '#NY h3', "menu": "#NY" }, { "selector": '#RP h3', "menu": "#RP" }, { "selector": '#MA h3', "menu": "#MA" }]) {
+    for (const obj of[{ "selector": '#containerInfoPage h1', "menu": "#home" }, { "selector": '#NY h3', "menu": "#NY" }, { "selector": '#RP h3', "menu": "#RP" }, { "selector": '#MA h3', "menu": "#MA" }, { "selector": '#MAP h3', "menu": "#MAP" }]) {
         let value = isInViewport(document.querySelector(obj.selector));
         if (value) {
             console.log(obj);

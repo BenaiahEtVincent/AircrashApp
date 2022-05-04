@@ -20,7 +20,7 @@ body {
 }
 
 .bg_pilote {
-    height: 1000px;
+    height: 1080px;
     background-image: url("/img/pilote_avion.png");
     background-repeat: no-repeat;
     background-position: right bottom;
@@ -387,4 +387,49 @@ footer {
 .references:hover {
     transition: 0.3s ease-out;
     color: #f7931d;
+}
+
+
+/* *[id]:before {
+    display: block;
+    content: " ";
+    margin-top: -75px;
+    visibility: hidden;
+} */
+
+#NY {
+    padding-top: 150px;
+    /* position: relative; */
+    top: -100px;
+    margin-bottom: -100px;
+    z-index: 0;
+}
+
+#RP {
+    padding-top: 150px;
+    /* position: relative; */
+    top: -100px;
+    margin-bottom: -100px;
+    z-index: 0;
+}
+
+#MA {
+    padding-top: 150px;
+    /* position: relative; */
+    top: -100px;
+    margin-bottom: -100px;
+    z-index: 0;
+}
+
+
+/* #MAP {
+    padding-top: 100px;
+     position: relative; 
+    top: -100px;
+    margin-bottom: -100px;
+    z-index: 0;
+} */
+
+.headInfoPage {
+    z-index: 100;
 }

@@ -372,6 +372,8 @@ function displayDetailCard(crash) {
             year: "numeric",
         });
         d3.select("#aircaft_first_flight").select("span").text(firstFlightFormatted);
+    } else {
+        d3.select("#aircaft_first_flight").remove();
     }
 
     d3.select("#deaths").select("span").text(crash.deaths.total);

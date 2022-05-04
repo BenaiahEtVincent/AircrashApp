@@ -17,7 +17,7 @@
 
         <div id="map-holder"></div>
         <div id="searchBar">
-            <p>Rechercher par pays et dates</p>
+            <p>Rechercher par mot-clés ou par dates</p>
             <input type="text" id="searchByText" placeholder="Rechercher">
             <input type="date" id="searchByDate">
             <span id="totalFound">1000</span>

@@ -364,15 +364,15 @@ function displayDetailCard(crash) {
     d3.select("#crash_date").select("span").text(crashDateFormatted);
 
 
-    const firstFlight = new Date(crash.aircaft_first_flight);
-    const firstFlightFormatted = firstFlight.toLocaleString("fr-CH", {
-        day: "numeric",
-        month: "short",
-        year: "numeric",
-    });
-
-    d3.select("#aircaft_first_flight").select("span").text(firstFlightFormatted);
-
+    if (crash.aircaft_first_flight) {
+        const firstFlight = new Date(crash.aircaft_first_flight);
+        const firstFlightFormatted = firstFlight.toLocaleString("fr-CH", {
+            day: "numeric",
+            month: "short",
+            year: "numeric",
+        });
+        d3.select("#aircaft_first_flight").select("span").text(firstFlightFormatted);
+    }
 
     d3.select("#deaths").select("span").text(crash.deaths.total);
     d3.select("#survivors").select("span").text(crash.occupations.total - crash.deaths.total);

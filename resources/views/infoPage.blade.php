@@ -14,7 +14,7 @@
                                 <li><a href="#NY" class="menuhover">New York</a></li>
                                 <li><a href="#RP" class="menuhover">Rio-Paris</a></li>
                                 <li><a href="#MA" class="menuhover">Malaysie</a></li>
-                                <li><a href="#home" class="close-info-section menuhover">Carte</a></li>
+                                <li><a href="#MAP" class="close-info-section menuhover">Carte</a></li>
                             </ul>
                         </div>
                     </div>

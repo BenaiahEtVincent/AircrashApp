@@ -38,11 +38,16 @@
     <div id="contenu">
         <section class="titleSection">
             <div id="containerInfoPage">
-                <h2>AIR CRASH PROJECT</h2>
-                <p>Ressensement des accidents d’avions à travers l’histoire. Depuis le début de l’invention des avions
-                    jusqu’à aujourd’hui. Le projet Air Crash a pour objectif de mettre à l’honneur les accidents
-                    d’avions ainsi que les personnes malheureusement décédé. Afin qu’ils puissent ne pas être oublié.
-                    Afin de nous souvenir que c’est grace à eux que nous volons de plus en plus en sécuritée.</p>
+                <h2 class="titleH2">Mémorial</h2>
+                <h2 class="sous-titre">En mémoire des disparus</h2>
+                <p>Air Crash souhaite rendre en hommage trois événements tragiques qui sont liés aux accidents d’avion.
+                    En 100 ans, l’avion a transformé le transport de l’humanité. Le monde est devenu plus atteignable
+                    pour tous. Malgré les bénéfices, il arrive trop souvent que des personnes meurent durant leur trajet
+                    en avion. Que ce soit à cause d’une attaque terroriste, par exemple lors des attentas du onze
+                    septembre 2001, la perte de contrôle de l’appareil lors du vol Rio Paris avec la compagnie AirFrance
+                    ou bien la disparition d’un avion. Air Crash souhaite ainsi honorer ces personnes tragiquement
+                    disparues lors de ces trois funestes événements.
+                </p>
             </div>
         </section>
         <section id="NY" class="info_NY">

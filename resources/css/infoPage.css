@@ -129,6 +129,18 @@ section.titleSection {
     color: #2d2d2d;
 }
 
+h2.titleH2 {
+    text-transform: uppercase;
+    margin-bottom: 0;
+}
+
+h2.sous-titre {
+    font-size: 2em;
+    color: #717171;
+    font-weight: 300;
+    padding-top: -10px;
+}
+
 .close-info-section.infoButton.headerButton {
     margin-left: -28px;
     width: 200px;

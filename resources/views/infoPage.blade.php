@@ -43,10 +43,11 @@
                 <p>Air Crash souhaite rendre en hommage trois événements tragiques qui sont liés aux accidents d’avion.
                     En 100 ans, l’avion a transformé le transport de l’humanité. Le monde est devenu plus atteignable
                     pour tous. Malgré les bénéfices, il arrive trop souvent que des personnes meurent durant leur trajet
-                    en avion. Que ce soit à cause d’une attaque terroriste, par exemple lors des attentas du onze
+                    en avion. Que ce soit à cause d’une attaque terroriste, par exemple lors des attentas du 11
                     septembre 2001, la perte de contrôle de l’appareil lors du vol Rio Paris avec la compagnie AirFrance
                     ou bien la disparition d’un avion. Air Crash souhaite ainsi honorer ces personnes tragiquement
-                    disparues lors de ces trois funestes événements.
+                    disparues lors de ces trois funestes événements. Notre application trace plus de 23'000 crashs au total,
+                     fort heureusement tous ne sont pas mortels. Nous vous souhaitons une bon vol dans cette découverte !
                 </p>
             </div>
         </section>

@@ -581,10 +581,10 @@ span#totalFound {
 #infoButton {
     z-index: 1000;
     position: absolute;
-    top: 50vh;
+    bottom: 20vh;
     left: 50px;
-    width: 150px;
-    height: 150px;
+    width: 5.3rem;
+    height: 5.3rem;
     color: white;
     font-size: 112px;
     cursor: pointer;

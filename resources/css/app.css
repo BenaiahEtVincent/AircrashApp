@@ -583,8 +583,8 @@ span#totalFound {
     position: absolute;
     top: 50vh;
     left: 50px;
-    width: 27rem;
-    height: 14rem;
+    width: 5rem;
+    height: 5rem;
     color: white;
     font-size: 112px;
     cursor: pointer;

@@ -216,13 +216,24 @@ inputYear.attr("max", 2022);
 inputYear.attr("value", 2022);
 
 inputYear.on("input", function() {
-    year = inputYear.property("value");
-    d3.select("#rangeYear output").text(year);
+    onInputYearChange();
 });
 
 inputYear.on("change", function() {
-    initCrash();
+    onInputYearChange(true);
 });
+
+function onInputYearChange(onDone = false) {
+
+    inputYear.attr("value", inputYear.property("value"));
+    year = inputYear.property("value");
+
+    d3.select("#rangeYear output").text(year);
+
+    if (onDone) {
+        initCrash();
+    }
+}
 
 // get map data
 d3.json(baseurl + "/maps", function(json) {
@@ -783,15 +794,17 @@ let runAnimation = true;
 async function displayCrashsAnimate(_crashs) {
     runAnimation = true;
 
-    let startYear = inputYear.attr("value") == 2022 ? 1918 : inputYear.attr("value");
+    let startYear = inputYear.attr("value") == 2022 ? 1918 : inputYear.property("value");
 
     for (let i = 1915; i <= 2022; i++) {
         if (_crashs[i] && runAnimation) {
             if (startYear <= i) {
                 await sleep(100);
             }
+            inputYear.property("value", i);
             inputYear.attr("value", i);
-            document.querySelector("#rangeYear input").dispatchEvent(new Event('input', { bubbles: true }));
+
+            onInputYearChange(false);
 
             // crashs.selectAll("image").remove();
             airportsStart.selectAll("circle").remove();

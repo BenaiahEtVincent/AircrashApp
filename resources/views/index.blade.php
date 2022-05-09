@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <title>Interactive Map</title>
+    <title>AirCrash</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
 </head>

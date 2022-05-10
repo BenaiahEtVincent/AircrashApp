@@ -30,8 +30,8 @@ Route::get("/incidents/{year}/{month?}/{day?}", [IncidentController::class, "ind
 
 Route::get("/maps", [IncidentController::class, "maps"])->name("maps");
 
-Route::get("search/{input}", [IncidentController::class, "search"])->name("search");
+Route::get("/search/{input}", [IncidentController::class, "search"])->name("search");
 
-Route::get("searchCountryCode/{input}", [IncidentController::class, "searchCountryCode"])->name("searchCountryCode");
+Route::get("/searchCountryCode/{input}", [IncidentController::class, "searchCountryCode"])->name("searchCountryCode");
 
 //Route::get("/incident/{id}/image", [IncidentController::class, "setImage"])->name("incident-set-image");

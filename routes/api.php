@@ -21,14 +21,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::controller(IncidentController::class)->group(function () {
-    Route::get("/incidents", 'all');
+    Route::get("/incidents", "all");
 
     Route::get("/incidents/{year}/{month?}/{day?}", "index")
-        ->where('year', "19[0-9][0-9]|20[0-2][0-9]")
-        ->where('month', "0[1-9]|1[0-2]")
-        ->where('day', "0[1-9]|1[0-9]|2[0-9]|3[0-1]")
+        ->where("year", "19[0-9][0-9]|20[0-2][0-9]")
+        ->where("month", "0[1-9]|1[0-2]")
+        ->where("day", "0[1-9]|1[0-9]|2[0-9]|3[0-1]")
         ->name("incidents-list");
-        
+
     Route::get("/maps", "maps")->name("maps");
     Route::get("/search/{input}", "search")->name("search");
     Route::get("/searchCountryCode/{input}", "searchCountryCode")->name("searchCountryCode");
